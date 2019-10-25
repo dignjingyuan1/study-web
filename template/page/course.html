@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="applicable-device" content="pc">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-eqiv="cleartype" content="ON">
+  <link href="css/classIndex.css" rel="stylesheet" type="text/css" />
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"></script> -->
+</head>
+
+<body>
+  <div class="panel">
+    <!-- 头部开始 -->
+    <div ng-include="'include/header.html'"></div>
+    <!-- 头部结束  -->
+
+    <!-- 轮播图开始 -->
+    <div ng-include="'include/banner.html'"></div>
+    <!-- 轮播图结束 -->
+
+    <!-- 搜索开始 -->
+    <div class="panel-width search-box">
+      <div class="search-input-box">
+        <img class="search-icon" src="img/search-icon.png" alt="">
+        <input class="search-input" type="text" />
+      </div>
+      <img class="img-icon" src="img/search-more.png" alt="">
+    </div>
+    <!-- 搜索结束 -->
+    <!-- 职业规划开始 -->
+    <div class="panel-width" ng-repeat="item in courseGroupTypeList">
+      <div class="class-title">
+        <p class="class-text">{{item.name}}</p>
+        <!--<img class="more-img" src="img/right.png" alt="">-->
+        <!--<p class="more-text">更多</p>-->
+      </div>
+      <div class="content-box">
+        <div class="content-left" ng-click="goCourseDetails(item.courseGroupLists[0].courseGroupId)">
+          <img class="content-img" src="{{item.courseGroupLists[0].courseGroupImg}}" alt="" />
+          <span>{{item.courseGroupLists[0].courseGroupName}}</span>
+        </div>
+        <div class="content-right">
+          <div class="content-small" ng-repeat="group in item.courseGroupLists track by $index" ng-if="$index != 0" ng-click="goCourseDetails(group.courseGroupId)">
+            <div class="small-left">
+              <img class="small-left-img" src="{{group.courseGroupImg}}" alt="">
+            </div>
+            <div class="small-right">
+              <p class=" small-title overflow-hidden">{{group.courseGroupName}}</p>
+              <p class="small-desc">{{group.courseGroupRemark}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 职业规划结束 -->
+    <div class="panel-width" style="height: 60px"></div>
+    <div ng-include="'include/footer.html'"></div>
+  </div>
+</body>
+</html>

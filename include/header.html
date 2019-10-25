@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="include/header.js" ></script>
+		<link rel="stylesheet" type="text/css" href="css/header.css"/>
+	</head>
+	<body>
+		<div class="head" ng-controller="header">
+	      <img class="head-logo" src="img/head-logo.png" />
+	      <div class="log-box">
+	        <div class="logo-panel">
+	          <div class="logo-one-box" ng-click="go('home')">
+	            <img class="index-logo" src="img/index.png" alt="">
+	            <p class="index-text index-text-active">首页</p>
+	          </div>
+	          <div class="logo-one-box" ng-click="go('course')">
+	            <img class="index-logo" src="img/class.png" alt="">
+	            <p class="index-text">课程</p>
+	          </div>
+	          <div class="logo-one-box" ng-click="go('boutique')">
+	            <img class="index-logo" src="img/jp.png" alt="">
+	            <p class="index-text">精品</p>
+	          </div>
+	          <div class="logo-one-box" >
+	            <img class="index-logo" src="img/mine.png" alt="" ng-click="user == null ? openLogin() : go('mine')">
+	            <p class="index-text" ng-click="user == null ? openLogin() : go('mine')" >我的</p>
+	            <!-- 登录弹出开始 -->
+	            <div class="login-show" ng-if="user == null || user == ''">
+	              <i class="login-sanjiao"></i>
+	              <p class="login-text"><span ng-click="openLogin()">登录</span>/<span ng-click="openReg()">注册</span></p>
+	            </div>
+	            <!-- 登录弹出结束 -->
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	</body>
+</html>

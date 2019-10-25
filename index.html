@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" name="viewport" content="width=width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
+		<title>学习平台</title>
+		<link type="text/css" rel="stylesheet" href="css/main.css" />
+		<link type="text/css" rel="stylesheet" href="font/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/mescorll.css"/>
+		<link rel="stylesheet" type="text/css" href="lib/dist/css/swiper.min.css"/>
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="js/respond.src.js"></script>
+		<script src="js/http.js"></script>
+		<script src="js/pager.js"></script>
+		<script src="js/main.js"></script>
+		<script src="lib/sock/stomp.min.js"></script>
+		<script src="lib/sock/sockjs.min.js"></script>
+		<script src="js/jquery.qrcode.min.js"></script>
+		<script src="lib/lrz/lrz.bundle.js"></script>
+		<script src="lib/mescroll/mescroll.js"></script>
+		<script src="lib/dist/js/swiper.min.js"></script>
+		<script data-main="app.js" src="lib/components/requirejs/require.js"></script>
+	</head>
+	<body>
+		<div class="popup">
+			<div class="win">
+				<div class="tit"><span>标题</span><i class="icon iconfont icon-guanbi" onclick="closePopup()"></i></div>
+				<div class="ctext"></div>
+			</div>
+		</div>
+		<div class="main">
+			<div class="main-app" ui-view ></div>
+		</div>
+		<!-- 弹出登录开始 -->
+		<div ng-include="'include/login.html'"></div>
+		  <!-- 弹出登录结束 -->
+		
+		  <!-- 弹出注册开始 -->
+		  <div ng-include="'include/reg.html'"></div>
+		  <!-- 弹出注册结束 -->
+	</body>
+</html>

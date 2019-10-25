@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="pay-body">
+			<div class="alipay-title">扫码支付</div>
+			<div class="alipay-qrcode" id="zfbcode">
+			</div>
+			<div class="alipay-footer">
+				<div class="alipay-footer-title">使用手机支付宝扫码完成付款</div>
+				<div class="alipay-footer-dowload">
+					<a href="https://mobile.alipay.com/index.htm" target="_blank" >手机支付宝下载</a> 
+					| <a href="https://cshall.alipay.com/lab/question.htm" target="_blank">如何使用</a>
+				</div>
+			</div>
+			<div class="alipay-company">乔酷酷</div>
+			<div class="alipay-amount"></div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+$(function(){
+_post({
+	url: SALE_API +'/order/getQrCode' ,
+   	param: {
+   		orderId: $("#orderId").val(),
+   		client: '1',
+   		// 支付方式
+   		payType: 0,
+   	},
+   	callback: function(res) {
+		if(res.code == '2000'){
+			var data = res.data;
+			if(data){
+				createWebsocket(function(res) {
+					$(".pay-body").empty();
+					var now = new Date();
+					now.setTime(res.payTime);
+					var html = "<div class='pay-success'>" +
+								"<i class='icon iconfont'></i>" +
+								"<span class='success-title'>您已支付成功！请到我的订单中查看。</span>" +
+								"</div>" +
+								"<div class='clear'>" +
+								"<div class='pay-close'>"+
+								"<span class='success-date'>充值时间：" + now.Format("yyyy-MM-dd hh:mm:ss") + "</span>" +
+								"</div>"+
+								"<div class='pay-close'>" +
+								"<span>支付金额<samp>￥" + res.amount + "元</samp> <span class='seconds'>5</span>秒后将关闭窗口</span>" +
+								"</div>";
+					$(".pay-body").append(html);
+					startTimeDown(function() {
+						closePopup();
+//						window.location.href = "index.html#/order";
+					});
+				});
+				$("#zfbcode").qrcode(data);
+				$(".alipay-amount").text("￥"+$("#price").val());
+			}
+		}
+   	}
+   });
+})
+</script>

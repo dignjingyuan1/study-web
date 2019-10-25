@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="applicable-device" content="pc">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-eqiv="cleartype" content="ON">
+  <link href="css/mine.css" rel="stylesheet" type="text/css" />
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"></script> -->
+</head>
+
+<body>
+  <div class="panel">
+    <!-- 头部开始 -->
+    <div ng-include="'include/header.html'"></div>
+    <!-- 头部结束  -->
+
+    <!-- 头像部分开始 -->
+    <div class="my-head panel-width" style="position: relative">
+      <div class="head-img-box" ng-click="downloadFile()">
+        <img class="head-img" id="head-img" src="img/test.jpg" alt="">
+        <p class="upload-img" >上传头像</p>
+      </div>
+      <input type="file" id="downloadFile" style="display: none;" onchange="selectImg(this)" accept="image/*"/>
+      <p class="username">周火火</p>
+      <p class="user-level">等级：热血青铜</p>
+      <img class="head-img-left" src="img/head-img-left.png" alt="">
+    </div>
+    <!-- 头像部分结束 -->
+
+    <!-- 内容区域开始 -->
+    <div class="panel-width" style="display: flex;">
+      <div class="left-tab-area">
+        <div class="tab-item" style="border-bottom: 1px solid #cccccc" ng-click="switch(0)">
+          <img class="tab-item-icon" src="img/1-icon.png" alt="">
+          <span>我的课程</span>
+          <img class="back-button" src="img/back-icon.png" alt="">
+        </div>
+        <div class="tab-item" ng-click="switch(1)">
+          <img class="tab-item-icon" src="img/2-icon.png" alt="">
+          <span>我的提问</span>
+          <img class="back-button" src="img/back-icon.png" alt="">
+        </div>
+        <div class="tab-item" style="border-bottom: 1px solid #cccccc; margin-top: 15px" ng-click="switch(2)">
+          <img class="tab-item-icon" src="img/3-icon.png" alt="">
+          <span>我的财富</span>
+          <img class="back-button" src="img/back-icon.png" alt="">
+        </div>
+        <div class="tab-item" ng-click="switch(3)">
+          <img class="tab-item-icon" src="img/4-icon.png" alt="">
+          <span>我的发票</span>
+          <img class="back-button" src="img/back-icon.png" alt="">
+        </div>
+        <div class="tab-item" style="border-bottom: 1px solid #cccccc; margin-top: 15px" ng-click="switch(4)">
+          <img class="tab-item-icon" src="img/5-icon.png" alt="">
+          <span>用户推荐</span>
+          <img class="back-button" src="img/back-icon.png" alt="">
+        </div>
+        <div class="tab-item" ng-click="switch(5)">
+          <img class="tab-item-icon" src="img/6-icon.png" alt="">
+          <span>我的资料</span>
+          <img class="back-button" src="img/back-icon.png" alt="">
+        </div>
+        <button class="logout-button">退出登录</button>
+      </div>
+      <div class="right-content-area ">
+        <!-- 我的课程右侧内容开始 -->
+        <div id="myClass" class="content">
+          <div class="content-small">
+            <div class="small-left">
+              <img class="small-left-img" src="img/small-left.png" alt="">
+            </div>
+            <div class="small-right">
+              <p class="small-title overflow-hidden">我们需要什么样得市场部</p>
+              <p class="small-info">
+                <span class="learning">学习中</span><span>5课时&nbsp;·&nbsp;2019-08-19更新&nbsp;·&nbsp;1.4w人在学</span>
+              </p>
+              <p class="small-desc">按时灯笼裤解放军啊手动的分厘卡即使到了开发爱上了；是斯达克放假啊分厘卡十九点发</p>
+            </div>
+          </div>
+          <div class="content-small">
+            <div class="small-left">
+              <img class="small-left-img" src="img/small-left.png" alt="">
+            </div>
+            <div class="small-right">
+              <p class="small-title overflow-hidden">我们需要什么样得市场部</p>
+              <p class="small-info">
+                <span class="complated">已完成</span><span>5课时&nbsp;·&nbsp;2019-08-19更新&nbsp;·&nbsp;1.4w人在学</span>
+              </p>
+              <p class="small-desc">按时灯笼裤解放军啊手动的分厘卡即使到了开发爱上了；是斯达克放假啊分厘卡十九点发</p>
+            </div>
+          </div>
+          <div class="content-small">
+            <div class="small-left">
+              <img class="small-left-img" src="img/small-left.png" alt="">
+            </div>
+            <div class="small-right">
+              <p class="small-title overflow-hidden">我们需要什么样得市场部</p>
+              <p class="small-info">
+                <span class="uncomplated">未完成</span><span>5课时&nbsp;·&nbsp;2019-08-19更新&nbsp;·&nbsp;1.4w人在学</span>
+              </p>
+              <p class="small-desc">按时灯笼裤解放军啊手动的分厘卡即使到了开发爱上了；是斯达克放假啊分厘卡十九点发</p>
+            </div>
+          </div>
+          <div class="content-small">
+            <div class="small-left">
+              <img class="small-left-img" src="img/small-left.png" alt="">
+            </div>
+            <div class="small-right">
+              <p class="small-title overflow-hidden">我们需要什么样得市场部</p>
+              <p class="small-info"><span
+                  class="learning">学习中</span><span>5课时&nbsp;·&nbsp;2019-08-19更新&nbsp;·&nbsp;1.4w人在学</span></p>
+              <p class="small-desc">按时灯笼裤解放军啊手动的分厘卡即使到了开发爱上了；是斯达克放假啊分厘卡十九点发</p>
+            </div>
+          </div>
+        </div>
+        <!-- 我的课程右侧内容结束 -->
+
+        <!-- 我的提问右侧内容开始 -->
+        <div id="myQustion" class="content" style="display: none;">
+          <div class="qustion-list-box border-top">
+            <p class="">
+              <span class="qustion-icon">问</span>&nbsp;<span style="font-size: 15px;color: #333333">我们需要什么样的市场部门</span>
+              <span style="float: right; color: #999999;"><img style="width: 15px;margin-top: 4px;"
+                  src="img/time-icon.png" alt="">&nbsp;2019.08.01&nbsp;周四&nbsp;07:51预约</span>
+            </p>
+            <p style="color: #999999;">
+              <span class="answer-icon">答</span>&nbsp;<span>谢良地教授答复</span>
+            </p>
+          </div>
+          <div class="qustion-list-box">
+            <p class="">
+              <span class="qustion-icon">问</span>&nbsp;<span style="font-size: 15px;color: #333333">我们需要什么样的市场部门</span>
+              <span style="float: right; color: #999999;"><img style="width: 15px;margin-top: 4px;"
+                  src="img/time-icon.png" alt="">&nbsp;2019.08.01&nbsp;周四&nbsp;07:51预约</span>
+            </p>
+            <p style="color: #999999;">
+              <span class="answer-icon">答</span>&nbsp;<span>谢良地教授答复</span>
+            </p>
+          </div>
+          <div class="qustion-list-box">
+            <p class="">
+              <span class="qustion-icon">问</span>&nbsp;<span style="font-size: 15px;color: #333333">我们需要什么样的市场部门</span>
+              <span style="float: right; color: #999999;"><img style="width: 15px;margin-top: 4px;"
+                  src="img/time-icon.png" alt="">&nbsp;2019.08.01&nbsp;周四&nbsp;07:51预约</span>
+            </p>
+            <p style="color: #999999;">
+              <span class="answer-icon">答</span>&nbsp;<span>谢良地教授答复</span>
+            </p>
+          </div>
+          <div class="qustion-list-box">
+            <p class="">
+              <span class="qustion-icon">问</span>&nbsp;<span style="font-size: 15px;color: #333333">我们需要什么样的市场部门</span>
+              <span style="float: right; color: #999999;"><img style="width: 15px;margin-top: 4px;"
+                  src="img/time-icon.png" alt="">&nbsp;2019.08.01&nbsp;周四&nbsp;07:51预约</span>
+            </p>
+            <p style="color: #999999;">
+              <span class="answer-icon">答</span>&nbsp;<span>谢良地教授答复</span>
+            </p>
+          </div>
+          <div class="qustion-list-box">
+            <p class="">
+              <span class="qustion-icon">问</span>&nbsp;<span style="font-size: 15px;color: #333333">我们需要什么样的市场部门</span>
+              <span style="float: right; color: #999999;"><img style="width: 15px;margin-top: 4px;"
+                  src="img/time-icon.png" alt="">&nbsp;2019.08.01&nbsp;周四&nbsp;07:51预约</span>
+            </p>
+            <p style="color: #999999;">
+              <span class="answer-icon">答</span>&nbsp;<span>谢良地教授答复</span>
+            </p>
+          </div>
+          <div class="qustion-list-box">
+            <p class="">
+              <span class="qustion-icon">问</span>&nbsp;<span style="font-size: 15px;color: #333333">我们需要什么样的市场部门</span>
+              <span style="float: right; color: #999999;"><img style="width: 15px;margin-top: 4px;"
+                  src="img/time-icon.png" alt="">&nbsp;2019.08.01&nbsp;周四&nbsp;07:51预约</span>
+            </p>
+            <p style="color: #999999;">
+              <span class="answer-icon">答</span>&nbsp;<span>谢良地教授答复</span>
+            </p>
+          </div>
+          <div class="qustion-list-box">
+            <p class="">
+              <span class="qustion-icon">问</span>&nbsp;<span style="font-size: 15px;color: #333333">我们需要什么样的市场部门</span>
+              <span style="float: right; color: #999999;"><img style="width: 15px;margin-top: 4px;"
+                  src="img/time-icon.png" alt="">&nbsp;2019.08.01&nbsp;周四&nbsp;07:51预约</span>
+            </p>
+            <p style="color: #999999;">
+              <span class="answer-icon">答</span>&nbsp;<span>谢良地教授答复</span>
+            </p>
+          </div>
+        </div>
+        <!-- 我的提问右侧内容结束 -->
+
+        <!-- 我的财富右侧内容开始 -->
+        <div id="myWealth" class="content" style="display: none;">
+          <div class="score-money">
+            <p class="score">积分<span style="font-size: 26px;">1080</span></p>
+            <p class="money">余额<span style="font-size: 26px;">￥2080</span></p>
+          </div>
+          <div class="class-title">
+            <p class="class-text">账单明细</p>
+          </div>
+          <div class="bill-list">
+            <div class="bill-item">
+              <img class="shouru-icon" src="img/shouru.png" alt="">
+              <p class="item-box">
+                <img style="width: 15px" src="img/time-icon.png">&nbsp;<span>2019.08.01&nbsp;周四&nbsp;07:51</span>
+                <br>
+                <i class="yuanquan"></i>
+                <span>通过扫描获得</span>
+              </p>
+              <p class="price">
+                +23.50
+              </p>
+            </div>
+            <div class="bill-item">
+              <img class="shouru-icon" src="img/huaxiao.png" alt="">
+              <p class="item-box">
+                <img style="width: 15px" src="img/time-icon.png">&nbsp;<span>2019.08.01&nbsp;周四&nbsp;07:51</span>
+                <br>
+                <i class="yuanquan"></i>
+                <span>我们需要什么样的市场部门 &nbsp; 榭量第</span>
+              </p>
+              <p class="price">
+                -23.50
+              </p>
+            </div>
+            <div class="bill-item">
+              <img class="shouru-icon" src="img/huaxiao.png" alt="">
+              <p class="item-box">
+                <img style="width: 15px" src="img/time-icon.png">&nbsp;<span>2019.08.01&nbsp;周四&nbsp;07:51</span>
+                <br>
+                <i class="yuanquan"></i>
+                <span>我们需要什么样的市场部门 &nbsp; 榭量第</span>
+              </p>
+              <p class="price">
+                -23.50
+              </p>
+            </div>
+            <div class="bill-item">
+              <img class="shouru-icon" src="img/huaxiao.png" alt="">
+              <p class="item-box">
+                <img style="width: 15px" src="img/time-icon.png">&nbsp;<span>2019.08.01&nbsp;周四&nbsp;07:51</span>
+                <br>
+                <i class="yuanquan"></i>
+                <span>我们需要什么样的市场部门 &nbsp; 榭量第</span>
+              </p>
+              <p class="price">
+                -23.50
+              </p>
+            </div>
+            <div class="bill-item">
+              <img class="shouru-icon" src="img/huaxiao.png" alt="">
+              <p class="item-box">
+                <img style="width: 15px" src="img/time-icon.png">&nbsp;<span>2019.08.01&nbsp;周四&nbsp;07:51</span>
+                <br>
+                <i class="yuanquan"></i>
+                <span>我们需要什么样的市场部门 &nbsp; 榭量第</span>
+              </p>
+              <p class="price">
+                -23.50
+              </p>
+            </div>
+            <div class="bill-item">
+              <img class="shouru-icon" src="img/huaxiao.png" alt="">
+              <p class="item-box">
+                <img style="width: 15px" src="img/time-icon.png">&nbsp;<span>2019.08.01&nbsp;周四&nbsp;07:51</span>
+                <br>
+                <i class="yuanquan"></i>
+                <span>我们需要什么样的市场部门 &nbsp; 榭量第</span>
+              </p>
+              <p class="price">
+                -23.50
+              </p>
+            </div>
+            <div class="bill-item">
+              <img class="shouru-icon" src="img/huaxiao.png" alt="">
+              <p class="item-box">
+                <img style="width: 15px" src="img/time-icon.png">&nbsp;<span>2019.08.01&nbsp;周四&nbsp;07:51</span>
+                <br>
+                <i class="yuanquan"></i>
+                <span>我们需要什么样的市场部门 &nbsp; 榭量第</span>
+              </p>
+              <p class="price">
+                -23.50
+              </p>
+            </div>
+            <div class="bill-item">
+              <img class="shouru-icon" src="img/huaxiao.png" alt="">
+              <p class="item-box">
+                <img style="width: 15px" src="img/time-icon.png">&nbsp;<span>2019.08.01&nbsp;周四&nbsp;07:51</span>
+                <br>
+                <i class="yuanquan"></i>
+                <span>我们需要什么样的市场部门 &nbsp; 榭量第</span>
+              </p>
+              <p class="price">
+                -23.50
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- 我的财富右侧内容结束 -->
+        <!-- 我的发票右侧内容开始 -->
+        <div id="myBill" class="content" style="display: none;">
+          <div id="billList">
+            <div class="class-title">
+              <p class="class-text">购买记录</p>
+            </div>
+            <div class="bill-list">
+              <div class="bill-item">
+                <img onclick="checkThis(this)" class="check-box" src="img/checkbox-hui.png" alt="">
+                <p class="item-box">
+                  <img style="width: 15px"
+                    src="img/time-icon.png">&nbsp;<span>2019.08.01&nbsp;周四&nbsp;07:51</span>
+                  <br>
+                  <i class="yuanquan"></i>
+                  <span>通过扫描获得</span>
+                </p>
+                <p class="price">
+                  23.50元
+                </p>
+              </div>
+              <div class="bill-item">
+                <img onclick="checkThis(this)" class="check-box" src="img/checkbox-hui.png" alt="">
+                <p class="item-box">
+                  <img style="width: 15px"
+                    src="img/time-icon.png">&nbsp;<span>2019.08.01&nbsp;周四&nbsp;07:51</span>
+                  <br>
+                  <i class="yuanquan"></i>
+                  <span>通过扫描获得</span>
+                </p>
+                <p class="price">
+                  23.50元
+                </p>
+              </div>
+              <div class="bill-item">
+                <img onclick="checkThis(this)" class="check-box" src="img/checkbox-hui.png" alt="">
+                <p class="item-box">
+                  <img style="width: 15px"
+                    src="img/time-icon.png">&nbsp;<span>2019.08.01&nbsp;周四&nbsp;07:51</span>
+                  <br>
+                  <i class="yuanquan"></i>
+                  <span>通过扫描获得</span>
+                </p>
+                <p class="price">
+                  23.50元
+                </p>
+              </div>
+              <div class="bill-item">
+                <img onclick="checkThis(this)" class="check-box" src="img/checkbox-hui.png" alt="">
+                <p class="item-box">
+                  <img style="width: 15px"
+                    src="img/time-icon.png">&nbsp;<span>2019.08.01&nbsp;周四&nbsp;07:51</span>
+                  <br>
+                  <i class="yuanquan"></i>
+                  <span>通过扫描获得</span>
+                </p>
+                <p class="price">
+                  23.50元
+                </p>
+              </div>
+              <div class="bill-item">
+                <img onclick="checkThis(this)" class="check-box" src="img/checkbox-hui.png" alt="">
+                <p class="item-box">
+                  <img style="width: 15px"
+                    src="img/time-icon.png">&nbsp;<span>2019.08.01&nbsp;周四&nbsp;07:51</span>
+                  <br>
+                  <i class="yuanquan"></i>
+                  <span>通过扫描获得</span>
+                </p>
+                <p class="price">
+                  23.50元
+                </p>
+              </div>
+              <!-- 我要提问底部 开始 -->
+              <div style="width: 100%" class="quostion-footer">
+                <p class="footer-price"><span style="color: #ff3728">0</span>个课程，共<span
+                    style="color: #ff3728">0.00</span>元</p>
+                <img onclick="checkAll(this)" style="width: 20px;margin: 17px;" src="img/checkbox-hui-h.png"
+                  alt="">
+                <span class="check-box-text">本页全选</span>
+                <button class="quastion-button" onclick="next()">下一步</button>
+              </div>
+              <!-- 我要提问底部 结束 -->
+            </div>
+          </div>
+          <div id="billDetail" style="display: none;">
+            <div class="class-title">
+              <p class="class-text">发票详情</p>
+            </div>
+            <div class="myinfo-item" style="border-top: 1px solid #cccccc">
+              <span class="text-color-hui">抬头类型：</span>
+              <p>
+                <img class="radio" onclick="checkIt(this)" src="img/radio-act.png" alt="">
+                <span class="text-color-hui">企业单位</span>
+              </p>
+              <p style="margin-left: 20px">
+                <img class="radio" onclick="checkIt(this)" src="img/radio-hui.png" alt="">
+                <span>个人/非企业单位</span>
+              </p>
+            </div>
+            <div class="myinfo-item">
+              <span class="text-color-hui">发票抬头：</span>
+              <input type="text" placeholder="">
+            </div>
+            <div class="myinfo-item">
+              <span class="text-color-hui">税号：</span>
+              <input type="text" placeholder="">
+            </div>
+            <div class="myinfo-item">
+              <span class="text-color-hui">更多内容：</span>
+              <input type="text" placeholder="填写备注、地址等">
+            </div>
+            <div style="width: 100%; height:10px; background: #f5f5f5"></div>
+            <div class="myinfo-item">
+              <span class="text-color-hui">总金额：</span>
+              <input type="text" placeholder="">
+            </div>
+            <div class="class-title" style="height: 60px">
+              <p class="class-text" style="height: 30px; line-height: 30px; margin-left: 20px;
+              border-left: 4px solid #ff584f;">接收方式</p>
+            </div>
+            <div class="myinfo-item">
+              <span class="text-color-hui">电子邮件：</span>
+              <input type="text" placeholder="">
+            </div>
+            <button style="margin-top: 30px; margin-bottom: 30px" class="save-button" onclick="alertText('提交成功')">提交</button>
+          </div>
+        </div>
+        <!-- 我的发票右侧内容结束 -->
+        
+		<!-- 用户推荐开始 -->
+        <div id="my-recommend" class="content" style="display: none;">
+          <div class="recomend-panel">
+            <img src="img/2weima.png" alt="">
+            <p>我推荐的用户: 10人</p>
+          </div>
+        </div>
+        <!-- 用户推荐结束 -->
+        
+        <!-- 我得资料右侧内容开始 -->
+        <div id="myInfo" class="content" style="display: none;">
+          <div class="myinfo-item">
+            <span>电话号码：</span>
+            <input type="text" placeholder="请输入电话号码" ng-model="userPhone" readonly="readonly">
+          </div>
+          <div class="myinfo-item">
+            <span style="float: left;">性别：</span>
+            <div style="float: left;">
+				<span>男&nbsp;<input type="radio" ng-model="userSex" name="userSex" value="1" checked="checked" /></span>
+				<span>女&nbsp;<input type="radio" ng-model="userSex" name="userSex" value="0" /></span>
+			</div>
+            <!--<input type="text" placeholder="完善性别信息" ng-model="user.userPhone">-->
+          </div>
+          <div class="myinfo-item">
+            <span>毕业院校：</span>
+            <input type="text" placeholder="完善毕业院校信息" ng-model="userSchool">
+          </div>
+          <div class="myinfo-item">
+            <span>任职企业：</span>
+            <input type="text" placeholder="完善任职企业信息" ng-model="userCompany">
+          </div>
+          <div class="myinfo-item">
+            <span>职位：</span>
+            <input type="text" placeholder="完善职位信息" ng-model="userPosition">
+          </div>
+          <div class="person-info">
+            <p>个人简介：</p>
+            <textarea placeholder="这位宝宝很懒，还不想让别人了解" ng-model="userRemark"></textarea>
+          </div>
+          <button class="save-button" ng-click="saveUser()">保存</button>
+        </div>
+        <!-- 我得资料右侧内容结束 -->
+
+        
+      </div>
+    </div>
+    <!-- 内容区域结束 -->
+    <!-- 页脚开始 -->
+    <div ng-include="'include/footer.html'"></div>
+    <!-- 页脚结束 -->
+  </div>
+  <!-- 成功提示 -->
+  <div id="successAlert" style="display: none" class="success-aler">
+    保存成功
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="applicable-device" content="pc">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-eqiv="cleartype" content="ON">
+  <link href="css/jpIndex.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="panel">
+    <!-- 头部开始 -->
+    <div ng-include="'include/header.html'"></div>
+    <!-- 头部结束  -->
+
+    <!-- 轮播图开始 -->
+    <div ng-include="'include/banner.html'"></div>
+    <!-- 轮播图结束 -->
+
+    <!-- 精品content 开始 -->
+    <div class="panel-width jp-content">
+      <div class="jp-box" ng-click="go('live')">
+        <img class="hot-video-img" src="img/hot-video.png" alt="">
+        <p class="content-title overflow-hidden">{{beginCount}}个直播中，{{notBeginCount}}个课程即将开始</p>
+        <p class="content-desc"><span style="color:#ff584f">618人</span>观看</p>
+      </div>
+      <div class="jp-box" style="margin-left: 20px;" ng-click="go('question')">
+        <img class="hot-video-img" src="img/my-question.png" alt="">
+        <p class="content-title overflow-hidden">专家大咖为您答疑解惑，你还不来？</p>
+        <p class="content-desc">已有<span style="color:#ff584f">618人</span>提问</p>
+      </div>
+    </div>
+    <!-- 精品content 结束 -->
+    <div ng-include="'include/footer.html'"></div>
+    
+  
+  </div>
+</body>
+</html>

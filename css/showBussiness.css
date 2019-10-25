@@ -1,0 +1,152 @@
+@charset "utf-8";
+/* CSS Document */
+body,p,h1,h2,h3,h4,h5,h6,ul,dl,dd,td,input,fieldset,textarea,option{ margin:0; padding:0; box-sizing: border-box}
+li{list-style:none;}
+a{text-decoration:none; color:#333;}
+img{border:none; vertical-align:top; }
+a,input{outline:none;}
+h1,h2,h3,h4,h5,h6,b,strong{font-weight:100;}
+i,em{font-style:normal;}
+body{font:12px "微软雅黑";}
+.clear{zoom:1;}
+.clear:after{content:"."; display:block; clear:both; height:0; visibility:hidden;}
+.fl{float:left;}
+.fr{float:right;}
+div,p{
+    box-sizing: border-box
+}
+
+.panel{
+    width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+.head{
+    width: 900px;
+    height: 70px;
+    margin: 0 auto;
+    display: flex;
+}
+.head-logo{
+    width: 200px;
+    height: 60px;
+}
+.log-box{
+    flex: 1;
+    padding-left: 180px;
+    display: inline-block;
+}
+.logo-panel{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+.logo-one-box{
+    flex: 1;
+    padding-top: 3px
+}
+.index-logo{
+    width: 45px;
+}
+.index-text{
+    font-size: 14px;
+    margin-left: 8px;
+    color: #b4b4b4
+}
+.index-text-active{
+    color: #ff584f
+}
+.banner {
+    width: 100%;
+    height: 490px;
+    background-color: #333333;
+    text-align: center
+}
+.video-play-button{
+    position: absolute;
+    left: 550px;
+    width: 100px;
+    top: 190px;
+    opacity: 0.5;
+}
+.panel-width{
+    width: 900px;
+    margin: 0 auto;
+}
+
+.footer{
+    width: 100%;
+    height: 220px;
+    background-color: #333333;
+}
+.footer-top{
+    width: 100%;
+    height: 120px;
+    border-bottom: 1px solid #858585;
+    text-align: center;
+    line-height: 120px;
+    color: #999999
+}
+.weima{
+    width: 80px;
+    margin-top: 18px;
+}
+.text1{
+    margin-right: 10px
+}
+.text2{
+    margin-left: 10px
+}
+.footer-bottom{
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid #858585;
+    text-align: center;
+    line-height: 25px;
+    color: #999999;
+    margin-top: 25px;
+}
+
+.search-box{
+    display: flex;
+    height: 70px;
+    box-shadow: 0px 0px 1px 1px #ccc;
+}
+.button-box{
+    flex: 1;
+    text-align: center;
+    line-height: 70px;
+}
+.tab-button{
+    height: 68px;
+    width: 100px;
+    border-bottom: 0;
+    background-color: white;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    font-size: 18px;
+    color: #999999;
+}
+.button-act{
+    color: #ff3728;
+    border-bottom: 5px solid #ff3728;
+}
+.class-title{
+    height: 80px;
+}
+.class-text{
+    display: inline-block;
+    height: 40px;
+    margin-top: 20px;
+    font-size: 22px;
+    border-left: 5px solid #ff584f;
+    padding-left: 10px;
+    line-height: 37px;
+}
+.desc-text{
+    font-size: 15px;
+    line-height: 20px;
+    color: #999999;
+    padding-bottom: 20px;
+}
