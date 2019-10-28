@@ -1,0 +1,11 @@
+Html{font-size:10px}
+body,p,h1,h2,h3,h4,h5,h6,ul,dl,dd,td,input,fieldset,textarea,option{ margin:0; padding:0; box-sizing: border-box}
+.test-div{
+    font-size: 1.5rem;
+    width: 13rem;
+    height: 12.5rem;
+    background-color: red    
+}
+.banner-img{
+    display: block !important;
+}

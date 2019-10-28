@@ -99,7 +99,17 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
         		url: "/question-send",
         		templateUrl: "template/page/question-send.html",
         		controllerUrl: "template/js/question-send.js"
-        }))
+        }));
+        // 手机端路由
+        var phoneRouter = $stateProvider.state("phone-home", angularAMD.route({
+                url: "/phone-home",
+                templateUrl: "template/phone-page/home.html",
+                controllerUrl: "template/phone-js/home.js"
+        })).state("phone-course", angularAMD.route({
+            url: "/phone-course",
+            templateUrl: "template/phone-page/course.html",
+            controllerUrl: "template/phone-js/course.js"
+       }))
     };        
         
     // module
