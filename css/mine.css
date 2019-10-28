@@ -202,6 +202,8 @@ div,p{
     margin-left: 15px;
     margin-top: 30px;
     margin-bottom: 20px;
+    outline: none;
+    cursor: pointer;
 }
 .overflow-hidden{
     overflow:hidden;

@@ -27,54 +27,15 @@
 
     <!-- 我要提问 开始 -->
     <div class="panel-width jp-content">
-      <div class="jp-box">
-        <img class="hot-video-img" src="img/want-question.png" alt="">
+      <div class="jp-box" ng-repeat="item in problemList" ng-click="questionDetails(item.problemId)">
+        <img class="hot-video-img" src="{{item.img}}" alt="">
         <p class="content-title overflow-hidden">
-          <span>我们需要什么样的市场部？</span>
+          <span>{{item.problemTitle}}</span>
         </p>
         <p class="content-desc"><span style="color:#ff584f">618人</span>已围观，问题价值<span
-            style="color:#ff584f">￥199.00</span></p>
+            style="color:#ff584f">￥{{item.problemAmount}}</span></p>
       </div>
-      <div class="jp-box">
-        <img class="hot-video-img" src="img/want-question.png" alt="">
-        <p class="content-title overflow-hidden">
-          <span>我们需要什么样的市场部？</span>
-        </p>
-        <p class="content-desc"><span style="color:#ff584f">618人</span>已围观，问题价值<span
-            style="color:#ff584f">￥199.00</span></p>
-      </div>
-      <div class="jp-box">
-        <img class="hot-video-img" src="img/want-question.png" alt="">
-        <p class="content-title overflow-hidden">
-          <span>我们需要什么样的市场部？</span>
-        </p>
-        <p class="content-desc"><span style="color:#ff584f">618人</span>已围观，问题价值<span
-            style="color:#ff584f">￥199.00</span></p>
-      </div>
-      <div class="jp-box">
-        <img class="hot-video-img" src="img/want-question.png" alt="">
-        <p class="content-title overflow-hidden">
-          <span>我们需要什么样的市场部？</span>
-        </p>
-        <p class="content-desc"><span style="color:#ff584f">618人</span>已围观，问题价值<span
-            style="color:#ff584f">￥199.00</span></p>
-      </div>
-      <div class="jp-box">
-        <img class="hot-video-img" src="img/want-question.png" alt="">
-        <p class="content-title overflow-hidden">
-          <span>我们需要什么样的市场部？</span>
-        </p>
-        <p class="content-desc"><span style="color:#ff584f">618人</span>已围观，问题价值<span
-            style="color:#ff584f">￥199.00</span></p>
-      </div>
-      <div class="jp-box">
-        <img class="hot-video-img" src="img/want-question.png" alt="">
-        <p class="content-title overflow-hidden">
-          <span>我们需要什么样的市场部？</span>
-        </p>
-        <p class="content-desc"><span style="color:#ff584f">618人</span>已围观，问题价值<span
-            style="color:#ff584f">￥199.00</span></p>
-      </div>
+      <div class="pager" id="pager"></div>
     </div>
     <!-- 我要提问 结束 -->
 

@@ -70,10 +70,11 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
         		url: "/question",
         		templateUrl: "template/page/question.html",
         		controllerUrl: "template/js/question.js"
-        })).state("question-send", angularAMD.route({
-        		url: "/question-send",
-        		templateUrl: "template/page/question-send.html",
-        		controllerUrl: "template/js/question-send.js"
+        })).state("question-details", angularAMD.route({
+        		url: "/question-details?:id",
+        		param: {id: null},
+        		templateUrl: "template/page/question-details.html",
+        		controllerUrl: "template/js/question-details.js"
         })).state("special", angularAMD.route({
         		url: "/special",
         		templateUrl: "template/page/special.html",

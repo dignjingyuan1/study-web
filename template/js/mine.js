@@ -2,11 +2,26 @@ define([], function () {
 	
 	// controller
 	return ["$scope","$state", function ($scope,$state) {
+		Pager.index = 1;
+		Pager.limit = 5;
 		/**
 		 * 切换
 		 */
 		$scope.switch = function(index){
+			Pager.index = 1;
+			Pager.limit = 5;
 			$(".content").hide().eq(index).show();
+			if(index == "0"){
+				$scope.searchOrderList();
+			}else if(index == "1"){
+				$scope.searchProblemList();
+			}else if(index == "2"){
+				
+			}else if(index == "3"){
+				$scope.searchOrderRecordList();
+			}else if(index == "5"){
+				$scope.searchUserDetails();
+			}
 		}
 		
 		/**
@@ -55,12 +70,93 @@ define([], function () {
 						$scope.userPosition = data.userPosition;
 						$scope.userRemark = data.userRemark;
 						data.userHeader ? $("#head-img").attr("src", data.userHeader) : '';
+						$scope.$applyAsync();
 					}
 				}
 			})
 		}
 		
-		$scope.searchUserDetails();
+		
+		
+		/**
+		 * 查找订单列表
+		 */
+		$scope.searchOrderList = function(){
+			var pageNo = Pager.index;
+			Pager.pagerId = "#coursePager";
+			_get({
+				url: STUDY_API + "/order/getOrderList",
+				param: {
+					pageNo: pageNo,
+					pageSize: Pager.limit,
+				},
+				callback: function(res){
+					console.log(res);
+					if(res.code == '2000'){
+						$scope.orderList = res.rows;
+						Pager.total = res.total;
+						Pager.Init();
+						Pager.onLoad = $scope.searchOrderList;
+						$scope.$applyAsync();
+					}
+				}
+			})
+		}
+		
+		/**
+		 * 查找购买记录
+		 */
+		$scope.searchOrderRecordList = function(){
+			_get({
+				url: STUDY_API + "/order/getOrderRecord",
+				callback: function(res){
+					if(res.code == '2000'){
+						$scope.orderRecordList = res.data;
+						$scope.$applyAsync();
+					}
+				}
+			})
+		}
+		
+		/**
+		 * 查找问题列表
+		 */
+		$scope.searchProblemList = function(){
+			var pageNo = Pager.index;
+			Pager.pagerId = "#problemPager";
+			_get({
+				url: STUDY_API + "/problem/getProblemList",
+				param: {
+					pageNo: pageNo,
+					pageSize: Pager.limit,
+				},
+				callback:  function(res){
+					if(res.code == '2000'){
+						$scope.problemList = res.rows;
+						Pager.total = res.total;
+						Pager.Init();
+						Pager.onLoad = $scope.searchProblemList;
+						$scope.$applyAsync();
+					}
+				}
+			})
+		}
+		
+		/**
+		 * 退出
+		 */
+		$scope.logOut = function(){
+			console.log("123")
+			_confirm("确定要退出么？",function(){
+				localStorage.clear();
+				$state.go("home");
+			});
+		}
+		
+		$scope.searchOrderList();
+		
+		
+		
 	}];
 });
 

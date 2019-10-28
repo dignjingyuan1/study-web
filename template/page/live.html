@@ -27,54 +27,16 @@
 
     <!-- 精品content 开始 -->
     <div class="panel-width jp-content">
-      <div class="jp-box">
-        <img class="hot-video-img" src="img/online-video.png" alt="">
+      <div class="jp-box"  ng-repeat="item in courseGroupList" ng-click="goToDetails(item.courseGroupId)">
+        <img class="hot-video-img" src="{{item.courseGroupImg}}" alt="">
         <p class="content-title overflow-hidden">
-          <span><span style="color:#ff584f">直播中</span>|我们需要什么样的市场部？</span>
-          <button class="bought-button">已购买</button>
-        </p>
-        <p class="content-desc"><span style="color:#ff584f">618人</span>观看</p>
-      </div>
-      <div class="jp-box">
-        <img class="hot-video-img" src="img/online-video.png" alt="">
-        <p class="content-title overflow-hidden">
-          <span><span style="color:#ff584f">即将开始</span>|我们需要什么样的市场部？</span>
+          <span><span style="color:#ff584f">{{item.playStatus == '0' ? '即将开始' : '直播中'}}</span>|{{item.courseGroupName}}</span>
+          <!--<button class="bought-button">已购买</button>-->
           <button class="bought-button button-disable">未购买</button>
         </p>
-        <p class="content-desc"><span style="color:#ff584f">618人</span>观看</p>
+        <p class="content-desc"><span style="color:#ff584f">{{item.payCount}}人</span>观看</p>
       </div>
-      <div class="jp-box">
-        <img class="hot-video-img" src="img/online-video.png" alt="">
-        <p class="content-title overflow-hidden">
-          <span><span style="color:#ff584f">即将开始</span>|我们需要什么样的市场部？</span>
-          <button class="bought-button button-disable">未购买</button>
-        </p>
-        <p class="content-desc"><span style="color:#ff584f">618人</span>观看</p>
-      </div>
-      <div class="jp-box">
-        <img class="hot-video-img" src="img/online-video.png" alt="">
-        <p class="content-title overflow-hidden">
-          <span><span style="color:#ff584f">即将开始</span>|我们需要什么样的市场部？</span>
-          <button class="bought-button button-disable">未购买</button>
-        </p>
-        <p class="content-desc"><span style="color:#ff584f">618人</span>观看</p>
-      </div>
-      <div class="jp-box">
-        <img class="hot-video-img" src="img/online-video.png" alt="">
-        <p class="content-title overflow-hidden">
-          <span><span style="color:#ff584f">即将开始</span>|我们需要什么样的市场部？</span>
-          <button class="bought-button button-disable">未购买</button>
-        </p>
-        <p class="content-desc"><span style="color:#ff584f">618人</span>观看</p>
-      </div>
-      <div class="jp-box">
-        <img class="hot-video-img" src="img/online-video.png" alt="">
-        <p class="content-title overflow-hidden">
-          <span><span style="color:#ff584f">即将开始</span>|我们需要什么样的市场部？</span>
-          <button class="bought-button button-disable">未购买</button>
-        </p>
-        <p class="content-desc"><span style="color:#ff584f">618人</span>观看</p>
-      </div>
+      <div class="pager" id="pager"></div>
     </div>
   </div>
   <!-- 精品content 结束 -->

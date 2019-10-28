@@ -2,13 +2,15 @@ var Pager = {
 	index : 1,
 	limit : 10,
 	total : 0,
+	pagerId: undefined,
 	Init: ()=>{
 		Pager.setPager();
 	},
 	onLoad: undefined,
 	setPager: ()=>{
-		$(".pager").empty();
-		let _html = $("<uL></ul>").appendTo($(".pager"));
+		var $pager = Pager.pagerId ? $(Pager.pagerId) : $("#pager");
+		$pager.empty();
+		let _html = $("<uL></ul>").appendTo($pager);
 		let _li = "";
 		if(Pager.index == 1){
 		 	$("<li class='paging-item--disabled'><i class='icon iconfont icon-icon_paging_left'></i></li>").appendTo($(_html));
