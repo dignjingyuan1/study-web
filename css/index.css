@@ -259,4 +259,69 @@ div,p{
     line-height: 25px;
     color: #999999;
     margin-top: 25px;
+}.question-but{
+    width: 20px;
+    height: 23px;
+    background-color: #ff584f;
+    color: white;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 23px;
+    display: inline-block;
+}
+.question-input{
+    width: 85%;
+    font-size: 15px;
+    height: 20px;
+    border: none;
+}
+.tow-box{
+    padding: 7px;
+    border-bottom: 1px solid #cccccc;
+}
+.tow-box > p {
+    display: inline-block;
+    color: #999999
+}
+.tow-box > img {
+    width: 16px;
+}
+.tree-box > textarea {
+    width: 100%;
+    height: 100px;
+    margin-top: 15px;
+    border: none;
+    color: #999999;
+    outline: none;
+}
+.camera-box{
+    width: 120px;
+    height: 120px;
+    border: 1px dashed #cccccc;
+    display: inline-block;
+    text-align: center;
+    margin-top: 15px;
+    cursor: pointer;
+    float: left;
+}
+.camera-box > img {
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+}
+.camera-box > p {
+   color: #999999;
+}
+.submit-button{
+    width: 40%;
+    height: 40px;
+    background-color: #ff3728;
+    color: white;
+    border: none;
+    margin-left: 30%;
+    border-radius: 30px;
+    margin-top: 20%;
+    margin-bottom: 10%;
+    cursor: pointer;
+    outline: none;
 }

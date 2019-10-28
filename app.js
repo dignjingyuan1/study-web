@@ -94,6 +94,10 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
         		params: {id: null},
         		templateUrl: "template/page/company-details.html",
         		controllerUrl: "template/js/company-details.js"
+        })).state("question-send", angularAMD.route({
+        		url: "/question-send",
+        		templateUrl: "template/page/question-send.html",
+        		controllerUrl: "template/js/question-send.js"
         }))
     };        
         

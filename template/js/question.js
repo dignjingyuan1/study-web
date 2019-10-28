@@ -30,7 +30,7 @@ define([], function () {
 		 * 提问
 		 */
 		$scope.questionSend = function(){
-//			$state.go()
+			$state.go("question-send")
 		}
 		
 		/**
