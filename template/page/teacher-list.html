@@ -40,34 +40,11 @@
         <p class="class-text">明星导师</p>
       </div>
       <div class="teachers-box">
-        <div class="teacher-item">
-          <img class="teacher-img" src="img/teacher.png" alt="" />
-          <p class="teacher-desc">王大伯|背打医学院教授</p>
+        <div class="teacher-item" ng-repeat="item in teacherList track by $index" ng-click="goTeacherDetails(item.teacherId)">
+          <img class="teacher-img" src="{{item.teacherImg}}" alt="" />
+          <p class="teacher-desc">{{item.teacherName}}</p>
         </div>
-        <div class="teacher-item">
-          <img class="teacher-img" src="img/teacher.png" alt="" />
-          <p class="teacher-desc">王大伯|背打医学院教授</p>
-        </div>
-        <div class="teacher-item">
-          <img class="teacher-img" src="img/teacher.png" alt="" />
-          <p class="teacher-desc">王大伯|背打医学院教授</p>
-        </div>
-        <div class="teacher-item">
-          <img class="teacher-img" src="img/teacher.png" alt="" />
-          <p class="teacher-desc">王大伯|背打医学院教授</p>
-        </div>
-        <div class="teacher-item">
-          <img class="teacher-img" src="img/teacher.png" alt="" />
-          <p class="teacher-desc">王大伯|背打医学院教授</p>
-        </div>
-        <div class="teacher-item">
-          <img class="teacher-img" src="img/teacher.png" alt="" />
-          <p class="teacher-desc">王大伯|背打医学院教授</p>
-        </div>
-        <div class="teacher-item">
-          <img class="teacher-img" src="img/teacher.png" alt="" />
-          <p class="teacher-desc">王大伯|背打医学院教授</p>
-        </div>
+        <div class="pager" id="pager"></div>
       </div>
     </div>
     <!-- 明星导师结束 -->

@@ -146,8 +146,9 @@ define([], function () {
 		  	})
 		  }
 		  
-		  $scope.more = function(path){
-			$state.go(path);
+		  $scope.more = function(path,params){
+		  	console.log(params)
+			$state.go(path,params?params:{});
 		  }
 		  
 		  /**

@@ -28,12 +28,12 @@
       <div class="jp-box" ng-click="go('live')">
         <img class="hot-video-img" src="img/hot-video.png" alt="">
         <p class="content-title overflow-hidden">{{beginCount}}个直播中，{{notBeginCount}}个课程即将开始</p>
-        <p class="content-desc"><span style="color:#ff584f">618人</span>观看</p>
+        <p class="content-desc"><span style="color:#ff584f">{{orderCount}}人</span>观看</p>
       </div>
       <div class="jp-box" style="margin-left: 20px;" ng-click="go('question')">
         <img class="hot-video-img" src="img/my-question.png" alt="">
         <p class="content-title overflow-hidden">专家大咖为您答疑解惑，你还不来？</p>
-        <p class="content-desc">已有<span style="color:#ff584f">618人</span>提问</p>
+        <p class="content-desc">已有<span style="color:#ff584f">{{questionCount}}人</span>提问</p>
       </div>
     </div>
     <!-- 精品content 结束 -->

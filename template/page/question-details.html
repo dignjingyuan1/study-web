@@ -47,23 +47,19 @@
         <!-- 提问区域结束 -->
         
         <!-- 回答区域开始 -->
-        <div class="person-head" style="border-top: 1px solid #cccccc;">
-          <img src="img/test.jpg" alt="">
-          <p>
-            <span class="wenda-icon" style="background-color: #289b18!important">答</span>&nbsp;<span>红火火</span><br>
-            <span class="wenda-desc">2019.08.12&nbsp;周四&nbsp;07:50提问</span>
-          </p>
-        </div>
-        <div>
-          <p class="wz-content">
-            答打大龙开讲啦开始的阿萨德六块腹肌阿里是打发了深刻的叫法是代理费
-            答打大龙开讲啦开始的阿萨德六块腹肌阿里是打发了深刻的叫法是代理费
-            答打大龙开讲啦开始的阿萨德六块腹肌阿里是打发了深刻的叫法是代理费
-            答打大龙开讲啦开始的阿萨德六块腹肌阿里是打发了深刻的叫法是代理费
-            答打大龙开讲啦开始的阿萨德六块腹肌阿里是打发了深刻的叫法是代理费
-            答打大龙开讲啦开始的阿萨德六块腹肌阿里是打发了深刻的叫法是代理费
-            答打大龙开讲啦开始的阿萨德六块腹肌阿里是打发了深刻的叫法是代理费
-          </p>
+        <div ng-repeat="teacher in item.problemAnswerLists">
+	        <div class="person-head" style="border-top: 1px solid #cccccc;">
+	          <img src="{{teacher.teacherHeader ? teacher.teacherHeader : 'img/test.jpg'}}" alt="">
+	          <p>
+	            <span class="wenda-icon" style="background-color: #289b18!important">答</span>&nbsp;<span>{{teacher.teacherName}}</span><br>
+	            <span class="wenda-desc">{{teacher.createTime}}</span>
+	          </p>
+	        </div>
+	        <div>
+	          <p class="wz-content">
+	           {{teacher.problemAnswerRemark}}
+	          </p>
+	        </div>
         </div>
         <!-- 回答区域结束 -->
       </div>

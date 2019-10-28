@@ -267,6 +267,7 @@ div,p{
     width: 222px;
     height: 160px;
     display: inline-block;
+    cursor: pointer;
 }
 .teacher-desc{
     font-size: 14px;

@@ -1,7 +1,6 @@
 var app = angular.module('myApp',[]);
 var _index;
 app.controller("header",($scope,$state)=>{
-	console.log($state.current.name);
 	var routeName = $state.current.name;
 	_index = routeName == "home" ? "0" : routeName == "course" ? 
 	"1" : routeName == "boutique" ? "2" : routeName == "mine" ? "3" : "0";
@@ -40,25 +39,26 @@ app.controller("header",($scope,$state)=>{
 			$("#reg-box").css("transform","scale(1)");
 		},50);
 	}
-	
+	$scope.user = getUser();
 	/**
 	 * 查找用户信息
 	 */
 	$scope.getUser = function(){
-		var token = localStorage.getItem("token");
-		if(token){
-			_get({
-				url: STUDY_API + "/user/getUser",
-				callback: function(res){
-					if(res.code == '2000'){
-						$scope.user = res.data;
-						localStorage.setItem("user",JSON.stringify($scope.user));
-						$scope.$applyAsync();
-					}
-				}
-			})
-		}
+		$scope.user = getUser();
+//		var token = localStorage.getItem("token");
+//		if(token){
+//			_get({
+//				url: STUDY_API + "/user/getUser",
+//				callback: function(res){
+//					if(res.code == '2000'){
+//						$scope.user = res.data;
+//						localStorage.setItem("user",JSON.stringify($scope.user));
+//						$scope.$applyAsync();
+//					}
+//				}
+//			})
+//		}
 	}
 	
-	$scope.getUser();
+//	$scope.getUser();
 });

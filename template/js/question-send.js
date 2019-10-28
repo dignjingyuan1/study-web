@@ -4,6 +4,7 @@ define([], function () {
 	return ["$scope","$state", function ($scope,$state) {
 		
 		$scope.now = new Date().Format("yyyy-MM-dd hh:mm:ss");
+		$scope.problemFollow = "0";
 		
 		
 		/**
@@ -17,7 +18,7 @@ define([], function () {
 		 * 保存
 		 */
 		$scope.submit = function(){
-			_confirm('您已将问题公开，其他人可以进行围观，围观费用全部进入您个人账户，如问题涉及隐私请关闭此按钮。',function(){
+			if(_validtion("questionFrom")){
 				_post({
 					url:STUDY_API + "/problem/createProblem",
 					param: {
@@ -30,17 +31,20 @@ define([], function () {
 						console.log(res);
 					}
 				})
-			});
+			}
 		}
 		
 		$scope.weiguan = function($event){
 			var ev = $event.target;
-		    if(ev.src.indexOf("hui")!=-1){
-		        // TODO 弹出提示
-		        document.getElementById("myAlert").style.display = "block";
-		    }else{
-		        ev.src = "img/checkbox-hui.png";
-		    }
+			if($scope.problemFollow == '0'){
+				_confirm('您已将问题公开，其他人可以进行围观，围观费用全部进入您个人账户，如问题涉及隐私请关闭此按钮。',function(){
+					$scope.problemFollow = "1";
+		        		$(ev).attr("src","img/checkbox.png")
+		        });
+			}else if($scope.problemFollow == '1'){
+				$scope.problemFollow = "0";
+				$(ev).attr("src","img/checkbox-hui.png")
+			}
 		}
 	}];
 });

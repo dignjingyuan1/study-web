@@ -21,10 +21,11 @@
     <div ng-include="'include/header.html'"></div>
     <!-- 头部结束  -->
     <div class="panel-width" style="padding: 10px; background-color: #f9f9f9;">
+    	  <form action="javascript:;" id="questionFrom">
       <div style="width: 100%; background-color: white; padding: 15px;border-radius: 8px;">
         <div style="border-bottom: 1px solid #cccccc;padding-bottom: 5px;">
           <p class="question-but">问</p>
-          <input class="question-input" placeholder="请输入您要问的问题" type="text" ng-model="problemTitle">
+          <input class="question-input" placeholder="请输入您要问的问题" check="ckNull" message="问题" type="text" ng-model="problemTitle">
         </div>
         <div class="tow-box">
           <p>{{now}}</p>
@@ -32,7 +33,7 @@
           <img id="wieguan" ng-click="weiguan($event)" style="float: right" src="img/checkbox-hui.png" alt="">
         </div>
         <div class="tree-box">
-          <textarea placeholder="请详细描述您的问题，导师会更准确的回答您的问题" ng-model="problemRemark"></textarea>
+          <textarea placeholder="请详细描述您的问题，导师会更准确的回答您的问题" ng-model="problemRemark" check="ckNull" message="详细描述"></textarea>
         </div>
         <div id="imgs">
           <div class="camera-box" ng-click="downloadFile()">
@@ -50,6 +51,7 @@
         </div>
         <button class="submit-button" ng-click="submit()">提交</button>
       </div>
+      </form>
     </div>
     <!-- 弹窗开始 -->
     <!--<div class="alert" id="myAlert" style="display: none">

@@ -43,45 +43,18 @@
         <p class="more-text">更多</p>
       </div>
       <div class="content-box">
-        <div class="content-left">
-          <img class="content-img" src="img/class-img.png" alt="" />
-          <span>这里是标题</span>
+        <div class="content-left" ng-click="goCompanyDetails(companyRecommendList[0].companyId)">
+          <img class="content-img" src="{{companyRecommendList[0].companyImg}}" alt="" />
+          <span>{{companyRecommendList[0].companyName}}</span>
         </div>
         <div class="content-right">
-          <div class="content-small">
+          <div class="content-small"  ng-repeat="item in companyRecommendList track by $index" ng-if="$index != 0">
             <div class="small-left">
-              <img class="small-left-img" src="img/small-left.png" alt="">
+              <img class="small-left-img" src="{{item.companyImg}}" alt="">
             </div>
             <div class="small-right">
-              <p class=" small-title overflow-hidden">直播|我们需要什么样得市场</p>
-              <p class="small-desc">按时灯笼裤解放军啊手动的分厘卡即使到了开发爱上了；是斯达克放假啊分厘卡十九点发</p>
-            </div>
-          </div>
-          <div class="content-small">
-            <div class="small-left">
-              <img class="small-left-img" src="img/small-left.png" alt="">
-            </div>
-            <div class="small-right">
-              <p class=" small-title overflow-hidden">直播|我们需要什么样得市场</p>
-              <p class="small-desc">按时灯笼裤解放军啊手动的分厘卡即使到了开发爱上了；是斯达克放假啊分厘卡十九点发</p>
-            </div>
-          </div>
-          <div class="content-small">
-            <div class="small-left">
-              <img class="small-left-img" src="img/small-left.png" alt="">
-            </div>
-            <div class="small-right">
-              <p class=" small-title overflow-hidden">直播|我们需要什么样得市场</p>
-              <p class="small-desc">按时灯笼裤解放军啊手动的分厘卡即使到了开发爱上了；是斯达克放假啊分厘卡十九点发</p>
-            </div>
-          </div>
-          <div class="content-small">
-            <div class="small-left">
-              <img class="small-left-img" src="img/small-left.png" alt="">
-            </div>
-            <div class="small-right">
-              <p class=" small-title overflow-hidden">直播|我们需要什么样得市场</p>
-              <p class="small-desc">按时灯笼裤解放军啊手动的分厘卡即使到了开发爱上了；是斯达克放假啊分厘卡十九点发</p>
+              <p class=" small-title overflow-hidden">{{item.companyName}}</p>
+              <p class="small-desc">{{item.companyRemark}}</p>
             </div>
           </div>
         </div>
@@ -92,38 +65,11 @@
     <!-- 明星导师开始 -->
     <div class="panel-width">
       <div class="teachers-box">
-        <div class="teacher-item">
-          <img class="teacher-img" src="img/teacher.png" alt="" />
-          <p class="teacher-desc">王大伯|背打医学院教授</p>
+        <div class="teacher-item" ng-repeat="item in companyList track by $index" ng-click="goCompanyDetails(item.companyId)">
+          <img class="teacher-img" src="{{item.companyImg}}" alt="" />
+          <p class="teacher-desc">{{item.companyName}}</p>
         </div>
-        <div class="teacher-item">
-          <img class="teacher-img" src="img/teacher.png" alt="" />
-          <p class="teacher-desc">王大伯|背打医学院教授</p>
-        </div>
-        <div class="teacher-item">
-          <img class="teacher-img" src="img/teacher.png" alt="" />
-          <p class="teacher-desc">王大伯|背打医学院教授</p>
-        </div>
-        <div class="teacher-item">
-          <img class="teacher-img" src="img/teacher.png" alt="" />
-          <p class="teacher-desc">王大伯|背打医学院教授</p>
-        </div>
-        <div class="teacher-item">
-          <img class="teacher-img" src="img/teacher.png" alt="" />
-          <p class="teacher-desc">王大伯|背打医学院教授</p>
-        </div>
-        <div class="teacher-item">
-          <img class="teacher-img" src="img/teacher.png" alt="" />
-          <p class="teacher-desc">王大伯|背打医学院教授</p>
-        </div>
-        <div class="teacher-item">
-          <img class="teacher-img" src="img/teacher.png" alt="" />
-          <p class="teacher-desc">王大伯|背打医学院教授</p>
-        </div>
-        <div class="teacher-item">
-          <img class="teacher-img" src="img/teacher.png" alt="" />
-          <p class="teacher-desc">王大伯|背打医学院教授</p>
-        </div>
+        <div class="pager" id="pager"></div>
       </div>
     </div>
     <!-- 明星导师结束 -->

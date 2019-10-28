@@ -37,7 +37,39 @@ define([], function () {
 			})
 		}
 		
+		/**
+		 * 查找提问数量
+		 */
+		$scope.searchQuestionCount = function(){
+			_get({
+				url : STUDY_API + "/problem/getProblemCount",
+				callback: function(res){
+					if(res.code == "2000"){
+						$scope.questionCount = res.data;
+						$scope.$applyAsync();
+					}
+				}
+			})
+		}
+		
+		/**
+		 * 查找订单数量
+		 */
+		$scope.searchOrderCount = function(){
+			_get({
+				url: STUDY_API + "/order/getOrderCount",
+				callback: function(res){
+					if(res.code == "2000"){
+						$scope.orderCount = res.data;
+						$scope.$applyAsync();
+					}
+				}
+			})
+		}
+		
 		$scope.getBeginCourseGroupCount();
 		$scope.getNotBeginCourseGroupCount();
+		$scope.searchQuestionCount();
+		$scope.searchOrderCount();
 	}];
 });

@@ -59,7 +59,8 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
         		templateUrl: "template/page/teacher-list.html",
         		controllerUrl: "template/js/teacher-list.js"
         })).state("company-list", angularAMD.route({
-        		url: "/company-list",
+        		url: "/company-list?:type",
+        		params: {type: null},
         		templateUrl: "template/page/company-list.html",
         		controllerUrl: "template/js/company-list.js"
         })).state("live", angularAMD.route({
@@ -103,9 +104,29 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
         
     // module
     var app = angular.module("myApp", ["ngSanitize","ui.router"]);
+    
+    
+    app.run(function ($rootScope,$state) {
+    		$rootScope.$on('$stateChangeStart',function(event){
+    			document.documentElement.scrollTop = 0;
+    			var token = localStorage.getItem("token");
+			if(token){
+				_get({
+					url: STUDY_API + "/user/getUser",
+					callback: function(res){
+						if(res.code == '2000'){
+							localStorage.setItem("user",JSON.stringify(res.data));
+						}
+					}
+				})
+			}
+    		});
+    });
 
     // config
     app.config(["$stateProvider", "$urlRouterProvider",'$locationProvider', registerRoutes]);
+   	
+ 	
    	
     return angularAMD.bootstrap(app);
 });

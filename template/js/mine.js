@@ -76,8 +76,6 @@ define([], function () {
 			})
 		}
 		
-		
-		
 		/**
 		 * 查找订单列表
 		 */
@@ -154,9 +152,6 @@ define([], function () {
 		}
 		
 		$scope.searchOrderList();
-		
-		
-		
 	}];
 });
 

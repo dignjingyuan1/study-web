@@ -26,16 +26,16 @@
     <!-- 轮播图结束 -->
 
     <!-- 通用技能开始 -->
-    <div class="panel-width">
+    <div class="panel-width" ng-repeat="item in courseGroupTypeList">
       <div class="class-title">
-        <p class="class-text">通用技能</p>
-        <img class="more-img" src="img/right.png" alt="">
-        <p class="more-text">更多</p>
+        <p class="class-text">{{item.name}}</p>
+        <!--<img class="more-img" src="img/right.png" alt="">-->
+        <!--<p class="more-text">更多</p>-->
       </div>
       <div class="content-box">
-        <div class="content-left">
-          <img class="content-img" src="img/class-img.png" alt="" />
-          <span>这里是标题</span>
+        <div class="content-left" ng-click="goCourseDetails(item.courseGroupLists[0].courseGroupId)">
+          <img class="content-img" src="{{item.courseGroupLists[0].courseGroupImg}}" alt="" />
+          <span>{{item.courseGroupLists[0].courseGroupName}}</span>
           <p class="content-foot"></p>
           <div class="content-text">
             <p class="text-price"><span style="font-size: 14px">￥</span>0.01</p>
@@ -47,59 +47,14 @@
           </div>
         </div>
         <div class="content-right">
-          <div class="content-small">
+          <div class="content-small" ng-repeat="group in item.courseGroupLists track by $index" ng-if="$index != 0" ng-click="goCourseDetails(group.courseGroupId)">
             <div class="small-left">
-              <img class="small-left-img" src="img/small-left.png" alt="">
+              <img class="small-left-img" src="{{group.courseGroupImg}}" alt="">
             </div>
             <div class="small-right">
-              <p class=" small-title overflow-hidden">直播|我们需要什么样得市场</p>
+              <p class=" small-title overflow-hidden">{{group.courseGroupName}}</p>
               <p class="small-desc">
-                按时灯笼裤解放军啊手动的分厘卡即使到了开发爱上了；是斯达克放假啊分厘卡十九点发
-              </p>
-            </div>
-            <div class="meng-ceng">
-              <p>￥0.01</p>
-              <button>立即购买</button>
-            </div>
-          </div>
-          <div class="content-small">
-            <div class="small-left">
-              <img class="small-left-img" src="img/small-left.png" alt="">
-            </div>
-            <div class="small-right">
-              <p class=" small-title overflow-hidden">直播|我们需要什么样得市场</p>
-              <p class="small-desc">
-                按时灯笼裤解放军啊手动的分厘卡即使到了开发爱上了；是斯达克放假啊分厘卡十九点发
-              </p>
-            </div>
-            <div class="meng-ceng">
-              <p>￥0.01</p>
-              <button>立即购买</button>
-            </div>
-          </div>
-          <div class="content-small">
-            <div class="small-left">
-              <img class="small-left-img" src="img/small-left.png" alt="">
-            </div>
-            <div class="small-right">
-              <p class=" small-title overflow-hidden">直播|我们需要什么样得市场</p>
-              <p class="small-desc">
-                按时灯笼裤解放军啊手动的分厘卡即使到了开发爱上了；是斯达克放假啊分厘卡十九点发
-              </p>
-            </div>
-            <div class="meng-ceng">
-              <p>￥0.01</p>
-              <button>立即购买</button>
-            </div>
-          </div>
-          <div class="content-small">
-            <div class="small-left">
-              <img class="small-left-img" src="img/small-left.png" alt="">
-            </div>
-            <div class="small-right">
-              <p class=" small-title overflow-hidden">直播|我们需要什么样得市场</p>
-              <p class="small-desc">
-                按时灯笼裤解放军啊手动的分厘卡即使到了开发爱上了；是斯达克放假啊分厘卡十九点发
+               {{group.courseGroupRemark}}
               </p>
             </div>
             <div class="meng-ceng">
@@ -113,90 +68,7 @@
     <!-- 通用技能结束 -->
 
     <!-- 专业技能开始 -->
-    <div class="panel-width">
-      <div class="class-title">
-        <p class="class-text">专业技能</p>
-        <img class="more-img" src="img/right.png" alt="">
-        <p class="more-text">更多</p>
-      </div>
-      <div class="content-box">
-        <div class="content-left">
-          <img class="content-img" src="img/class-img.png" alt="" />
-          <span>这里是标题</span>
-          <p class="content-foot"></p>
-          <div class="content-text">
-            <p class="text-price"><span style="font-size: 14px">￥</span>0.01</p>
-            <p class="text-person">
-              <span style="text-decoration:line-through">原价￥339</span><br>
-              <span>16人已购买学习</span>
-            </p>
-            <button class="content-button">立即购买</button>
-          </div>
-        </div>
-        <div class="content-right">
-          <div class="content-small">
-            <div class="small-left">
-              <img class="small-left-img" src="img/small-left.png" alt="">
-            </div>
-            <div class="small-right">
-              <p class=" small-title overflow-hidden">直播|我们需要什么样得市场</p>
-              <p class="small-desc">
-                按时灯笼裤解放军啊手动的分厘卡即使到了开发爱上了；是斯达克放假啊分厘卡十九点发
-              </p>
-            </div>
-            <div class="meng-ceng">
-              <p>￥0.01</p>
-              <button>立即购买</button>
-            </div>
-          </div>
-          <div class="content-small">
-            <div class="small-left">
-              <img class="small-left-img" src="img/small-left.png" alt="">
-            </div>
-            <div class="small-right">
-              <p class=" small-title overflow-hidden">直播|我们需要什么样得市场</p>
-              <p class="small-desc">
-                按时灯笼裤解放军啊手动的分厘卡即使到了开发爱上了；是斯达克放假啊分厘卡十九点发
-              </p>
-            </div>
-            <div class="meng-ceng">
-              <p>￥0.01</p>
-              <button>立即购买</button>
-            </div>
-          </div>
-          <div class="content-small">
-            <div class="small-left">
-              <img class="small-left-img" src="img/small-left.png" alt="">
-            </div>
-            <div class="small-right">
-              <p class=" small-title overflow-hidden">直播|我们需要什么样得市场</p>
-              <p class="small-desc">
-                按时灯笼裤解放军啊手动的分厘卡即使到了开发爱上了；是斯达克放假啊分厘卡十九点发
-              </p>
-            </div>
-            <div class="meng-ceng">
-              <p>￥0.01</p>
-              <button>立即购买</button>
-            </div>
-          </div>
-          <div class="content-small">
-            <div class="small-left">
-              <img class="small-left-img" src="img/small-left.png" alt="">
-            </div>
-            <div class="small-right">
-              <p class=" small-title overflow-hidden">直播|我们需要什么样得市场</p>
-              <p class="small-desc">
-                按时灯笼裤解放军啊手动的分厘卡即使到了开发爱上了；是斯达克放假啊分厘卡十九点发
-              </p>
-            </div>
-            <div class="meng-ceng">
-              <p>￥0.01</p>
-              <button>立即购买</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    
     <!-- 专业技能结束 -->
     <div class="panel-width" style="height: 60px"></div>
     <div ng-include="'include/footer.html'"></div>
