@@ -109,7 +109,11 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
             url: "/phone-course",
             templateUrl: "template/phone-page/course.html",
             controllerUrl: "template/phone-js/course.js"
-       }))
+        })).state("phone-teacher", angularAMD.route({
+            url: "/phone-teacher",
+            templateUrl: "template/phone-page/teacher.html",
+            controllerUrl: "template/phone-js/teacher.js"
+        }))
     };        
         
     // module
