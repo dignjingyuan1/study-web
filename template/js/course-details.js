@@ -51,20 +51,20 @@ define([], function () {
 		/**
 		 * 获取课程金额
 		 */
-		$scope.searchCourseAmount = function(){
-			_get({
-				url: STUDY_API + "/course/getCourseAmount",
-				param: {
-					courseGroupId: $scope.courseGroupId
-				},
-				callback: function(res){
-					if(res.code == '2000'){
-						$scope.amount = res.data;
-						$scope.$applyAsync();
-					}
-				}
-			})
-		}
+//		$scope.searchCourseAmount = function(){
+//			_get({
+//				url: STUDY_API + "/course/getCourseAmount",
+//				param: {
+//					courseGroupId: $scope.courseGroupId
+//				},
+//				callback: function(res){
+//					if(res.code == '2000'){
+//						$scope.amount = res.data;
+//						$scope.$applyAsync();
+//					}
+//				}
+//			})
+//		}
 		
 		/**
 		 * 播放
@@ -90,6 +90,6 @@ define([], function () {
 		}
 		
 		$scope.searchCourseGropeDetails();
-		$scope.searchCourseAmount();
+//		$scope.searchCourseAmount();
 	}];
 });

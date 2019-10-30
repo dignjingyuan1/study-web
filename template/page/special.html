@@ -38,10 +38,10 @@
           <span>{{item.courseGroupLists[0].courseGroupName}}</span>
           <p class="content-foot"></p>
           <div class="content-text">
-            <p class="text-price"><span style="font-size: 14px">￥</span>0.01</p>
+            <p class="text-price"><span style="font-size: 14px">￥</span>{{item.courseGroupLists[0].courseGroupAmount}}</p>
             <p class="text-person">
-              <span style="text-decoration:line-through">原价￥339</span><br>
-              <span>16人已购买学习</span>
+              <span style="text-decoration:line-through">原价￥{{item.courseGroupLists[0].courseAmount}}</span><br>
+              <span>{{item.courseGroupLists[0].payCount}}人已购买学习</span>
             </p>
             <button class="content-button">立即购买</button>
           </div>
@@ -58,7 +58,7 @@
               </p>
             </div>
             <div class="meng-ceng">
-              <p>￥0.01</p>
+              <p>￥{{group.courseGroupAmount}}</p>
               <button>立即购买</button>
             </div>
           </div>
