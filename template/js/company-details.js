@@ -17,12 +17,14 @@ define([], function () {
 					console.log(res);
 					if(res.code == '2000'){
 						$scope.companyDetails = res.data;
+						$("#move").attr("src",res.data.companyAddress);
+						$("#videoPlay").load();
 						$scope.$applyAsync();
 					}
 				}
 			})
 		}
-		
+	
 		$scope.searchCompanyDetails();
 	}];
 });

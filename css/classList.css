@@ -172,6 +172,7 @@ div,p{
     border: 1px solid #eaeaea;
     height: 75px;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 .play-button{
     margin-left: 18px;

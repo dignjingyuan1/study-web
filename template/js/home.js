@@ -3,7 +3,6 @@ define([], function () {
 	// controller
 	return ["$scope","$state", function ($scope,$state) {
 		
-		 $scope.courseGroupList = [];
 	
 		  /**
 		   * 查找推荐的课程
@@ -18,14 +17,16 @@ define([], function () {
 		  		callback: function(res){
 		  			if(res.code == '2000'){
 		  				var data = res.data;
-		  				for(var i=0;i<data.length; i++){
-		  					var item = data[i];
-		  					if(i == 0){
-		  						$scope.courseItem = item;
-		  					}else{
-		  						$scope.courseGroupList.push(item);
-		  					}
-		  				}
+		  				console.log(data);
+		  				$scope.courseGroupList = res.data;
+//		  				for(var i=0;i<data.length; i++){
+//		  					var item = data[i];
+//		  					if(i == 0){
+//		  						$scope.courseItem = item;
+//		  					}else{
+//		  						.push(item);
+//		  					}
+//		  				}
 		  				$scope.$applyAsync();
 		  			}
 		  		}

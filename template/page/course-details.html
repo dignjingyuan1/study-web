@@ -11,8 +11,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-eqiv="cleartype" content="ON">
   <link href="css/classList.css" rel="stylesheet" type="text/css" />
-  <!-- <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-    crossorigin="anonymous"></script> -->
 </head>
 
 <body>
@@ -24,10 +22,9 @@
     <!-- 视频开始 -->
     <div class="banner" style="position: relative">
       <img id="videoImg" style="width: 900px; height: 490px;" src="{{courseGroup.courseGroupImg}}">
-      <img id="videoButton" class="video-play-button" onclick="playVideo()" src="img/video-play.png" alt="">
-      <video id="videoPlay" style="display: none" width="900" height="490" controls="controls">
-        <source src="https://www.runoob.com/try/demo_source/movie.ogg" type="video/ogg">
-        <source src="movie.mp4" type="video/mp4">
+      <img id="videoButton" class="video-play-button" ng-click="playVideo(courseGroup.courseList[0].courseAddress)" src="img/video-play.png" alt="">
+      <video id="videoPlay" style="display: none;outline: none;" width="900" height="490" controls="controls">
+        <source id="move" src="" type="video/mp4">
       </video>
     </div>
     <!-- 视频结束 -->
@@ -42,7 +39,6 @@
       </div>
     </div>
     <!-- tab按钮结束 -->
-
     <!-- 介绍开始 -->
     <div class="panel-width">
       <div class="class-title">
@@ -61,9 +57,9 @@
         <!--<p class="more-text">全选</p>-->
       </div>
       <div class="panel-width">
-        <div class="class-item" ng-repeat="item in courseGroup.courseList">
-          <img onclick="play(this)" class="play-button" src="img/play-act.png" alt="">
-          <p onclick="play(this)" class="class-item-title ">{{item.courseName}}<br><span
+        <div class="class-item" ng-repeat="item in courseGroup.courseList" ng-click="reload(item.courseAddress)">
+          <img class="play-button" src="img/play-act.png" alt="">
+          <p class="class-item-title ">{{item.courseName}}<br><span
               style="font-size: 12px;color: #999999;">{{item.courseRemark}}</span>
           </p>
           <!--<img onclick="checkOnclick(this)" class="checkbox-img" src="img/checkbox.png" alt="">-->

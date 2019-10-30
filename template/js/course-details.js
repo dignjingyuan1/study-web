@@ -15,6 +15,7 @@ define([], function () {
 					courseGroupId : $scope.courseGroupId
 				},
 				callback: function(res){
+					console.log(res);
 					if(res.code == "2000"){
 						$scope.courseGroup = res.data;
 						$scope.$applyAsync();
@@ -63,6 +64,29 @@ define([], function () {
 					}
 				}
 			})
+		}
+		
+		/**
+		 * 播放
+		 */
+		$scope.playVideo = function(url){
+			var address = $("#move").attr("src");
+			if(!address){
+				$scope.reload(url);
+			}
+			document.getElementById('videoImg').style.display = "none";
+		    document.getElementById('videoButton').style.display = "none";
+ 			$("#videoPlay").show();
+		    document.getElementById('videoPlay').play();
+		}
+		
+		/**
+		 * reload
+		 */
+		$scope.reload = function(url){
+			document.documentElement.scrollTop = 0;
+			$("#move").attr("src",url);
+			$("#videoPlay").load();
 		}
 		
 		$scope.searchCourseGropeDetails();

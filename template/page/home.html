@@ -77,12 +77,12 @@
         <p class="more-text">更多</p>
       </div>
       <div class="content-box">
-        <div class="content-left" ng-click="goCourseDetails(courseItem.courseGroupId)">
-          <img class="content-img" src="{{courseItem.courseGroupImg}}" alt="" />
-          <span>{{courseItem.courseGroupName}}</span>
+        <div class="content-left" ng-click="goCourseDetails(courseGroupList[0].courseGroupId)">
+          <img class="content-img" src="{{courseGroupList[0].courseGroupImg}}" alt="" />
+          <span>{{courseGroupList[0].courseGroupName}}</span>
         </div>
         <div class="content-right">
-          <div class="content-small" ng-repeat="item in courseGroupList" ng-click="goCourseDetails(courseItem.courseGroupId)">
+          <div class="content-small" ng-repeat="item in courseGroupList track by $index" ng-if="$index != 0" ng-click="goCourseDetails(item.courseGroupId)">
             <div class="small-left">
               <img class="small-left-img" src="{{item.courseGroupImg}}" alt="">
             </div>
@@ -104,7 +104,7 @@
         <p class="more-text" ng-click="more('teacher-list')">更多</p>
       </div>
       <div class="video-box">
-        <div class="video-one" ng-repeat="item in teacherList" ng-click="goTeacherDetails(item.teacherId)">
+        <div class="video-one" ng-repeat="item in teacherList "  ng-click="goTeacherDetails(item.teacherId)">
           <img class="video-img" src="{{item.teacherImg}}" alt="">
           <p class="video-text overflow-hidden">{{item.teacherName}}</p>
           <!--<span class="video-title">这里是标题</span>-->
