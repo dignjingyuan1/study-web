@@ -77,7 +77,7 @@
         <p class="more-text">更多</p>
       </div>
       <div class="content-box">
-        <div class="video-one" ng-repeat="item in courseGroupList">
+        <div class="video-one" ng-repeat="item in courseGroupList" ng-click="goCourseDetails(item.courseGroupId)">
           <img class="video-img" src="{{item.courseGroupImg}}" alt="">
           <p class="video-text overflow-hidden">{{item.courseGroupName}}</p>
         </div>
@@ -140,7 +140,7 @@
         <p class="more-text">更多</p>
       </div>
       <div class="content-right">
-        <div class="content-small" ng-repeat="item in courseNewList">
+        <div class="content-small" ng-repeat="item in courseNewList"  ng-click="goCourseDetails(item.courseGroupId)">
           <div class="small-left">
             <img class="small-left-img" src="{{item.courseGroupImg}}" alt="">
           </div>
@@ -161,7 +161,7 @@
         <p class="more-text">更多</p>
       </div>
       <div class="content-right">
-        <div class="content-small" ng-repeat="item in courseHotsList">
+        <div class="content-small" ng-repeat="item in courseHotsList"  ng-click="goCourseDetails(item.courseGroupId)">
           <div class="small-left">
             <img class="small-left-img" src="{{item.courseGroupImg}}" alt="">
           </div>

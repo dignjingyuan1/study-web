@@ -114,10 +114,14 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
             templateUrl: "template/phone-page/teacher.html",
             controllerUrl: "template/phone-js/teacher.js"
         })).state("phone-company-list", angularAMD.route({
-            url: "/phone-company-list?:type",
-            templateUrl: "template/phone-page/company-list.html",
-            controllerUrl: "template/phone-js/company-list.js"
-        }))
+			url: "/phone-company-list?:type",
+			templateUrl: "template/phone-page/company-list.html",
+			controllerUrl: "template/phone-js/company-list.js"
+		})).state("phone-course-detail", angularAMD.route({
+			url: "/phone-course-detail?:id",
+			templateUrl: "template/phone-page/course-detail.html",
+			controllerUrl: "template/phone-js/course-detail.js"
+		}))
     };        
         
     // module
