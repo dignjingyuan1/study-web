@@ -10,6 +10,7 @@ define([], function () {
 			_get({
 				url: STUDY_API + "/courseGroupType/getCourseGroupTypeRecommend",
 				callback: function(res){
+					console.log(res);
 					if(res.code == '2000'){
 						$scope.courseGroupTypeList = res.data;
 						$scope.$applyAsync();
