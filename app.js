@@ -99,6 +99,24 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
         		url: "/question-send",
         		templateUrl: "template/page/question-send.html",
         		controllerUrl: "template/js/question-send.js"
+        }));
+        // 手机端路由
+        var phoneRouter = $stateProvider.state("phone-home", angularAMD.route({
+                url: "/phone-home",
+                templateUrl: "template/phone-page/home.html",
+                controllerUrl: "template/phone-js/home.js"
+        })).state("phone-course", angularAMD.route({
+            url: "/phone-course",
+            templateUrl: "template/phone-page/course.html",
+            controllerUrl: "template/phone-js/course.js"
+        })).state("phone-teacher", angularAMD.route({
+            url: "/phone-teacher",
+            templateUrl: "template/phone-page/teacher.html",
+            controllerUrl: "template/phone-js/teacher.js"
+        })).state("phone-company-list", angularAMD.route({
+            url: "/phone-company-list?:type",
+            templateUrl: "template/phone-page/company-list.html",
+            controllerUrl: "template/phone-js/company-list.js"
         }))
     };        
         

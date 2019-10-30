@@ -1,0 +1,30 @@
+Html{font-size:10px}
+body,p,h1,h2,h3,h4,h5,h6,ul,dl,dd,td,input,fieldset,textarea,option{ margin:0; padding:0; box-sizing: border-box}
+.test-div{
+    font-size: 1.5rem;
+    width: 13rem;
+    height: 12.5rem;
+    background-color: red    
+}
+.banner-img{
+    display: block !important;
+}
+.video-text {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #666666;
+    position: absolute;
+    top: 7.3rem;
+    background-color: #5a585abb;
+    width: 93.5%;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    color: white;
+}
+.video-one{
+    position: relative;
+    padding: 0 0.5rem;
+    width: 50%;
+    float: left;
+    margin-bottom: 1rem;
+}

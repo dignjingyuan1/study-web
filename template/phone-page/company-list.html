@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="applicable-device" content="pc">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-eqiv="cleartype" content="ON">
+  <link href="phone-css/company-list.css" rel="stylesheet" type="text/css" />
+  <link href="phone-css/common.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="panel">
+
+    <!-- 轮播图开始 -->
+    <div ng-include="'include/banner.html'"></div>
+    <!-- 轮播图结束 -->
+
+    <!-- 搜索开始 -->
+    <div class="panel-width search-box" style="position: relative;">
+      <div class="search-input-box">
+        <img class="search-icon" src="img/search-icon.png" alt="">
+        <input class="search-input" type="text" />
+      </div>
+    </div>
+    <!-- 搜索结束 -->
+    
+    <!-- 职业规划开始 -->
+    <div class="panel-width">
+      <div class="class-title">
+        <p class="class-text">企业展示</p>
+      </div>
+      <div class="content-box">
+        <div class="video-one" ng-repeat="group in companyList">
+          <img class="video-img" src="{{group.companyImg}}" alt="">
+          <p class="video-text overflow-hidden">{{group.companyName}}</p>
+        </div>
+      </div>
+    </div>
+    <!-- 职业规划结束 -->
+    <div class="di-box"><span class="line-di"></span>我们也是有底线的<span class="line-di"></span></div>
+  </div>
+</body>
+</html>

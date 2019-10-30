@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="applicable-device" content="pc">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-eqiv="cleartype" content="ON">
+  <meta http-eqiv="cleartype" content="ON">
+  <link href="phone-css/common.css" rel="stylesheet" type="text/css" />
+  <link href="phone-css/course.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="panel">
+
+    <!-- 轮播图开始 -->
+    <div ng-include="'include/banner.html'"></div>
+    <!-- 轮播图结束 -->
+
+    <!-- 搜索开始 -->
+    <div class="panel-width search-box" style="position: relative;">
+      <div class="search-input-box">
+        <img class="search-icon" src="img/search-icon.png" alt="">
+        <input class="search-input" type="text" />
+      </div>
+      <img onclick="menuShow()" class="img-icon" src="img/search-more.png" alt="">
+      <div id="menu" style="display: none;">
+        <div class="menu">
+          <div class="menu-item">
+            <div class="menu-item item-text-box">
+              <p>职业规划</p>
+            </div>
+            <div class="menu-item item-text-box">
+              <p>行业剖析</p>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item item-text-box">
+              <p>通用技能</p>
+            </div>
+            <div class="menu-item item-text-box">
+              <p>专业技能</p>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item item-text-box">
+              <p style="border: none;">产品经理</p>
+            </div>
+            <div class="menu-item item-text-box">
+              <p style="border: none;">推广经理</p>
+            </div>
+          </div>
+        </div>
+        <i class="login-sanjiao"></i>
+      </div>
+    </div>
+    <!-- 搜索结束 -->
+    
+    <!-- 职业规划开始 -->
+    <div class="panel-width" ng-repeat="item in courseGroupTypeList">
+      <div class="class-title">
+        <p class="class-text">{{item.name}}</p>
+        <img class="more-img" src="img/right.png" alt="">
+        <p class="more-text">更多</p>
+      </div>
+      <div class="content-box">
+        <div class="video-one" ng-repeat="group in item.courseGroupLists track by $index">
+          <img class="video-img" src="{{group.courseGroupImg}}" alt="">
+          <p class="video-text overflow-hidden">{{group.courseGroupName}}</p>
+        </div>
+      </div>
+    </div>
+    <!-- 职业规划结束 -->
+    <div class="di-box"><span class="line-di"></span>我们也是有底线的<span class="line-di"></span></div>
+  </div>
+  <!-- footer bar -->
+  <div class="footer-bar">
+    <div class="footer-item">
+      <img src="img/index-hui.png" alt="">
+      <p>首页</p>
+    </div>
+    <div class="footer-item">
+      <img src="img/class-active.png" alt="">
+      <p class="font-act">课程</p>
+    </div>
+    <div class="footer-item">
+      <img src="img/jingpin-hui.png" alt="">
+      <p>精品</p>
+    </div>
+    <div class="footer-item">
+      <img src="img/my-hui.png" alt="">
+      <p>我的</p>
+    </div>
+  </div>
+</body>
+</html>
