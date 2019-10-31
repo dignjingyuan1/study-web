@@ -4,6 +4,7 @@ define([], function () {
 	return ["$scope","$state", function ($scope,$state) {
 		
 		$scope.go = function(path){
+		    console.log(path)
 			$state.go(path)
 		}
 		

@@ -2,7 +2,9 @@ define([], function () {
 	
 	// controller
 	return ["$scope","$state", function ($scope,$state) {
-		
+        $scope.go = function(path){
+            $state.go(path)
+        }
 		$scope.courseGroupId = $state.params.id;
 		
 		/**
