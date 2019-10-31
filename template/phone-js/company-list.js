@@ -64,7 +64,7 @@ define([], function () {
 		}
 		
 		$scope.goCompanyDetails = function(id){
-			$state.go("teacher-details",{id: id});
+			$state.go("phone-company-detail",{id: id});
 		}
 		
 		$scope.searchCompanyRecommend();

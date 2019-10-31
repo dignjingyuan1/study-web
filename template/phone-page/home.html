@@ -13,6 +13,7 @@
   <meta http-eqiv="cleartype" content="ON">
   <link href="phone-css/common.css" rel="stylesheet" type="text/css" />
   <link href="phone-css/home.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
@@ -92,7 +93,7 @@
         <p class="more-text">更多</p>
       </div>
       <div class="content-box">
-        <div class="video-one" ng-repeat="item in teacherList">
+        <div class="video-one" ng-repeat="item in teacherList" ng-click="goTeacherDetails(item.teacherId)">
           <img class="video-img" src="{{item.teacherImg}}" alt="">
           <p class="video-text overflow-hidden">{{item.teacherName}}</p>
         </div>
@@ -108,7 +109,7 @@
         <p class="more-text">更多</p>
       </div>
       <div class="content-box">
-        <div class="video-one" ng-repeat="item in companyList">
+        <div class="video-one" ng-repeat="item in companyList" ng-click="goCompanyDetails(item.companyId)">
           <img class="video-img" src="{{item.companyImg}}" alt="">
           <p class="video-text overflow-hidden">{{item.companyName}}</p>
         </div>
@@ -124,7 +125,7 @@
         <p class="more-text">更多</p>
       </div>
       <div class="content-box">
-        <div class="video-one" ng-repeat="item in schoolList">
+        <div class="video-one" ng-repeat="item in schoolList" ng-click="goCompanyDetails(item.companyId)">
           <img class="video-img" src="{{item.companyImg}}" alt="">
           <p class="video-text overflow-hidden">{{item.companyName}}</p>
         </div>
@@ -183,7 +184,7 @@
         <p class="more-text">更多</p>
       </div>
       <div class="content-right">
-        <div class="content-small" ng-repeat="item in companyHotsList">
+        <div class="content-small" ng-repeat="item in companyHotsList" ng-click="goCompanyDetails(item.companyId)">
           <div class="small-left">
             <img class="small-left-img" src="{{item.companyImg}}" alt="">
           </div>
@@ -199,15 +200,15 @@
   </div>
   <!-- footer bar -->
   <div class="footer-bar">
-    <div class="footer-item">
+    <div class="footer-item" ng-click="go('phone-home')">
       <img src="img/index-active.png" alt="">
       <p class="font-act">首页</p>
     </div>
-    <div class="footer-item">
+    <div class="footer-item" ng-click="go('phone-course')">
       <img src="img/class-hui.png" alt="">
       <p>课程</p>
     </div>
-    <div class="footer-item">
+    <div class="footer-item" ng-click="go('phone-boutique')">
       <img src="img/jingpin-hui.png" alt="">
       <p>精品</p>
     </div>

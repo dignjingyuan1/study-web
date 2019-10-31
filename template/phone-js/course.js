@@ -2,7 +2,9 @@ define([], function () {
 	
 	// controller
 	return ["$scope","$state", function ($scope,$state) {
-		
+        $scope.go = function(path){
+            $state.go(path)
+        }
 		/**
 		 * 
 		 */
@@ -24,7 +26,7 @@ define([], function () {
 		   * @param {Object} id
 		   */
 		  $scope.goCourseDetails = function(id){
-		  	$state.go("course-details",{id:id})
+		  	$state.go("phone-course-detail",{id:id})
 		  }
 		
 		$scope.searchCourseGroupTypeList();

@@ -1,0 +1,140 @@
+@charset "utf-8";
+/* CSS Document */
+body,p,h1,h2,h3,h4,h5,h6,ul,dl,dd,td,input,fieldset,textarea,option{ margin:0; padding:0; box-sizing: border-box}
+li{list-style:none;}
+a{text-decoration:none; color:#333;}
+img{border:none; vertical-align:top; }
+a,input{outline:none;}
+h1,h2,h3,h4,h5,h6,b,strong{font-weight:100;}
+i,em{font-style:normal;}
+body{font:12px "微软雅黑";}
+.clear{zoom:1;}
+.clear:after{content:"."; display:block; clear:both; height:0; visibility:hidden;}
+.fl{float:left;}
+.fr{float:right;}
+div,p{
+    box-sizing: border-box
+}
+
+.panel{
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 5rem
+}
+.panel-width{
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* footer bar */
+.footer-bar{
+    height: 5rem;
+    width: 100%;
+    z-index: 999;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    background-color: white;
+    box-shadow: 0px 0px 1px 1px #ccc;
+}
+.footer-item{
+    padding-top: 0.5rem;
+    flex: 1;
+    text-align: center;
+}
+.footer-item > img{
+    width: 3.2rem;}
+.footer-item > p{
+    font-size: 1rem;
+    color: #666666
+}
+.font-act{
+    color: #ff584f !important
+}
+
+.content-box{
+    background-color: white;
+    border-radius: 13px;
+}
+
+.person-head{
+    height: 8rem;
+}
+.person-head > img{
+    width: 5rem;
+    border: 1px solid #cccccc;
+    border-radius: 100px;
+    margin: 1.8rem;
+}
+.person-head > p{
+    display: inline-block;
+    font-size: 1rem;
+    color: #333333;
+    line-height: 2rem;
+    margin-top: 2rem;
+}
+.wenda-icon{
+    width: 1.5rem;
+    height: 1.7rem;
+    display: inline-block;
+    background: #ff3728;
+    text-align: center;
+    line-height: 1.7rem;
+    font-size: 1rem;
+    color: white;
+    border-radius: 5px;
+}
+.wenda-desc{
+    font-size: 0.8rem;
+    color: #999999;
+}
+.wz-title{
+    padding: 0px 1rem;
+    font-size: 1.2rem;
+    color: #333333;
+}
+.wz-content{
+    padding: 1rem 1rem;
+    font-size: 1rem;
+    color: #666666;
+}
+.img-box{
+    display: flex;
+    height: 6rem;
+}
+.img-item{
+    flex: 1;
+}
+.img-item > img {
+    width: 100%;
+    height: 100%;
+}
+.di-box{
+    /* display: block; */
+    text-align: center;
+    /* width: 100%; */
+    /* height: 20px; */
+    color: #999999;
+}
+.di-box > span {
+    color: #ff3728;
+}
+.line-di{
+    display: inline-block;
+    width: 3rem;
+    height: 1px;
+    background: #cccccc;
+    margin: 0.3rem 1rem;
+}
+.weiguan{
+    background: #ff3728;
+    border: none;
+    color: white;
+    width: 80%;
+    margin-left: 10%;
+    height: 3rem;
+    font-size: 1.2rem;
+    border-radius: 133px;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+}

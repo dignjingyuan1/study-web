@@ -70,7 +70,7 @@
         <p class="more-text">更多</p>
       </div>
       <div class="content-box">
-        <div class="video-one" ng-repeat="group in item.courseGroupLists track by $index">
+        <div class="video-one" ng-repeat="group in item.courseGroupLists track by $index" ng-click="goCourseDetails(group.courseGroupId)">
           <img class="video-img" src="{{group.courseGroupImg}}" alt="">
           <p class="video-text overflow-hidden">{{group.courseGroupName}}</p>
         </div>
@@ -81,15 +81,15 @@
   </div>
   <!-- footer bar -->
   <div class="footer-bar">
-    <div class="footer-item">
+    <div class="footer-item" ng-click="go('phone-home')">
       <img src="img/index-hui.png" alt="">
       <p>首页</p>
     </div>
-    <div class="footer-item">
+    <div class="footer-item" ng-click="go('phone-course')">
       <img src="img/class-active.png" alt="">
       <p class="font-act">课程</p>
     </div>
-    <div class="footer-item">
+    <div class="footer-item" ng-click="go('phone-boutique')">
       <img src="img/jingpin-hui.png" alt="">
       <p>精品</p>
     </div>

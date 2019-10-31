@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="applicable-device" content="pc">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-eqiv="cleartype" content="ON">
+  <link href="phone-css/live.css" rel="stylesheet" type="text/css" />
+  <link href="phone-css/common.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body style="background:#f5f5f5">
+  <div class="panel">
+    <!-- 精品content 开始 -->
+    <div class="panel-width jp-content">
+      <div class="jp-box" ng-repeat="item in courseGroupList" ng-click="goToDetails(item.courseGroupId)">
+        <img class="hot-video-img" src="img/wait-video.png" alt="" ng-if="item.playStatus == '0'">
+        <img class="hot-video-img" src="img/online-video.png" alt="" ng-if="item.playStatus != '0'">
+        <p class="content-title overflow-hidden">
+          <span><span style="color:#ff584f">{{item.playStatus == '0' ? '即将开始' : '直播中'}}</span>|{{item.courseGroupName}}</span>
+          <button class="bought-button">已购买</button>
+        </p>
+        <p class="content-desc"><span style="color:#ff584f">{{item.payCount}}人</span>观看</p>
+      </div>
+  </div>
+  <!-- 精品content 结束 -->
+  </div>
+  <!-- footer bar -->
+  <div class="footer-bar">
+    <div class="footer-item" ng-click="go('phone-home')">
+      <img src="img/index-hui.png" alt="">
+      <p>首页</p>
+    </div>
+    <div class="footer-item" ng-click="go('phone-course')">
+      <img src="img/class-hui.png" alt="">
+      <p>课程</p>
+    </div>
+    <div class="footer-item" ng-click="go('phone-boutique')">
+      <img src="img/jp-active.png" alt="">
+      <p class="font-act">精品</p>
+    </div>
+    <div class="footer-item">
+      <img src="img/my-hui.png" alt="">
+      <p>我的</p>
+    </div>
+  </div>
+</body>
+</html>

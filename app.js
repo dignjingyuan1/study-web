@@ -121,8 +121,33 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
 			url: "/phone-course-detail?:id",
 			templateUrl: "template/phone-page/course-detail.html",
 			controllerUrl: "template/phone-js/course-detail.js"
-		}))
-    };        
+		})).state("phone-teacher-detail", angularAMD.route({
+            url: "/phone-teacher-detail?:id",
+            templateUrl: "template/phone-page/teacher-detail.html",
+            controllerUrl: "template/phone-js/teacher-detail.js"
+        })).state("phone-company-detail", angularAMD.route({
+            url: "/phone-company-detail?:id",
+            templateUrl: "template/phone-page/company-detail.html",
+            controllerUrl: "template/phone-js/company-detail.js"
+        })).state("phone-boutique", angularAMD.route({
+            url: "/phone-boutique",
+            templateUrl: "template/phone-page/boutique.html",
+            controllerUrl: "template/phone-js/boutique.js"
+        })).state("phone-live", angularAMD.route({
+            url: "/phone-live",
+            templateUrl: "template/phone-page/live.html",
+            controllerUrl: "template/phone-js/live.js"
+        })).state("phone-question", angularAMD.route({
+            url: "/phone-question",
+            templateUrl: "template/phone-page/question.html",
+            controllerUrl: "template/phone-js/question.js"
+        })).state("phone-question-detail", angularAMD.route({
+            url: "/phone-question-detail?:id",
+            templateUrl: "template/phone-page/question-detail.html",
+            controllerUrl: "template/phone-js/question-details.js"
+        }))
+
+    };
         
     // module
     var app = angular.module("myApp", ["ngSanitize","ui.router"]);

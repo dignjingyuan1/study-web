@@ -37,7 +37,7 @@
         <p class="class-text">企业展示</p>
       </div>
       <div class="content-box">
-        <div class="video-one" ng-repeat="group in companyList">
+        <div class="video-one" ng-repeat="group in companyList" ng-click="goCompanyDetails(group.companyId)">
           <img class="video-img" src="{{group.companyImg}}" alt="">
           <p class="video-text overflow-hidden">{{group.companyName}}</p>
         </div>

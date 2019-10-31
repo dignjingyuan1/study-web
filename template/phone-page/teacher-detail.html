@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="applicable-device" content="pc">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-eqiv="cleartype" content="ON">
+  <link href="phone-css/teacher-detail.css" rel="stylesheet" type="text/css" />
+  <link href="phone-css/common.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="panel">
+
+    <!-- 轮播图开始 -->
+    <div ng-include="'include/banner.html'"></div>
+    <!-- 轮播图结束 -->
+    <!-- tab按钮开始 -->
+    <div class="panel-width search-box">
+      <div class="button-box">
+        <button class="tab-button">课程</button>
+      </div>
+      <i style="width:1px;height: 2.5rem;background:#ccc;margin-top: 0.6rem;"></i>
+      <div class="button-box">
+        <button class="tab-button button-act">专家简介</button>
+      </div>
+    </div>
+    <!-- tab按钮结束 -->
+
+    <!-- 介绍开始 -->
+    <div class="panel-width" style="padding: 0 0.5rem;">
+      <div class="class-title">
+        <p class="class-text">介绍</p>
+      </div>
+      <div class="panel-width desc-text" style="padding: 0 0.5rem;">
+          <img src="{{teacherDetails.teacherImg}}" alt="">
+          <p>
+            <span>{{teacherDetails.teacherName}}</span><br>
+            {{teacherDetails.teacherRecommend}}
+          </p>
+      </div>
+    </div>
+    <!-- 介绍结束 -->
+  </div>
+</body>
+</html>
