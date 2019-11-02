@@ -276,14 +276,14 @@ body{
     padding: 1rem;
 }
 .menu-item{
-    height: 4rem;
-    flex: 1;
-    display: flex;
     padding: 0 1rem;
+    overflow: hidden;
 }
 .item-text-box{
     text-align: center;
     line-height: 4rem;
+    width: 50%;
+    float: left;
 }
 .item-text-box>p{
     width: 100%;

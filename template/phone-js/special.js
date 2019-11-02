@@ -5,7 +5,6 @@ define([], function () {
         $scope.go = function(path){
             $state.go(path)
         }
-        $scope.isShowType = "";
 		/**
 		 * 
 		 */
@@ -21,9 +20,6 @@ define([], function () {
 				}
 			})
 		}
-		$scope.groupChange = function(name){
-            $scope.isShowType = name;
-		}
 		
 		/**
 		   * 跳转到课程详细
@@ -36,15 +32,3 @@ define([], function () {
 		$scope.searchCourseGroupTypeList();
 	}];
 });
-
-var isMenuShow = false;
-function menuShow(){
-	console.log('dudu')
-	if(isMenuShow){
-		document.getElementById('menu').style.display = 'none'
-		isMenuShow = false;
-	}else{
-		document.getElementById('menu').style.display = 'block'
-		isMenuShow = true;
-	}
-}
