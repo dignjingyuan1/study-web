@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="applicable-device" content="pc">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-eqiv="cleartype" content="ON">
+  <link href="phone-css/special.css" rel="stylesheet" type="text/css" />
+  <link href="phone-css/common.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="panel">
+    <!-- banner开始 -->
+    <div class="banner" style="position: relative">
+      <img id="videoImg" style="width: 100%; height: 15rem;" src="img/banner1-1.png">
+    </div>
+    <!-- banner结束 -->
+    <!-- 通用技能开始 -->
+    <div class="panel-width" ng-repeat="item in courseGroupTypeList">
+      <div class="class-title">
+        <p class="class-text">{{item.name}}</p>
+        <!--<img class="more-img" src="img/right.png" alt="">-->
+        <!--<p class="more-text">更多</p>-->
+      </div>
+      <div class="content-right">
+        <div class="content-small" ng-repeat="courseItem in item.courseGroupLists">
+          <div class="small-left" ng-click="goCourseDetails(courseItem.courseGroupId)">
+            <img class="small-left-img" src="{{courseItem.courseGroupImg}}" alt="">
+          </div>
+          <div class="small-right" ng-click="goCourseDetails(courseItem.courseGroupId)">
+            <p class=" small-title overflow-hidden">{{courseItem.courseGroupName}}</p>
+            <p class="small-desc overflow-hidden">{{courseItem.courseGroupRemark}}</p>
+          </div>
+          <div class="best-right">
+            <p>￥<span>{{courseItem.courseGroupAmount}}</span></p>
+            <button>立即购买</button>
+          </div>
+        </div>
+      </div>
+      <!-- 通用技能结束 -->
+      <div class="line"></div>
+    </div>
+  </div>
+  <!-- footer bar -->
+  <div class="footer-bar">
+    <div class="footer-item" ng-click="go('phone-home')">
+      <img src="img/index-hui.png" alt="">
+      <p>首页</p>
+    </div>
+    <div class="footer-item" ng-click="go('phone-course')">
+      <img src="img/class-active.png" alt="">
+      <p class="font-act">课程</p>
+    </div>
+    <div class="footer-item" ng-click="go('phone-boutique')">
+      <img src="img/jingpin-hui.png" alt="">
+      <p>精品</p>
+    </div>
+    <div class="footer-item">
+      <img src="img/my-hui.png" alt="">
+      <p>我的</p>
+    </div>
+  </div>
+</body>
+</html>

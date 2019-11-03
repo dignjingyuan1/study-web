@@ -2,7 +2,9 @@ define([], function () {
 	
 	// controller
 	return ["$scope","$state", function ($scope,$state) {
-		
+        $scope.go = function(path){
+            $state.go(path)
+        }
 		 $scope.courseGroupList = [];
 	
 		  /**
@@ -156,7 +158,7 @@ define([], function () {
 		   * @param {Object} id
 		   */
 		  $scope.goCourseDetails = function(id){
-		  	$state.go("course-details",{id:id})
+		  	$state.go("phone-course-detail",{id:id})
 		  }
 		  
 		  /**
@@ -164,7 +166,7 @@ define([], function () {
 		   * @param {Object} id
 		   */
 		  $scope.goTeacherDetails = function(id){
-		  	$state.go("teacher-details",{id: id});
+		  	$state.go("phone-teacher-detail",{id: id});
 		  }
 		  
 		  /**
@@ -172,7 +174,7 @@ define([], function () {
 		   * @param {Object} id
 		   */
 		  $scope.goCompanyDetails = function(id){
-		  	$state.go("company-details",{id: id});
+		  	$state.go("phone-company-detail",{id: id});
 		  }
 		  
 		   $scope.searchCourseRecommend();

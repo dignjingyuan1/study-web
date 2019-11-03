@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="applicable-device" content="pc">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-eqiv="cleartype" content="ON">
+  <link href="phone-css/company-detail.css" rel="stylesheet" type="text/css" />
+  <link href="phone-css/common.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="panel">
+
+    <!-- 视频开始 -->
+    <div class="banner" style="position: relative">
+      <video id="videoPlay" class="video-content" controls="controls">
+        <source id="move" src="" type="video/mp4">
+      </video>
+    </div>
+    <!-- 视频结束 -->
+
+    <!-- 介绍开始 -->
+    <div class="panel-width" style="padding: 0 0.5rem;">
+      <div class="class-title">
+        <p class="class-text">{{companyDetails.companyName}}</p>
+      </div>
+      <div class="panel-width desc-text" style="padding: 0 0.5rem;">
+          {{companyDetails.companyRemark}}
+      </div>
+    </div>
+    <!-- 介绍结束 -->
+  </div>
+</body>
+</html>

@@ -29,7 +29,7 @@ define([], function () {
 		}
 		
 		$scope.goTeacherDetails = function(id){
-			$state.go("teacher-details",{id: id})
+			$state.go("phone-teacher-detail",{id: id})
 		}
 		
 		$scope.searchTeacherPager();
