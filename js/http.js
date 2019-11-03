@@ -1,6 +1,6 @@
-var API_HEADER = "http://api.bangwotrans.com:8082";
+//var API_HEADER = "http://api.bangwotrans.com:8082";
 //const API_HEADER = "http://152.136.187.193:8082";
-//const API_HEADER = "http://172.17.3.180:8082";
+const API_HEADER = "http://172.17.5.144:8082";
 /**
  * get请求 
  * @param {Object} params
@@ -56,6 +56,7 @@ function _ajax(params){
 	var _validToken = localStorage.getItem("validToken");
 	var cache = params.cache == false ? params.cache : true;
 	var async = params.async == false ? params.async : true;
+	var loading = params.loading == undefined ? true : params.loading;
 	$.ajax({
 		url:  API_HEADER + params.url,
 		type: params.type,
@@ -71,7 +72,7 @@ function _ajax(params){
 			'validToken': _validToken
 		},
 		beforeSend: function(){
-			_loading();
+			loading ? _loading() : '';
 		},
 		success: function(res){
 			if(res.code == '2001'){
@@ -80,14 +81,14 @@ function _ajax(params){
 				_ajax(params)
 			}else if(res.code == '9999'){
 				localStorage.clear();
-				location.href = "index.html#/login";
+//				location.href = "index.html#/login";
 			}
 			if(typeof params.callback === "function"){
 				params.callback(res);
 			}
 		},
 		complete: function(){
-			_removeLoading();
+			loading ? _removeLoading() : '';
 		},
 		error: function(err){
 			_removeLoading();

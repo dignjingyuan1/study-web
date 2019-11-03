@@ -129,14 +129,7 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
     			document.documentElement.scrollTop = 0;
     			var token = localStorage.getItem("token");
 			if(token){
-				_get({
-					url: STUDY_API + "/user/getUser",
-					callback: function(res){
-						if(res.code == '2000'){
-							localStorage.setItem("user",JSON.stringify(res.data));
-						}
-					}
-				})
+				isUserLogin();
 			}
     		});
     });

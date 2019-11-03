@@ -407,3 +407,22 @@ function isPC() {
 	}
 	return flag;
 }
+
+/**
+ * 验证用户是否登录
+ */
+function isUserLogin(){
+	var flag = false;
+	_get({
+		url: STUDY_API + "/user/getUser",
+		cache: false,
+		async: false,
+		callback: function(res){
+			if(res.code == '2000'){
+				localStorage.setItem("user",JSON.stringify(res.data));
+				flag = true;
+			}
+		}
+	});
+	return flag;
+}

@@ -22,7 +22,7 @@
     <!-- 视频开始 -->
     <div class="banner" style="position: relative">
       <img id="videoImg" style="width: 900px; height: 490px;" src="{{courseGroup.courseGroupImg}}">
-      <img id="videoButton" class="video-play-button" ng-click="playVideo(courseGroup.courseList[0].courseAddress)" src="img/video-play.png" alt="">
+      <img id="videoButton" class="video-play-button" ng-click="playVideo(courseGroup.courseList[0].courseId)" src="img/video-play.png" alt="">
       <video id="videoPlay" style="display: none;outline: none;" width="900" height="490" controls="controls">
         <source id="move" src="" type="video/mp4">
       </video>
@@ -57,7 +57,7 @@
         <!--<p class="more-text">全选</p>-->
       </div>
       <div class="panel-width">
-        <div class="class-item" ng-repeat="item in courseGroup.courseList" ng-click="reload(item.courseAddress)">
+        <div class="class-item" ng-repeat="item in courseGroup.courseList" ng-click="reload(item.courseId)">
           <img class="play-button" src="img/play-act.png" alt="">
           <p class="class-item-title ">{{item.courseName}}<br><span
               style="font-size: 12px;color: #999999;">{{item.courseRemark}}</span>
