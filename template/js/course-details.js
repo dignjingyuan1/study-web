@@ -34,7 +34,8 @@ define([], function () {
 				_post({
 					url: STUDY_API + "/order/createOrder",
 					param: {
-						courseGroupId: $scope.courseGroupId
+						courseGroupId: $scope.courseGroupId,
+						client: '1'
 					},
 					callback: function(res){
 						if(res.code == '2000'){
