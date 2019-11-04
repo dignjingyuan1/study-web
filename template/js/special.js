@@ -8,7 +8,7 @@ define([], function () {
 		 */
 		$scope.searchCourseGroupTypeList = function(){
 			_get({
-				url: STUDY_API + "/courseGroupType/getCourseGroupTypeRecommend",
+				url: STUDY_API + "/courseGroupType/getCourseGroupTypeSpecial",
 				callback: function(res){
 					console.log(res);
 					if(res.code == '2000'){
