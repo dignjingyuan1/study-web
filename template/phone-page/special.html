@@ -30,11 +30,11 @@
         <!--<p class="more-text">更多</p>-->
       </div>
       <div class="content-right">
-        <div class="content-small" ng-repeat="courseItem in item.courseGroupLists">
-          <div class="small-left" ng-click="goCourseDetails(courseItem.courseGroupId)">
+        <div class="content-small" ng-repeat="courseItem in item.courseGroupLists" ng-click="goCourseDetails(courseItem.courseGroupId)">
+          <div class="small-left">
             <img class="small-left-img" src="{{courseItem.courseGroupImg}}" alt="">
           </div>
-          <div class="small-right" ng-click="goCourseDetails(courseItem.courseGroupId)">
+          <div class="small-right">
             <p class=" small-title overflow-hidden">{{courseItem.courseGroupName}}</p>
             <p class="small-desc overflow-hidden">{{courseItem.courseGroupRemark}}</p>
           </div>

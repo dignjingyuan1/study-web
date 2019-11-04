@@ -26,28 +26,26 @@ define([], function () {
 			})
 		}
 		
-		/**
+/**
 		 * 支付
 		 */
 		$scope.goToPay = function(){
-			_post({
-				url: STUDY_API + "/order/createOrder",
-				param: {
-					courseGroupId: $scope.courseGroupId
-				},
-				callback: function(res){
-					console.log(res);
-					if(res.code == '2000'){
-						showPopup({
-							url : 'select-wxpay',
-							title: '微信支付',
-							callback: function(){
-								
-							}
-						})
+			if(isUserLogin()){
+				_post({
+					url: STUDY_API + "/order/createOrder",
+					param: {
+						courseGroupId: $scope.courseGroupId,
+						client: '0'
+					},
+					callback: function(res){
+					    console.log('支付返回结果：',res)
+						if(res.code == '2000'){
+							var data = res.data;
+						}
 					}
-				}
-			})
+				});
+				return;
+			}
 		}
 		
 		/**
