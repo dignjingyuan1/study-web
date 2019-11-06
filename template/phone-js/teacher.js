@@ -7,7 +7,7 @@ define([], function () {
 		/**
 		 * 查找企业列表
 		 */
-		$scope.searchTeacherPager = function(){
+		$scope.searchTeacherPager = function(text){
 			var pageNo = Pager.index;
 			_get({
 				url: STUDY_API + "/teacher/getTeacherPager",
@@ -33,5 +33,13 @@ define([], function () {
 		}
 		
 		$scope.searchTeacherPager();
+
+		// 搜索
+		document.getElementById("searchButton").addEventListener('keydown', function(e){
+            var keywd = e.target.value;
+            if(event.keyCode == 13 && keywd) {
+                $scope.searchTeacherPager(document.getElementById("searchButton").value);
+            } 
+        });
 	}];
 });

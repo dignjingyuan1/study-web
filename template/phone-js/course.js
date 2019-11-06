@@ -9,7 +9,7 @@ define([], function () {
 		/**
 		 * 
 		 */
-		$scope.searchCourseGroupTypeList = function(){
+		$scope.searchCourseGroupTypeList = function(text){
 			_get({
 				url: STUDY_API + "/courseGroupType/getCourseGroupTypeRecommend",
 				callback: function(res){
@@ -34,6 +34,13 @@ define([], function () {
 		  }
 		
 		$scope.searchCourseGroupTypeList();
+		// 搜索
+        document.getElementById("searchButton").addEventListener('keydown', function(e){
+            var keywd = e.target.value;
+            if(event.keyCode == 13 && keywd) {
+                $scope.searchCourseGroupTypeList(document.getElementById("searchButton").value);
+            } 
+        });
 	}];
 });
 

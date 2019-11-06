@@ -42,13 +42,13 @@ define([], function () {
 		/**
 		 * 查找企业列表
 		 */
-		$scope.searchCompanyPagerApi = function(){
+		$scope.searchCompanyPagerApi = function(text){
 			var pageNo = Pager.index;
 			_get({
 				url: STUDY_API + pagerUrl,
 				param: {
-					pageNo: pageNo,
-					pageSize: 8
+					pageNo: 1,
+					pageSize: 2000
 				},
 				callback: function(res){
 					console.log(res);
@@ -69,5 +69,13 @@ define([], function () {
 		
 		$scope.searchCompanyRecommend();
 		$scope.searchCompanyPagerApi();
+
+		// 搜索
+        document.getElementById("searchButton").addEventListener('keydown', function(e){
+            var keywd = e.target.value;
+            if(event.keyCode == 13 && keywd) {
+                $scope.searchCompanyPagerApi(document.getElementById("searchButton").value);
+            } 
+        });
 	}];
 });
