@@ -15,18 +15,14 @@ define([], function () {
 		  		url: STUDY_API + "/courseGroup/getCourseGroupListRecommendApi",
 		  		param:{
 		  			startSize: 0,
-		  			endSize: 3
+		  			endSize: 2
 		  		},
 		  		callback: function(res){
 		  			if(res.code == '2000'){
 		  				var data = res.data;
 		  				for(var i=0;i<data.length; i++){
 		  					var item = data[i];
-		  					if(i == 0){
-		  						$scope.courseItem = item;
-		  					}else{
-		  						$scope.courseGroupList.push(item);
-		  					}
+                            $scope.courseGroupList.push(item);
 		  				}
 		  				$scope.$applyAsync();
 		  			}
