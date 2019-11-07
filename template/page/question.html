@@ -41,8 +41,8 @@
 
     <!-- 我要提问底部 开始 -->
     <div class="panel-width quostion-footer">
-      <p class="price"><span style="font-size: 15px">￥</span>39.00</p>
-      <p class="hui-text"><span style="text-decoration:line-through">原价￥399</span><br>已有16人向专家提问</p>
+      <p class="price"><span style="font-size: 15px">￥</span>{{amount}}</p>
+      <p class="hui-text"><span style="text-decoration:line-through">原价￥{{amount}}</span><br>已有{{count}}人向专家提问</p>
       <button class="quastion-button" ng-click="questionSend('question-send')">提问按钮</button>
     </div>
     <!-- 我要提问底部 结束 -->

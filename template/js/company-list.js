@@ -48,10 +48,10 @@ define([], function () {
 				url: STUDY_API + pagerUrl,
 				param: {
 					pageNo: pageNo,
-					pageSize: 8
+					pageSize: 8,
+					companyName: $scope.companyName
 				},
 				callback: function(res){
-					console.log(res);
 					if(res.code == '2000'){
 						$scope.companyList = res.rows;
 						Pager.total = res.total;
@@ -62,6 +62,24 @@ define([], function () {
 				}
 			})
 		}
+		
+		/**
+		 * 搜索
+		 */
+		$scope.search = function(){
+			$scope.searchCompanyPagerApi();
+		}
+		
+		$(document).bind("keydown",(event)=>{
+			let e = event ? event :(window.event ? window.event : null); 
+			if(e.keyCode==13){ 
+				$scope.search();
+			} 
+		});
+
+		$scope.$on("$destroy", function() {
+            $(document).unbind("keydown");
+        })
 		
 		$scope.goCompanyDetails = function(id){
 			$state.go("teacher-details",{id: id});

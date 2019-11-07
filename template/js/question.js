@@ -40,6 +40,44 @@ define([], function () {
 			$state.go("question-details",{id:id})
 		}
 		
+		/**
+		 * 查找回答为题金额
+		 */
+		$scope.searchQuestionAmount = function(){
+			_get({
+				url: STUDY_API + "/sysConfig/getSysConfigRuleByType",
+				param: {
+					type: '1'
+				},
+				callback: function(res){
+					if(res.code == '2000'){
+						$scope.amount = res.data;
+						$scope.$applyAsync();
+					}
+				}
+			})
+		}
+		
+		/**
+		 * 获取问题数量
+		 */
+		$scope.searchQuestionCount = function(){
+			_get({
+				url: STUDY_API + "/problem/getProblemCount",
+				param:{},
+				callback: function(res){
+					if(res.code == '2000'){
+						$scope.count = res.data;
+						$scope.$applyAsync();
+					}
+				}
+			})
+		}
+		
+		
+		
 		$scope.searchProblemList();
+		$scope.searchQuestionAmount();
+		$scope.searchQuestionCount();
 	}];
 });

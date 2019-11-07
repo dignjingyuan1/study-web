@@ -17,7 +17,6 @@ define([], function () {
 					courseGroupId : $scope.courseGroupId
 				},
 				callback: function(res){
-					console.log(res);
 					if(res.code == "2000"){
 						$scope.courseGroup = res.data;
 						$scope.$applyAsync();
@@ -74,7 +73,6 @@ define([], function () {
 				loading: false,
 				callback: function(res){
 					var data = res.data;
-					console.log(res);
 					if(data.orderStatus == "SUCCESS"){
 						$(".pay-body").empty();
 						var now = new Date();

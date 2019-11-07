@@ -28,8 +28,8 @@
     <!-- 搜索开始 -->
     <div class="panel-width search-box">
       <div class="search-input-box">
-        <img class="search-icon" src="img/search-icon.png" alt="">
-        <input class="search-input" type="text" />
+        <img class="search-icon" src="img/search-icon.png" alt="" ng-click="search()">
+        <input class="search-input" type="text" ng-model="teacherName"/>
       </div>
       <img class="img-icon" src="img/search-more.png" alt="">
     </div>
@@ -48,7 +48,6 @@
       </div>
     </div>
     <!-- 明星导师结束 -->
-
     <div ng-include="'include/footer.html'"></div>
   </div>
 </body>

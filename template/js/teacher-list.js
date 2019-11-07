@@ -13,10 +13,10 @@ define([], function () {
 				url: STUDY_API + "/teacher/getTeacherPager",
 				param: {
 					pageNo: pageNo,
-					pageSize: 8
+					pageSize: 8,
+					teacherName: $scope.teacherName
 				},
 				callback: function(res){
-					console.log(res)
 					if(res.code == '2000'){
 						$scope.teacherList = res.rows;
 						Pager.total = res.total;
@@ -27,6 +27,24 @@ define([], function () {
 				}
 			})
 		}
+		
+		/**
+		 * 搜索
+		 */
+		$scope.search = function(){
+			$scope.searchTeacherPager();
+		}
+		
+		$(document).bind("keydown",(event)=>{
+			let e = event ? event :(window.event ? window.event : null); 
+			if(e.keyCode==13){ 
+				$scope.search();
+			} 
+		});
+
+		$scope.$on("$destroy", function() {
+            $(document).unbind("keydown");
+        })
 		
 		$scope.goTeacherDetails = function(id){
 			$state.go("teacher-details",{id: id})
