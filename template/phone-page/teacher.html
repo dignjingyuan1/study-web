@@ -13,7 +13,7 @@
   <meta http-eqiv="cleartype" content="ON">
   <meta http-eqiv="cleartype" content="ON">
   <link href="phone-css/common.css" rel="stylesheet" type="text/css" />
-  <link href="phone-css/course.css" rel="stylesheet" type="text/css" />
+  <link href="phone-css/teacher.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -25,11 +25,13 @@
 
   <!-- 搜索开始 -->
   <div class="panel-width search-box" style="position: relative;">
-    <div class="search-input-box">
-      <img class="search-icon" src="img/search-icon.png" alt="">
-      <input class="search-input" type="text" />
-    </div>
-    <img onclick="menuShow()" class="img-icon" src="img/search-more.png" alt="">
+    <form style="width:100%">
+      <div class="search-input-box">
+        <input id="searchButton" class="search-input" type="search" />
+        <img class="search-icon" src="img/search-icon.png" alt="">
+       </div>
+    </form>
+    <!--<img onclick="menuShow()" class="img-icon" src="img/search-more.png" alt="">-->
     <div id="menu" style="display: none;">
       <div class="menu">
         <div class="menu-item">
