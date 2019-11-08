@@ -9,13 +9,9 @@ define([], function () {
 		/**
 		 * 
 		 */
-		$scope.searchCourseGroupTypeList = function(text){
+		$scope.searchCourseGroupTypeList = function(){
 			_get({
-				url: STUDY_API + "/courseGroupType/getCourseGroupListApi",
-				param: {
-                    pageNo: 0,
-                    pageSize: 1000,
-                },
+				url: STUDY_API + "/courseGroupType/getCourseGroupTypeRecommend",
 				callback: function(res){
 					console.log(res);
 					if(res.code == '2000'){

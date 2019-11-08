@@ -49,8 +49,8 @@
     <div class="panel-width" ng-repeat="item in courseGroupTypeList" ng-if="!isShowType || isShowType == item.name">
       <div class="class-title">
         <p class="class-text">{{item.name}}</p>
-        <img class="more-img" src="img/right.png" alt="">
-        <p class="more-text">更多</p>
+        <!--<img class="more-img" src="img/right.png" alt="">-->
+        <!--<p class="more-text">更多</p>-->
       </div>
       <div class="content-box">
         <div class="video-one" ng-repeat="group in item.courseGroupLists track by $index" ng-click="goCourseDetails(group.courseGroupId)">
