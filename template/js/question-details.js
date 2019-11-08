@@ -13,6 +13,7 @@ define([], function () {
 					problemId: $scope.problemId
 				},
 				callback: function(res){
+					console.log(res);
 					if(res.code == "2000"){
 						$scope.item = res.data;
 						$scope.$applyAsync();

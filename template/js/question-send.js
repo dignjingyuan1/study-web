@@ -66,7 +66,6 @@ define([], function () {
 				loading: false,
 				callback: function(res){
 					var data = res.data;
-					console.log(data);
 					if(data.orderStatus == "SUCCESS"){
 						$(".pay-body").empty();
 						var now = new Date();
