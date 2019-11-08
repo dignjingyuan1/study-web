@@ -48,7 +48,8 @@ define([], function () {
 				url: STUDY_API + pagerUrl,
 				param: {
 					pageNo: 1,
-					pageSize: 2000
+					pageSize: 2000,
+					companyName: text
 				},
 				callback: function(res){
 					console.log(res);

@@ -29,3 +29,8 @@ body,p,h1,h2,h3,h4,h5,h6,ul,dl,dd,td,input,fieldset,textarea,option{ margin:0; p
     float: left;
     margin-bottom: 1rem;
 }
+.video-img {
+    border-radius: 5px;
+    width: 100%;
+    height: 8rem;
+}

@@ -45,6 +45,7 @@ body{
 .panel-width{
     width: 100%;
     margin: 0 auto;
+    overflow: hidden;
 }
 .four-button-box{
     display: flex;

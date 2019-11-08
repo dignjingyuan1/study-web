@@ -11,7 +11,11 @@ define([], function () {
 		 */
 		$scope.searchCourseGroupTypeList = function(text){
 			_get({
-				url: STUDY_API + "/courseGroupType/getCourseGroupTypeRecommend",
+				url: STUDY_API + "/courseGroupType/getCourseGroupListApi",
+				param: {
+                    pageNo: 0,
+                    pageSize: 1000,
+                },
 				callback: function(res){
 					console.log(res);
 					if(res.code == '2000'){

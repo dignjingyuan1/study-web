@@ -13,7 +13,8 @@ define([], function () {
 				url: STUDY_API + "/teacher/getTeacherPager",
 				param: {
 					pageNo: pageNo,
-					pageSize: 1000
+					pageSize: 1000,
+					teacherName:text
 				},
 				callback: function(res){
 					console.log(res)

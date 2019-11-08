@@ -188,6 +188,8 @@ body{
 .small-right{
     padding-left: 1rem;
     width: 17.5rem;
+    overflow: hidden;
+    height: 7rem;
 }
 .small-left-img{
     width: 100%;
@@ -198,8 +200,7 @@ body{
     color: #333333;
 }
 .small-desc{
-    font-size: 1rem;
-    margin-top: 0.5rem;
+    font-size: 0.8rem;
     color: #b4b4b4;
 }
 .di-box{
