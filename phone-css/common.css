@@ -14,12 +14,13 @@ body,p,h1,h2,h3,h4,h5,h6,ul,dl,dd,td,input,fieldset,textarea,option{ margin:0; p
     font-size: 1.4rem;
     color: #666666;
     position: absolute;
-    top: 7.3rem;
+    top: 5.5rem;
     background-color: #5a585abb;
     width: 93.5%;
     height: 2.5rem;
     line-height: 2.5rem;
     color: white;
+    border-radius: 4px;
 }
 .video-one{
     position: relative;
