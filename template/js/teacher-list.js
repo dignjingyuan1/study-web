@@ -4,6 +4,7 @@ define([], function () {
 	return ["$scope","$state", function ($scope,$state) {
 		Pager.index = 1;
 		Pager.limit = 8;
+		Pager.pagerId = "#pager";
 		/**
 		 * 查找企业列表
 		 */

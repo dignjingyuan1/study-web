@@ -3,7 +3,7 @@ define([], function () {
 	// controller
 	return ["$scope","$state", function ($scope,$state) {
 		var type = $state.params.type;
-		console.log(type);
+		$scope.title = type == "1" ? "企业展示" : "高校展示";
 		var url;
 		var pagerUrl;
 		if(type == 1){
@@ -16,7 +16,6 @@ define([], function () {
 			url = "/company/getCompanyHotsListApi";
 			pagerUrl = "/company/getCompanyPagerApi"
 		}
-		console.log(url)
 		/**
 		 * 查找推荐的企业
 		 */
@@ -39,6 +38,7 @@ define([], function () {
 		
 		Pager.index = 1;
 		Pager.limit = 8;
+		Pager.pagerId = "#pager";
 		/**
 		 * 查找企业列表
 		 */
@@ -79,12 +79,18 @@ define([], function () {
 
 		$scope.$on("$destroy", function() {
             $(document).unbind("keydown");
-        })
+       })
 		
-		$scope.goCompanyDetails = function(id){
-			$state.go("teacher-details",{id: id});
-		}
 		
+		/**
+		   * 企业详细
+		   * @param {Object} id
+		   */
+		  $scope.goCompanyDetails = function(id){
+		  	$state.go("company-details",{id: id});
+		  }
+		  
+		  
 		$scope.searchCompanyRecommend();
 		$scope.searchCompanyPagerApi();
 	}];

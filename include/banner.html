@@ -8,8 +8,8 @@
 	<body>
 		<div class="swiper-container banner" ng-controller="banner">
 	    		<div class="swiper-wrapper">
-		    		<div class="swiper-slide" ><img class="banner-img" src="img/banner1.jpeg" alt=""></div>
-		    		<div class="swiper-slide" ><img class="banner-img" src="img/banner2.jpeg" alt=""></div>
+		    		<div class="swiper-slide" ng-repeat="item in bannerList " ><img class="banner-img" src="{{item.bannerImg}}" alt="{{item.bannerAlt}}"></div>
+		    		<!--<div class="swiper-slide" ><img class="banner-img" src="img/banner2.jpeg" alt=""></div>-->
 		    		<!--<div class="swiper-slide" ><img class="banner-img" src="img/want-question.png" alt=""></div>-->
 				<!--<div id="bannerpagination" ></div>-->
 				<!--右箭头。如果放置在swiper-container外面，需要自定义样式。-->

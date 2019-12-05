@@ -127,6 +127,8 @@ div,p{
     border-right: 0;
     font-size: 18px;
     color: #999999;
+    outline: none;
+    cursor: pointer;
 }
 .button-act{
     color: #ff3728;
@@ -221,7 +223,7 @@ div,p{
     color: #999999;
     margin-left: 10px;
 }
-.quastion-button{
+.quastion-button-active{
     border: 0;
     background-color: #ff3728;
     height: 45px;
@@ -233,4 +235,29 @@ div,p{
     margin-right: 26px;
     outline: none;
     cursor: pointer;
+}
+.quastion-button{
+	border: 0;
+    background-color: #efefef;
+    height: 45px;
+    width: 110px;
+    border-radius: 30px;
+    color: #949494;
+    float: right;
+    margin-top: 23px;
+    margin-right: 26px;
+    outline: none;
+}
+.content-box{
+    width: 100%;
+    height: 360px;
+    display: flex;
+}
+.time-out{
+    position: absolute;
+    top: 144px;
+    left: 400px;
+    font-size: 36px;
+    color: white;
+    line-height: 70px;
 }

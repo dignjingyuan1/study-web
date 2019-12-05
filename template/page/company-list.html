@@ -38,17 +38,17 @@
     <!-- 企业展示开始 -->
     <div class="panel-width">
       <div class="class-title">
-        <p class="class-text">企业展示</p>
-        <img class="more-img" src="img/right.png" alt="">
-        <p class="more-text">更多</p>
+        <p class="class-text">{{title}}</p>
+        <!--<img class="more-img" src="img/right.png" alt="">
+        <p class="more-text">更多</p>-->
       </div>
       <div class="content-box">
-        <div class="content-left" ng-click="goCompanyDetails(companyRecommendList[0].companyId)">
+        <div class="content-left" ng-click="goCompanyDetails(companyRecommendList[0].companyId)" ng-click="goCompanyDetails(companyRecommendList[0].companyId)">
           <img class="content-img" src="{{companyRecommendList[0].companyImg}}" alt="" />
           <span>{{companyRecommendList[0].companyName}}</span>
         </div>
         <div class="content-right">
-          <div class="content-small"  ng-repeat="item in companyRecommendList track by $index" ng-if="$index != 0">
+          <div class="content-small"  ng-repeat="item in companyRecommendList track by $index" ng-if="$index != 0" ng-click="goCompanyDetails(item.companyId)">
             <div class="small-left">
               <img class="small-left-img" src="{{item.companyImg}}" alt="">
             </div>

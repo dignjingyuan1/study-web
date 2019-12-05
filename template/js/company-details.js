@@ -17,6 +17,7 @@ define([], function () {
 					console.log(res);
 					if(res.code == '2000'){
 						$scope.companyDetails = res.data;
+						$("#videoPlay").bind("contextmenu",function(){return false;});
 						$("#move").attr("src",res.data.companyAddress);
 						$("#videoPlay").load();
 						$scope.$applyAsync();

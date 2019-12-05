@@ -28,7 +28,7 @@
         <p class="upload-img" >上传头像</p>
       </div>
       <input type="file" id="downloadFile" style="display: none;" onchange="selectImg(this)" accept="image/*"/>
-      <p class="username">周火火</p>
+      <p class="username">{{userName}}</p>
       <p class="user-level">等级：热血青铜</p>
       <img class="head-img-left" src="img/head-img-left.png" alt="">
     </div>
@@ -72,7 +72,7 @@
       <div class="right-content-area ">
         <!-- 我的课程右侧内容开始 -->
         <div id="myClass" class="content">
-          <div class="content-small" ng-repeat="item in orderList">
+          <div class="content-small" ng-repeat="item in orderList" ng-click="courseGroupDetails(item.courseGroupId)">
             <div class="small-left">
               <img class="small-left-img" src="{{item.courseGroupImg}}" alt="">
             </div>
@@ -90,14 +90,14 @@
 
         <!-- 我的提问右侧内容开始 -->
         <div id="myQustion" class="content" style="display: none;">
-          <div class="qustion-list-box border-top" ng-repeat="item in problemList">
+          <div class="qustion-list-box border-top" ng-repeat="item in problemList" ng-click="questionDetails(item.problemId)">
             <p class="">
               <span class="qustion-icon">问</span>&nbsp;<span style="font-size: 15px;color: #333333">{{item.problemTitle}}</span>
               <span style="float: right; color: #999999;"><img style="width: 15px;margin-top: 4px;"
                   src="img/time-icon.png" alt="">{{item.createTime}}预约</span>
             </p>
             <p style="color: #999999;">
-              <span class="answer-icon">答</span>&nbsp;<span>谢良地教授答复</span>
+              <span class="answer-icon">答</span>&nbsp;<span>{{item.teacherName ? item.teacherName+'教授答复' : ''}}</span>
             </p>
           </div>
           <div class="pager" id="problemPager"></div>
@@ -301,6 +301,10 @@
         
         <!-- 我得资料右侧内容开始 -->
         <div id="myInfo" class="content" style="display: none;">
+        	  <div class="myinfo-item">
+            <span>姓名：</span>
+            <input type="text" placeholder="请输入姓名" ng-model="userName" >
+          </div>
           <div class="myinfo-item">
             <span>电话号码：</span>
             <input type="text" placeholder="请输入电话号码" ng-model="userPhone" readonly="readonly">

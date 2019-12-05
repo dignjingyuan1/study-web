@@ -32,5 +32,36 @@ app.controller("login",($scope,$state)=>{
 			}
 		})
 	}
+	
+	/**
+	 * 打开登录
+	 */
+	$scope.openReg = function(){
+		$("#login-box").css("transform","scale(0)");
+		setTimeout(()=>{
+			$("#login-alert").hide();
+		},450);
+		
+		
+		$("#reg-alert").show();
+		setTimeout(()=>{
+			$("#reg-box").css("transform","scale(1)");
+		},50);
+	}
 
+
+	/**
+	 * 修改密码
+	 */
+	$scope.modify = function(){
+		$("#login-box").css("transform","scale(0)");
+		setTimeout(()=>{
+			$("#login-alert").hide();
+		},450);
+		
+		$("#modify-alert").show();
+		setTimeout(()=>{
+			$("#modify-box").css("transform","scale(1)");
+		},50);
+	}
 });

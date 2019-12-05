@@ -27,18 +27,28 @@
 
     <!-- tab按钮开始 -->
     <div class="panel-width search-box">
-      <div class="button-box">
-        <button class="tab-button">课程</button>
+      <div class="button-box" >
+        <button class="tab-button" ng-click="tabSwitch(0)">课程</button>
       </div>
       <i style="width:1px;height:50px;background:#ccc;margin-top: 11px;"></i>
-      <div class="button-box">
-        <button class="tab-button button-act">专家简介</button>
+      <div class="button-box" >
+        <button class="tab-button button-act"  ng-click="tabSwitch(1)">专家简介</button>
       </div>
     </div>
     <!-- tab按钮结束 -->
-
+	<div class="panel-width group" style="display: none;">
+		<div class="jp-box"  ng-repeat="item in teacherDetails.courseGroupList" ng-click="goToDetails(item.courseGroupId)">
+	        <img class="hot-video-img" src="{{item.courseGroupImg}}" alt="">
+	        <p class="content-title overflow-hidden">
+	          <span><span style="color:#ff584f">{{item.playStatus == '0' ? '即将开始' : '直播中'}}</span>|{{item.courseGroupName}}</span>
+	          <!--<button class="bought-button">已购买</button>-->
+	          <button class="bought-button button-disable">未购买</button>
+	        </p>
+	        <p class="content-desc"><span style="color:#ff584f">{{item.payCount}}人</span>观看</p>
+	     </div>
+	</div>
     <!-- 介绍开始 -->
-    <div class="panel-width">
+    <div class="panel-width group">
       <div class="class-title">
         <p class="class-text">介绍</p>
       </div>
@@ -53,7 +63,7 @@
       </div>
     </div>
     <!-- 介绍结束 -->
-
+	
     <div ng-include="'include/footer.html'"></div>
   </div>
 </body>

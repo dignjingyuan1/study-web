@@ -47,7 +47,7 @@
         <!-- 提问区域结束 -->
         
         <!-- 回答区域开始 -->
-        <div ng-repeat="teacher in item.problemAnswerLists">
+        <div ng-repeat="teacher in problemAnswerList">
 	        <div class="person-head" style="border-top: 1px solid #cccccc;">
 	          <img src="{{teacher.teacherHeader ? teacher.teacherHeader : 'img/test.jpg'}}" alt="">
 	          <p>
@@ -62,6 +62,16 @@
 	        </div>
         </div>
         <!-- 回答区域结束 -->
+        <div class="look" ng-if="problemAnswerList.length == 0 && user.userId != item.creater">
+        		<ul>
+        			<li></li>
+        			<li>问题价值<span>￥{{item.problemAmount}}</span> 立即围观查看答案</li>
+        			<li></li>
+        			<div class="clear"></div>
+        		</ul>
+        		<div class="look-btns" ng-click="questionDetails()" >{{amount}}元强势围观</div>
+        </div>
+    
       </div>
     </div>
     <!-- 内容区域结束 -->

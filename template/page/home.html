@@ -57,7 +57,7 @@
           <img class="adv-img-png" src="img/adv1.png" alt="">
         </div>
       </div>
-      <div class="adv-one-box">
+      <div class="adv-one-box" ng-click="more('company-customer')">
         <div class="adv-text" style="margin-left: 50px;">
           <p class="adv-title">企业客户</p>
           <p class="adv-desc">符合自己的<br>才是最好的</p>
@@ -74,7 +74,7 @@
       <div class="class-title">
         <p class="class-text">课程</p>
         <img class="more-img" src="img/right.png" alt="">
-        <p class="more-text">更多</p>
+        <p class="more-text" ng-click="more('course')">更多</p>
       </div>
       <div class="content-box">
         <div class="content-left" ng-click="goCourseDetails(courseGroupList[0].courseGroupId)">

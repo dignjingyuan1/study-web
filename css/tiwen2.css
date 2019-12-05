@@ -112,6 +112,7 @@ div,p{
 .content-box{
     background-color: white;
     border-radius: 13px;
+	padding-bottom: 20px;
 }
 .person-head{
     height: 130px;
@@ -153,4 +154,36 @@ div,p{
     padding: 30px 35px;
     font-size: 15px;
     color: #666666;
+}
+.look{
+	width: 80%;
+	margin: auto;
+}
+.look li{
+	float: left;
+	border-top: 1px solid #efefef;
+	width: 38%;
+	margin-top: 15px;
+}
+.look li:nth-child(2){
+	line-height: 30px;
+	margin-left: 10px;
+	border: 0px;
+	margin-top: 0px;
+	width: 205px;
+}
+.look li span{
+	color:red;
+}
+.look-btns{
+	width: 250px;
+	margin: auto;
+	margin-top: 20px;
+	background: red;
+	color: #ffffff;
+	line-height: 40px;
+	text-align: center;
+	border-radius: 30px;
+	cursor: pointer;
+	font-size: 13px;
 }

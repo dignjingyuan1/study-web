@@ -1,3 +1,4 @@
+
 require.config({
     paths: {
         // angular
@@ -25,7 +26,8 @@ require.config({
         // angularAMD
         "angularAMD": ["angular"],
         "ngload": ["angularAMD"]
-    }
+    },
+    waitSeconds: 0
 });
 
 define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], function (angular, angularAMD) {
@@ -99,6 +101,10 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
         		url: "/question-send",
         		templateUrl: "template/page/question-send.html",
         		controllerUrl: "template/js/question-send.js"
+        })).state("company-customer", angularAMD.route({
+        		url: "/company-customer",
+        		templateUrl: "template/page/company-customer.html",
+        		controllerUrl: "template/js/company-customer.js"
         }));
         // 手机端路由
         var phoneRouter = $stateProvider.state("phone-home", angularAMD.route({

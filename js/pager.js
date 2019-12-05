@@ -2,6 +2,7 @@ var Pager = {
 	index : 1,
 	limit : 10,
 	total : 0,
+	list: undefined,
 	pagerId: undefined,
 	Init: ()=>{
 		Pager.setPager();
@@ -16,16 +17,20 @@ var Pager = {
 		 	$("<li class='paging-item--disabled'><i class='icon iconfont icon-icon_paging_left'></i></li>").appendTo($(_html));
 			$("<li class='paging-item--disabled'><i class='icon iconfont icon-fanhui1'></i></li>").appendTo($(_html));
 		}else{
-			$("<li><i class='icon iconfont icon-icon_paging_left'></i></li>").bind('click',()=>{
+			$("<li><i class='icon iconfont icon-icon_paging_left'></i></li>").bind('click',(e)=>{
 		 		Pager.first();
+		 		var index = $(e.target).parents(".pager").attr("value");
 		 		if(typeof Pager.onLoad == 'function'){
-					Pager.onLoad();
+		 			var item = Pager.list ? Pager.list[index] : undefined;
+					Pager.onLoad(item);
 				}
 		 	}).appendTo($(_html));
-		 	$("<li><i class='icon iconfont icon-fanhui1'></i></li>").bind('click',()=>{
+		 	$("<li><i class='icon iconfont icon-fanhui1'></i></li>").bind('click',(e)=>{
 				Pager.prev();
+				var index = $(e.target).parents(".pager").attr("value");
 				if(typeof Pager.onLoad == 'function'){
-					Pager.onLoad();
+					var item = Pager.list ? Pager.list[index] : undefined;
+					Pager.onLoad(item);
 				}
 			}).appendTo($(_html));
 		}
@@ -39,8 +44,10 @@ var Pager = {
 				$("<li>"+i+"</li>").bind('click',{pageIndex:i},(e)=>{
 					var pageIndex = e['data'].pageIndex;
 					Pager.index = pageIndex;
+					var index = $(e.target).parents(".pager").attr("value");
 					if(typeof Pager.onLoad == 'function'){
-						Pager.onLoad();
+						var item = Pager.list ? Pager.list[index] : undefined;
+						Pager.onLoad(item);
 					}
 				}).appendTo($(_html));
 			}
@@ -49,16 +56,20 @@ var Pager = {
 			$("<li class='paging-item--disabled'><i class='icon iconfont icon-jinru'></i></li>").appendTo($(_html));
 			$("<li class='paging-item--disabled'><i class='icon iconfont icon-icon_paging_right'></i></li>").appendTo($(_html));
 		}else{
-			$("<li><i class='icon iconfont icon-jinru'></i></li>").bind('click',()=>{
+			$("<li><i class='icon iconfont icon-jinru'></i></li>").bind('click',(e)=>{
 				Pager.next();
+				var index = $(e.target).parents(".pager").attr("value");
 				if(typeof Pager.onLoad == 'function'){
-					Pager.onLoad();
+					var item = Pager.list ? Pager.list[index] : undefined;
+					Pager.onLoad(item);
 				}
 			}).appendTo($(_html));
-			$("<li><i class='icon iconfont icon-icon_paging_right'></i></li>").bind('click',()=>{
+			$("<li><i class='icon iconfont icon-icon_paging_right'></i></li>").bind('click',(e)=>{
 				Pager.last();
+				var index = $(e.target).parents(".pager").attr("value");
 				if(typeof Pager.onLoad == 'function'){
-					Pager.onLoad();
+					var item = Pager.list ? Pager.list[index] : undefined;
+					Pager.onLoad(item);
 				}
 			}).appendTo($(_html));
 		}

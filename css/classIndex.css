@@ -167,6 +167,10 @@ div,p{
     font-size: 12px;
     margin-top: 10px;
     color: #b4b4b4;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
 }
 .overflow-hidden{
     overflow:hidden;
@@ -251,6 +255,67 @@ div,p{
     height: 50px;
     margin-top: 19px;
     margin-left: 10px;
+    cursor: pointer;
+}
+/*.btns:hover > .panel-select{
+	display: block;
+}*/
+.search-btns{
+	width: 50px;
+	height: 50px;
+}
+.search-btns:hover .panel-select{
+	display: block;
+}
+.panel-select{
+	width: 200px;
+	background: #b4b5b6;
+	height: 100px;
+	position: absolute;
+	margin-left: -140px;
+	padding: 5px;
+	display: none;
+}
+.typeName{
+	float: left;
+	margin-top: 19px;
+	line-height: 50px;
+	font-size: 14px;
+	width: 100px;
+	text-align: center;
+	margin-left: 10px;
+}
+.typeName .icon{
+	margin-left: 10px;
+	color: red;
+	cursor: pointer;
+}
+.panel-select li{
+	float: left;
+	width: 90px;
+	text-align: center;
+	color: #ffffff;
+	line-height: 30px;
+	font-size: 14px;
+}
+.panel-select li a{
+	color: #FFFFFF;
+	border-bottom:  1px solid #bcbdbe;
+	padding-bottom: 5px;
+}
+.panel-select li:nth-child(n+5) a{
+	border: 0px;
+}
+.panel-select:before{
+	position: absolute;
+	content: "";
+ 	width: 0;
+ 	height: 0;
+ 	margin-top: -15px;
+ 	margin-left: 155px;
+	border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+   	border-bottom: 15px solid #b4b5b6;
 }
 .search-icon{
     margin-top: 8px;
@@ -269,4 +334,24 @@ div,p{
     overflow:hidden;
     white-space:nowrap;
     text-overflow:ellipsis
+}
+.teachers-box{
+    width: 100%;
+    float: left
+}
+.teacher-item{
+    width: 222px;
+    height: 160px;
+    display: inline-block;
+    cursor: pointer;
+}
+.teacher-desc{
+    font-size: 14px;
+    color: #333333;
+    text-align: center;
+    margin-top: 10px;
+}
+.teacher-img{
+    width: 209px;
+    height: 116px;
 }

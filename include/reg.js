@@ -40,7 +40,7 @@ app.controller("reg",($scope,$state)=>{
 	 * 获取验证码
 	 */
 	$("#validateCode").click(function(){
-		getValidateCode(this);
+		getValidateCodeReg(this);
 	})
 
 });
@@ -49,15 +49,15 @@ app.controller("reg",($scope,$state)=>{
  * 获取验证码
  * @param {Object} $this
  */
-function getValidateCode($this){
-	var tel = $("input[name='userPhone']");
+function getValidateCodeReg($this){
+	var tel = $("#regForm input[name='userPhone']");
 	if(tel.val() == ""){
-		getMessageStyle("手机号不能为空",tel);
+		getMessageStyleReg("手机号不能为空",tel);
 		return;
 	}
 	 var regTel = /^1[3|4|5|6|7|8|9][0-9]\d{8}$/;
 	 if(!regTel.test(tel.val())){
-	 	getMessageStyle("手机号不正确",tel);
+	 	getMessageStyleReg("手机号不正确",tel);
 		return;
 	 }
 	 console.log("123")
@@ -74,9 +74,9 @@ function getValidateCode($this){
 				_this.unbind();
 				var now = new Date();
 				now.setSeconds(now.getSeconds() + 60);
-				TimeDown(now.Format("yyyy/MM/dd hh:mm:ss"), function() {
+				TimeDown(now.Format("yyyy/MM/dd hh:mm:ss"), "seconds", function() {
 					_this.removeClass("unbindClass");
-					$(".seconds").text("");
+					$("#regForm .seconds").text("");
 					_this.click(function() {
 						getValidateCode(_this);
 					});
@@ -86,7 +86,7 @@ function getValidateCode($this){
 	});
 }
 
-function getMessageStyle(msg,tel){
+function getMessageStyleReg(msg,tel){
 	$(".warning").remove();
 	var _postion = tel.offset().left+tel.width();
     var _top = tel.offset().top;

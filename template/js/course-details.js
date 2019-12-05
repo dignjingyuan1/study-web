@@ -4,7 +4,8 @@ define([], function () {
 	return ["$scope","$state", function ($scope,$state) {
 		
 		$scope.courseGroupId = $state.params.id;
-		
+		$scope.isPayStatus = '0';
+		$scope.isShow = "0";
 		var timeOut;
 		var createTime;
 		/**
@@ -17,8 +18,21 @@ define([], function () {
 					courseGroupId : $scope.courseGroupId
 				},
 				callback: function(res){
+					console.log(res);
 					if(res.code == "2000"){
-						$scope.courseGroup = res.data;
+						var data = res.data;
+						var now = new Date();
+						var startNow = new Date(data.courseGroupStartTime);
+						if(now.getTime() >= startNow.getTime() || data.courseRecommend == '1' || data.courseRecommend == '2' || data.courseRecommend == '3'){
+							$scope.isShow = "1";
+							$scope.$applyAsync();
+						}else{
+							TimeDown(startNow.Format("yyyy/MM/dd hh:mm:ss"), "seconds", function() {
+								$scope.isShow = "1";
+								$scope.$applyAsync();
+							}, true);
+						}
+						$scope.courseGroup = data;
 						$scope.$applyAsync();
 					}
 				}
@@ -88,6 +102,7 @@ define([], function () {
 									"</div>";
 						$(".pay-body").append(html);
 						clearTimeout(timeOut);
+						$scope.searchCourseStatus();
 						return;
 					}
 					var now = new Date();
@@ -133,11 +148,13 @@ define([], function () {
 						console.log(res);
 						if(res.code == "2000"){
 							document.documentElement.scrollTop = 0;
+							$("#videoPlay").bind("contextmenu",function(){return false;});
 							$("#move").attr("src",res.data);
 							$("#videoPlay").load();
 							if(play){
 								document.getElementById('videoPlay').play();
 							}
+							
 						}
 					}
 				})
@@ -149,7 +166,37 @@ define([], function () {
 			},50);
 		}
 		
+		/**
+		 * 获取当前课程组的支付情况
+		 */
+		$scope.searchCourseStatus = function(){
+			if(isUserLogin()){
+				_get({
+					url: STUDY_API + "/order/getOrderSuccessCount",
+					param: {
+						courseGroupId: 	$scope.courseGroupId
+					},
+					callback: function(res){
+						if(res.code == '2000'){
+							$scope.isPayStatus = res.data;
+							$scope.$applyAsync();
+						}
+					}
+				})
+			}
+		}
+		
+		/**
+		 * tab切换
+		 * @param {Object} $event
+		 */
+		$scope.tabSwitch =  function(index){
+			$(".tab-button").removeClass("button-act").eq(index).addClass("button-act");
+			$(".group").css("display","none").eq(index).css("display","block");
+		}
+		
 		$scope.searchCourseGropeDetails();
+		$scope.searchCourseStatus();
 
 	}];
 });

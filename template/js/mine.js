@@ -19,8 +19,6 @@ define([], function () {
 				
 			}else if(index == "3"){
 				$scope.searchOrderRecordList();
-			}else if(index == "5"){
-				$scope.searchUserDetails();
 			}
 		}
 		
@@ -44,7 +42,8 @@ define([], function () {
 					userCompany: $scope.userCompany,
 					userPosition: $scope.userPosition,
 					userRemark: $scope.userRemark,
-					userHeader: $("#head-img").attr("src")
+					userHeader: $("#head-img").attr("src"),
+					userName: $scope.userName
 				},
 				callback: function(res){
 					if(res.code == '2000'){
@@ -61,6 +60,7 @@ define([], function () {
 					userId: user.userId
 				},
 				callback: function(res){
+					console.log(res);
 					if(res.code == '2000'){
 						var data = res.data;
 						$scope.userPhone = data.userPhone;
@@ -69,6 +69,7 @@ define([], function () {
 						$scope.userCompany = data.userCompany;
 						$scope.userPosition = data.userPosition;
 						$scope.userRemark = data.userRemark;
+						$scope.userName = data.userName;
 						data.userHeader ? $("#head-img").attr("src", data.userHeader) : '';
 						$scope.$applyAsync();
 					}
@@ -89,7 +90,6 @@ define([], function () {
 					pageSize: Pager.limit,
 				},
 				callback: function(res){
-					console.log(res);
 					if(res.code == '2000'){
 						$scope.orderList = res.rows;
 						Pager.total = res.total;
@@ -129,6 +129,7 @@ define([], function () {
 					pageSize: Pager.limit,
 				},
 				callback:  function(res){
+						console.log(res);
 					if(res.code == '2000'){
 						$scope.problemList = res.rows;
 						Pager.total = res.total;
@@ -138,6 +139,21 @@ define([], function () {
 					}
 				}
 			})
+		}
+		
+		/**
+		 * 跳转到课程详细
+		 */
+		$scope.courseGroupDetails =  function(id){
+			$state.go("course-details",{id:id});
+		}
+		
+		/**
+		 * 提问详细页面
+		 * @param {Object} id
+		 */
+		$scope.questionDetails = function(id){
+			$state.go("question-details",{id:id});
 		}
 		
 		/**
@@ -152,6 +168,7 @@ define([], function () {
 		}
 		
 		$scope.searchOrderList();
+		$scope.searchUserDetails();
 	}];
 });
 

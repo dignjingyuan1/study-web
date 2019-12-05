@@ -1,0 +1,36 @@
+.footer{
+    width: 100%;
+    height: 220px;
+    background-color: #333333;
+}
+.footer-top{
+    width: 100%;
+    height: 120px;
+    border-bottom: 1px solid #858585;
+    text-align: center;
+    line-height: 120px;
+    color: #999999
+}
+.panel-width{
+    width: 900px;
+    margin: 0 auto;
+}
+.text1{
+    margin-right: 10px
+}
+.weima{
+    width: 80px;
+    margin-top: 18px;
+}
+.text2{
+    margin-left: 10px
+}
+.footer-bottom{
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid #858585;
+    text-align: center;
+    line-height: 25px;
+    color: #999999;
+    margin-top: 25px;
+}

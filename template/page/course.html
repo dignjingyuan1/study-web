@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,14 +29,22 @@
     <!-- 搜索开始 -->
     <div class="panel-width search-box">
       <div class="search-input-box">
-        <img class="search-icon" src="img/search-icon.png" alt="">
-        <input class="search-input" type="text" />
+        <img class="search-icon" src="img/search-icon.png" alt="" ng-click="searchCourseGroupTypeList()" />
+        <input class="search-input" type="text" ng-model="courseGroupName"/>
       </div>
-      <img class="img-icon" src="img/search-more.png" alt="">
+      <div class="search-btns">
+      	 <img class="img-icon" src="img/search-more.png" alt="">
+	      <div class="panel-select">
+	      	<ul>
+	      		<li ng-repeat="item in typeList track by $index"><a href="javascript:;" ng-click="switchType(item.id,item.name)">{{item.name}}</a></li>
+	      	</ul>
+	      </div>
+      </div>
+      <div class="typeName">{{typeName}}<span class="icon iconfont" ng-if="typeName" ng-click="remove()"></span></div>
     </div>
     <!-- 搜索结束 -->
     <!-- 职业规划开始 -->
-    <div class="panel-width" ng-repeat="item in courseGroupTypeList">
+    <div class="panel-width" ng-repeat="item in courseGroupTypeList track by $index">
       <div class="class-title">
         <p class="class-text">{{item.name}}</p>
         <!--<img class="more-img" src="img/right.png" alt="">-->
@@ -58,10 +67,20 @@
           </div>
         </div>
       </div>
+       <div class="panel-width">
+	      <div class="teachers-box">
+	        <div class="teacher-item" ng-repeat="course in item.courseList" ng-click="goCourseDetails(course.courseGroupId)" >
+	          <img class="teacher-img" src="{{course.courseGroupImg}}" alt="" />
+	          <p class="teacher-desc">{{course.courseGroupName}}</p>
+	        </div>
+	        <div class="pager" id="pager_{{item.id}}" value="{{$index}}"></div>
+	      </div>
+    		</div>
+    		<div style="clear: both;"></div>
     </div>
     <!-- 职业规划结束 -->
     <div class="panel-width" style="height: 60px"></div>
-    <div ng-include="'include/footer.html'"></div>
+	<div ng-include="'include/footer.html'"></div>
   </div>
 </body>
 </html>

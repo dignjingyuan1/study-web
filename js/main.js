@@ -1,9 +1,9 @@
 
 
 //var SALE_API = "/api-sale";
+//var STUDY_API = "";
 var STUDY_API = "/api-study";
 const BASIS_API = "/api-basis";
-var MEMBER_HEADER = "http://message.bangwotrans.com";
 
 /**
  * 设置用户信息到缓存
@@ -317,7 +317,7 @@ function closeWebsocket(){
 //		}
 //	});
 //}
-function TimeDown(endDateStr,callback) {
+function TimeDown(endDateStr,styleClass,callback,isTimes) {
     //结束时间
     var endDate = new Date(endDateStr);
     //当前时间
@@ -336,10 +336,10 @@ function TimeDown(endDateStr,callback) {
     //秒
     var seconds = modulo % 60;
     //输出到页面
-//  document.getElementById(id).innerHTML = "还剩:" + days + "天" + hours + "小时" + minutes + "分钟" + seconds + "秒";
-	$(".seconds").text(seconds);
+    var text =  "还剩:" + days + "天" + hours + "小时" + minutes + "分钟" + seconds + "秒";
+	$("."+styleClass).text(isTimes ? text : seconds);
     var time;
-    if(seconds == 0){
+    if(nowDate.getTime() >= endDate.getTime()){
     		clearTimeout(time);
     		if(typeof callback === 'function'){
     			callback();
@@ -348,7 +348,7 @@ function TimeDown(endDateStr,callback) {
     }
     //延迟一秒执行自己
     setTimeout(function () {
-        time = TimeDown(endDateStr,callback);
+        time = TimeDown(endDateStr,styleClass, callback, isTimes);
     }, 1000);
     
 }

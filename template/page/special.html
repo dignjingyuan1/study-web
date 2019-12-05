@@ -24,7 +24,21 @@
     <!-- 轮播图开始 -->
     <div ng-include="'include/banner.html'"></div>
     <!-- 轮播图结束 -->
-
+ 	<div class="panel-width search-box">
+      <div class="search-input-box">
+        <img class="search-icon" src="img/search-icon.png" alt="" ng-click="searchCourseGroupTypeList()" />
+        <input class="search-input" type="text" ng-model="courseGroupName"/>
+      </div>
+      <div class="search-btns">
+      	 <img class="img-icon" src="img/search-more.png" alt="">
+	      <div class="panel-select">
+	      	<ul>
+	      		<li ng-repeat="item in typeList track by $index"><a href="javascript:;" ng-click="switchType(item.id,item.name)">{{item.name}}</a></li>
+	      	</ul>
+	      </div>
+      </div>
+      <div class="typeName">{{typeName}}<span class="icon iconfont" ng-if="typeName" ng-click="remove()"></span></div>
+    </div>
     <!-- 通用技能开始 -->
     <div class="panel-width" ng-repeat="item in courseGroupTypeList">
       <div class="class-title">
@@ -43,7 +57,7 @@
               <span style="text-decoration:line-through">原价￥{{item.courseGroupLists[0].courseAmount}}</span><br>
               <span>{{item.courseGroupLists[0].payCount}}人已购买学习</span>
             </p>
-            <button class="content-button">立即购买</button>
+            <button class="{{item.courseGroupLists[0].payStatus == '0' ? 'content-button' : 'act'}} " >{{item.courseGroupLists[0].payStatus == '0' ? '立即购买' : '已购买'}}</button>
           </div>
         </div>
         <div class="content-right">
@@ -59,11 +73,21 @@
             </div>
             <div class="meng-ceng">
               <p>￥{{group.courseGroupAmount}}</p>
-              <button>立即购买</button>
+              <button class="{{group.payStatus == '0' ? '' : 'act'}}">{{group.payStatus == '0' ? '立即购买' : '已购买'}}</button>
             </div>
           </div>
         </div>
       </div>
+      <div class="panel-width">
+	      <div class="teachers-box">
+	        <div class="teacher-item" ng-repeat="course in item.courseList" ng-click="goCourseDetails(course.courseGroupId)" >
+	          <img class="teacher-img" src="{{course.courseGroupImg}}" alt="" />
+	          <p class="teacher-desc">{{course.courseGroupName}}</p>
+	        </div>
+	        <div class="pager" id="pager_{{item.id}}" value="{{$index}}"></div>
+	      </div>
+    		</div>
+    		<div style="clear: both;"></div>
     </div>
     <!-- 通用技能结束 -->
 
