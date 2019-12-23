@@ -232,7 +232,7 @@ function _errorMsg(msg){
 	$(".msg span").text(msg);
 	setTimeout(function() {
 		_fixed.remove()
-	},3888)	
+	},3888)
 }
 
 
