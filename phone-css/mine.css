@@ -79,6 +79,16 @@ body{
     font-size: 1.6rem;
 }
 
+.logout-button{
+    width: 70%;
+    margin-left: 15%;
+    height: 3.5rem;
+    border-radius: 4rem;
+    background-color: #ff574e;
+    border: none;
+    color: white;
+}
+
 /* footer bar */
 .footer-bar{
     height: 5rem;
