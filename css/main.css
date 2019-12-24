@@ -409,6 +409,19 @@ body{
 	border-radius: 5px;
 	color: #FFFFFF;
 }
+.msg-fixed .sucessMsg{
+	background: #ccc;
+	width: 200px;
+	height: auto;
+	font-size: 13px;
+	position: fixed;
+	padding: 10px;
+	bottom:18%;
+	left: 25%;
+	border-radius: 5px;
+	color: #FFF;
+	text-align: center;
+}
 .msg-fixed .msg i{
 	float: left;
 	color: red;
