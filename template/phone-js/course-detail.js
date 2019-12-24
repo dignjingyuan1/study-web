@@ -45,6 +45,8 @@ define([], function () {
 					}
 				});
 				return;
+			}else{
+				$state.go("phone-login")
 			}
 		}
 		

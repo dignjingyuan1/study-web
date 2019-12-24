@@ -46,7 +46,7 @@
     background-image: url(../img/login-img.png);
     background-repeat: no-repeat;
     background-size: 100%;
-    z-index: 9999;
+    z-index: 998;
     box-shadow: 0px 0px 1px 1px #ccc;
     position: fixed
 }
