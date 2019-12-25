@@ -23,7 +23,29 @@ define([], function () {
 				}
 			})
 		}
+
+		/**
+		 * 查找详细
+		 * @param {Object} id
+		 */
+		$scope.goToDetails = function(id){
+			$state.go("phone-course-detail",{id:id});
+		}
 		
 		$scope.searchTeacherDetails();
+
+		$scope.tabChage = function (index) {
+			if (index == 1){
+				document.getElementById("course").classList.add("button-act")
+				document.getElementById("teacher").classList.remove("button-act")
+				document.getElementById("courseid").style.display = "block"
+				document.getElementById("teacherid").style.display = "none"
+			}else{
+				document.getElementById("course").classList.remove("button-act")
+				document.getElementById("teacher").classList.add("button-act")
+				document.getElementById("courseid").style.display = "none"
+				document.getElementById("teacherid").style.display = "block"
+			}
+		}
 	}];
 });
