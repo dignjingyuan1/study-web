@@ -416,11 +416,12 @@ body{
 	font-size: 13px;
 	position: fixed;
 	padding: 10px;
-	bottom:18%;
-	left: 25%;
+	bottom:20%;
 	border-radius: 5px;
 	color: #FFF;
 	text-align: center;
+	width: 50%!important;
+    margin-left: 25%!important;
 }
 .msg-fixed .msg i{
 	float: left;

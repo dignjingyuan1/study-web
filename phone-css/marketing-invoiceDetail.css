@@ -243,8 +243,15 @@ body{
     line-height: 6rem;
     /* padding: 0 1.5rem; */
 }
+.login-button {
+    width: 80%!important;
+    margin-left: 10%!important;
+}
+.buttonDiv{
+    margin: 3rem 0;
+}
 .small-left{
-    width: 12rem;
+    width: 10rem;
     display: inline-block;
     margin-left: 1.5rem;
     font-size: 1.7rem;
@@ -260,6 +267,7 @@ body{
 .small-right input{
     width: 90%;
     color: #b4b4b4;
+    border: 0;
 }
 .aliginRight input{
     text-align: right;
