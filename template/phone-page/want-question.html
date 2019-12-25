@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="applicable-device" content="pc">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-eqiv="cleartype" content="ON">
+  <link href="phone-css/common.css" rel="stylesheet" type="text/css" />
+<!--  <script type="text/javascript" src="../common/rem.js"></script>-->
+  <link href="phone-css/want-question.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="panel" style="padding: 2rem">
+    <div style="border-bottom: 1px solid #cccccc;padding-bottom: 5px;margin-top: 1rem;">
+      <p class="question-but">问</p>
+      <input class="question-input" ng-model="problemTitle" placeholder="请输入您要问的问题" type="text">
+    </div>
+    <div class="tow-box">
+      <p>{{now}}</p>
+      <p style="float: right">允许围观</p>
+      <img id="wieguan" ng-click="weiguan()" style="float: right" src="img/checkbox-hui.png" alt="">
+    </div>
+    <div class="tree-box">
+      <textarea ng-model="problemRemark" placeholder="请详细描述您的问题，导师会更准确的回答您的问题"></textarea>
+    </div>
+    <div>
+      <div class="camera-box">
+        <input id="fileUpload" type="file" style="display: none" onchange="selectImg(this)"/>
+        <input type="hidden" id="problemImgs" />
+        <img ng-click="uploadImg()" src="img/camera.jpg" alt="">
+        <p>添加图片</p>
+      </div>
+      <div style="margin-left: 1rem" class="camera-box">
+        <img src="img/camera.jpg" alt="">
+        <p ><span id="shuliang">0</span>/3</p>
+      </div>
+    </div>
+
+    <button class="login-button-phone" ng-click="submit()">提交</button>
+    
+  </div>
+  <!-- 弹窗开始 -->
+  <div class="alert-q" id="myAlert" style="display: none">
+    <div class="alert-content">
+      您已将问题公开，其他人可以进行围观，围观费用全部进入您个人账户，如问题涉及隐私请关闭此按钮。
+    </div>
+    <div>
+      <button class="alert-button" ng-click="confirm()">确定</button>
+    </div>
+  </div>
+  <!-- 弹窗结束 -->
+</body>
+</html>
