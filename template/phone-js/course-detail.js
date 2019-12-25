@@ -26,7 +26,7 @@ define([], function () {
 			})
 		}
 		
-/**
+		/**
 		 * 支付
 		 */
 		$scope.goToPay = function(){
