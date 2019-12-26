@@ -22,18 +22,18 @@
     <!-- 轮播图结束 -->
     <!-- tab按钮开始 -->
     <div class="panel-width search-box">
-      <div class="button-box">
-        <button class="tab-button">课程</button>
+      <div class="button-box" ng-click="tabChage(1)">
+        <button id="course" class="tab-button">课程</button>
       </div>
       <i style="width:1px;height: 2.5rem;background:#ccc;margin-top: 0.6rem;"></i>
-      <div class="button-box">
-        <button class="tab-button button-act">专家简介</button>
+      <div class="button-box" ng-click="tabChage(2)">
+        <button id="teacher" class="tab-button button-act">专家简介</button>
       </div>
     </div>
     <!-- tab按钮结束 -->
 
     <!-- 介绍开始 -->
-    <div class="panel-width" style="padding: 0 0.5rem;">
+    <div id="teacherid" class="panel-width" style="padding: 0 0.5rem; display: block">
       <div class="class-title">
         <p class="class-text">介绍</p>
       </div>
@@ -46,6 +46,23 @@
       </div>
     </div>
     <!-- 介绍结束 -->
+    <!--课程列表-->
+    <div id="courseid" class="panel-width" style="display: none">
+      <div class="class-title" ng-click="more('phone-course')">
+        <p class="class-text">推荐课程</p>
+      </div>
+      <div class="content-right">
+        <div class="content-small" ng-repeat="item in teacherDetails.courseGroupList" ng-click="goToDetails(item.courseGroupId)">
+          <div class="small-left">
+            <img class="small-left-img" src="{{item.courseGroupImg}}" alt="">
+          </div>
+          <div class="small-right">
+            <p class=" small-title overflow-hidden">{{item.courseGroupName}}</p>
+            <p class="small-desc">{{item.courseGroupRemark}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>

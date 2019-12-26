@@ -20,7 +20,7 @@
     line-height: 37px
 }
 .login-show{
-    display: none;
+    display: block;
     /*position: absolute;
     z-index: 9999;
     margin-bottom: 100px;*/
@@ -31,7 +31,7 @@
 /* 登录弹出样式结束 */
 /* 登录注册弹出层样式开始 */
 .modal-window{
-    display: none;
+    display: block;
     position: fixed;
     top: 0;
     left: 0;
@@ -40,27 +40,15 @@
     background-color: rgba(255, 255, 255, 0.5);
     z-index: 999;
 }
-.login-box{
-    position: fixed;
-    width: 380px;
-    height: 567px;
+.login-box-phone{
+    width: 100%;
+    height: 100%;
     background-image: url(../img/login-img.png);
     background-repeat: no-repeat;
     background-size: 100%;
-    z-index: 9999;
-    top: 20%;
-    left: 40%;
-    /*-webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);*/
+    z-index: 998;
     box-shadow: 0px 0px 1px 1px #ccc;
-    -webkit-transition: all 0.3s ease;
-  	-moz-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-	-webkit-transform: scale(0);
-	-moz-transform: scale(0);
-	-o-transform: scale(0);
-	transform: scale(0);
+    position: fixed
 }
 .close-icon{
     position: absolute;
@@ -68,11 +56,10 @@
     top: -23px;
     left: 99%;
 }
-.login-content{
-    width: 380px;
-    height: 393px;
+.login-content-phone{
+    width: 100%;
     background-color: white;
-    margin-top: 174px;
+    margin-top: 17rem;
 }
 .input-box{
     height: 40px;
@@ -91,10 +78,10 @@
     font-size: 16px;
     width: 220px;
 }
-.login-button{
+.login-button-phone{
     width: 300px;
     margin-left: 42px;
-    height: 35px;
+    height: 3.5rem;
     border-radius: 50px;
     border: 0;
     background-color: #ff3728;
@@ -111,7 +98,6 @@
     color: #999999;
     margin-top: 10px;
     padding: 0 5px;
-    cursor: pointer;
 }
 .validate-code{
     font-size: 14px;

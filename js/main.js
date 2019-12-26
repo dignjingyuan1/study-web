@@ -232,7 +232,21 @@ function _errorMsg(msg){
 	$(".msg span").text(msg);
 	setTimeout(function() {
 		_fixed.remove()
-	},3888)	
+	},3888)
+}
+/**
+ * 成功提示
+ * @param {Object} msg
+ */
+function _successMsg(msg){
+	var _html = "<div class='msg-fixed'>"
+		      + "<div class='sucessMsg'><i class='icon iconfont'></i><span>提示信息</span></div>"
+			  + "</div>";
+	var _fixed = $(_html).prependTo($("body")).show();
+	$(".sucessMsg span").text(msg);
+	setTimeout(function() {
+		_fixed.remove()
+	},3888)
 }
 
 

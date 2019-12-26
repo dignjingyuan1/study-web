@@ -18,20 +18,14 @@
 
 <body>
   <div class="panel">
-
-    <!-- 轮播图开始 -->
-    <div ng-include="'include/banner.html'"></div>
-    <!-- 轮播图结束 -->
-
     <!-- 搜索开始 -->
     <div class="panel-width search-box" style="position: relative;">
       <form style="width:100%">
         <div class="search-input-box">
           <img class="search-icon" src="img/search-icon.png" alt="">
-          <input id="searchButton" class="search-input" type="search" />
+          <input id="searchButton" ng-model="courseGroupName" class="search-input" type="search" />
         </div>
       </form>
-      <img onclick="menuShow()" class="img-icon" src="img/search-more.png" alt="">
       <div id="menu" style="display: none;">
         <div class="menu">
           <div class="menu-item">
@@ -45,21 +39,19 @@
     </div>
     <!-- 搜索结束 -->
     
-    <!-- 职业规划开始 -->
-    <div class="panel-width" ng-repeat="item in courseGroupTypeList" ng-if="!isShowType || isShowType == item.name">
-      <div class="class-title">
-        <p class="class-text">{{item.name}}</p>
-        <img class="more-img" src="img/right.png" alt="" ng-click="goSearch(item.id)">
-        <p class="more-text">更多</p>
-      </div>
-      <div class="content-box">
-        <div class="video-one" ng-repeat="group in item.courseGroupLists track by $index" ng-click="goCourseDetails(group.courseGroupId)">
-          <img class="video-img" src="{{group.courseGroupImg}}" alt="">
-          <p class="video-text overflow-hidden">{{group.courseGroupName}}</p>
+    <!-- 列表开始 -->
+    <div class="panel-width">
+      <div class="content-small" ng-repeat="item in courseList" ng-click="goCourseDetails(item.courseGroupId)">
+        <div class="small-left">
+          <img class="small-left-img" src="{{item.courseGroupImg}}" alt="">
+        </div>
+        <div class="small-right">
+          <p class=" small-title overflow-hidden">{{item.courseGroupName}}</p>
+          <p class="small-desc">{{item.courseRemark}}</p>
         </div>
       </div>
     </div>
-    <!-- 职业规划结束 -->
+    <!-- 列表结束 -->
     <div class="di-box"><span class="line-di"></span>我们也是有底线的<span class="line-di"></span></div>
   </div>
   <!-- footer bar -->

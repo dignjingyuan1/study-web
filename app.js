@@ -155,6 +155,42 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
             url: "/phone-special",
             templateUrl: "template/phone-page/special.html",
             controllerUrl: "template/phone-js/special.js"
+        })).state("phone-login", angularAMD.route({
+            url: "/phone-login",
+            templateUrl: "template/phone-page/login.html",
+            controllerUrl: "template/phone-js/login.js"
+        })).state("phone-reg", angularAMD.route({
+           url: "/phone-reg",
+           templateUrl: "template/phone-page/reg.html",
+           controllerUrl: "template/phone-js/reg.js"
+        })).state("phone-modify", angularAMD.route({
+           url: "/phone-modify",
+           templateUrl: "template/phone-page/modify.html",
+           controllerUrl: "template/phone-js/modify.js"
+        })).state("phone-mine", angularAMD.route({
+           url: "/phone-mine",
+           templateUrl: "template/phone-page/mine.html",
+           controllerUrl: "template/phone-js/mine.js"
+        })).state("phone-mine-course", angularAMD.route({
+           url: "/phone-mine-course",
+           templateUrl: "template/phone-page/mine-course.html",
+           controllerUrl: "template/phone-js/mine-course.js"
+        })).state("phone-marketing-invoiceDetail", angularAMD.route({
+            url: "/phone-marketing-invoiceDetail",
+            templateUrl: "template/phone-page/marketing-invoiceDetail.html",
+            controllerUrl: "template/phone-js/marketing-invoiceDetail.js"
+        })).state("phone-course-list", angularAMD.route({
+            url: "/phone-course-list?:typeCode",
+            templateUrl: "template/phone-page/course-list.html",
+            controllerUrl: "template/phone-js/course-list.js"
+        })).state("phone-marketing-personInfo", angularAMD.route({
+            url: "/phone-marketing-personInfo",
+            templateUrl: "template/phone-page/marketing-personInfo.html",
+            controllerUrl: "template/phone-js/marketing-personInfo.js"
+        })).state("phone-want-question", angularAMD.route({
+            url: "/phone-want-question",
+            templateUrl: "template/phone-page/want-question.html",
+            controllerUrl: "template/phone-js/want-question.js"
         }))
 
     };
