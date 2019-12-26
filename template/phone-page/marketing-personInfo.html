@@ -12,91 +12,73 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-eqiv="cleartype" content="ON">
   <meta http-eqiv="cleartype" content="ON">
-  <link href="phone-css/marketing-invoiceDetail.css" rel="stylesheet" type="text/css" />
+  <link href="phone-css/marketing-personInfo.css" rel="stylesheet" type="text/css" />
   <link href="phone-css/common.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div class="panel">
-    <!-- <div class="person-box">
+    <div class="person-box">
       <img class="person-img" src="img/test.jpg" alt="">
       <div class="right-content">
         <p>&nbsp;&nbsp;&nbsp;<span>登录</span>/<span>注册</span></p>
         <p class="level">等级：-------</p>
       </div>
-    </div> -->
-    <div class="content-right">
-        <div class="panel-width">
-            <div class="class-title">
-                <p class="class-text">发票详情</p>
-            </div>
-            <div class="content-small">
-                <div class="small-left">
-                    抬头类型
-                </div>
-                <div class="small-right">
-                  <p>
-                    <img class="radio" onclick="checkIt(this)" src="img/radio-act.png" alt="">
-                    <span class="text-color-hui">企业单位</span>
-                  </p>
-                  <p style="margin-left: 1rem">
-                    <img class="radio" onclick="checkIt(this)" src="img/radio-hui.png" alt="">
-                    <span>个人/非企业单位</span>
-                  </p>
-                </div>
-            </div>
-            <div class="content-small">
-                <div class="small-left">
-                    发票抬头
-                </div>
-                <div class="small-right">
-                  <input type="text" placeholder="" name="invoiceName"  message="发票名称" ng-model="invoiceName"/>
-                </div>
-            </div>
-            <div class="content-small">
-                <div class="small-left">
-                    税号
-                </div>
-                <div class="small-right">
-                  <input type="text" placeholder="" name="einName"  message="税号" ng-model="einName"/>
-                </div>
-            </div>
-            <div class="content-small">
-              <div class="small-left">
-                  更多内容
-              </div>
-              <div class="small-right aliginRight">
-                <input type="text" placeholder="填写备注,地址等(非必填)" name="moreInfo"  message="更多信息" ng-model="moreInfo"/> 
-                <!-- <img class="more-img" src="img/right.png"> -->
-              </div>
-          </div>
-        </div>
     </div>
     <div class="content-right">
-      <div class="panel-width">
-          <div class="content-small">
-              <div class="small-left">
-                  总金额
-              </div>
-              <div class="small-right aliginRight">
-                <input type="number" placeholder="" name="totalAmount"  message="总金额" ng-model="totalAmount"/>元
-              </div>
-          </div>
-          <div class="class-title">
-              <p class="class-text">接收方式</p>
-          </div>
-          <div class="content-small">
-              <div class="small-left">
-                  电子邮件
-              </div>
-              <div class="small-right">
-                <input type="text" placeholder="" name="einName"  message="税号" ng-model="einName"/>
-              </div>
-          </div>
-      </div>
-  </div>
+        <div class="panel-width">
+            <div class="content-small">
+                <div class="small-left">
+                    电话
+                </div>
+                <div class="small-right">
+                  <input type="text" placeholder="138****1188" name="phoneNo"  message="电话号码" ng-model="phoneNo"/>
+                </div>
+            </div>
+            <div class="content-small">
+                <div class="small-left">
+                    性别
+                </div>
+                <div class="small-right">
+                  <input type="text" placeholder="完善性别信息" name="sex"  message="性别" ng-model="sex"/>
+                </div>
+            </div>
+            <div class="content-small">
+                <div class="small-left">
+                    生日
+                </div>
+                <div class="small-right">
+                  <input type="text" placeholder="完善生日信息" name="birthDay"  message="生日" ng-model="birthDay"/>
+                </div>
+            </div>
+            <div class="content-small">
+                <div class="small-left">
+                    毕业院校
+                </div>
+                <div class="small-right">
+                  <input type="text" placeholder="完善毕业院校信息" name="graduation"  message="毕业院校" ng-model="graduation"/>
+                </div>
+            </div>
+            <div class="content-small">
+                <div class="small-left">
+                    任职企业
+                </div>
+                <div class="small-right">
+                  <input type="text" placeholder="完善任职企业信息" name="companyInfo"  message="任职企业" ng-model="companyInfo"/>
+                </div>
+            </div>
+            <div class="content-small personInfo">
+                <div class="small-left">
+                    个人简介
+                </div>
+                <div class="personDiv">
+                    <textarea class="personText">这位宝宝很懒,还不想让别人了解自己...</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
   <div class="buttonDiv">
-    <button class="login-button" ng-click="sub()">提交</button>
+    <button class="login-button" ng-click="sub()">保存</button>
   </div>
   </div>
   <!-- footer bar -->
