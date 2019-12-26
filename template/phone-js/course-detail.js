@@ -41,6 +41,7 @@ define([], function () {
 					    console.log('支付返回结果：',res)
 						if(res.code == '2000'){
 							var data = res.data;
+							window.location.href = data.qrcode;
 						}
 					}
 				});
