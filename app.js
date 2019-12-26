@@ -193,7 +193,19 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
 	            url: "/phone-want-question",
 	            templateUrl: "template/phone-page/want-question.html",
 	            controllerUrl: "template/phone-js/want-question.js"
-	        }))
+	        })).state("phone-marketing-billingDetails", angularAMD.route({
+                url: "/phone-marketing-billingDetails",
+                templateUrl: "template/phone-page/marketing-billingDetails.html",
+                controllerUrl: "template/phone-js/marketing-billingDetails.js"
+            })).state("phone-marketing-myQuestions", angularAMD.route({
+                url: "/phone-marketing-myQuestions",
+                templateUrl: "template/phone-page/marketing-myQuestions.html",
+                controllerUrl: "template/phone-js/marketing-myQuestions.js"
+            })).state("phone-marketing-purchaseRecords", angularAMD.route({
+                url: "/phone-marketing-purchaseRecords",
+                templateUrl: "template/phone-page/marketing-purchaseRecords.html",
+                controllerUrl: "template/phone-js/marketing-purchaseRecords.js"
+            }))
         }
 
     };
