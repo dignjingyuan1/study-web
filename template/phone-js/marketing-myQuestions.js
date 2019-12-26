@@ -45,7 +45,7 @@ define([], function () {
             var scrollTop = $(this).scrollTop();
             var scrollHeight = $(document).height();
             var windowHeight = $(this).height();
-            if (scrollTop + windowHeight == scrollHeight) {
+            if (scrollTop + windowHeight == scrollHeight && location.href.indexOf("marketing-myQuestions") != -1) {
                 // alert("已经到最底部了！");
                 $scope.pager.index++;
                 $scope.searchProblemList();
