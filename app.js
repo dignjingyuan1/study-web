@@ -38,6 +38,7 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
         	
         // default
         $urlRouterProvider.otherwise("/home");
+
         if(isPC()){
 	        	 // route
 	        var router = $stateProvider.state("home", angularAMD.route({
@@ -194,7 +195,6 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
 	            controllerUrl: "template/phone-js/want-question.js"
 	        }))
         }
-       
 
     };
         
