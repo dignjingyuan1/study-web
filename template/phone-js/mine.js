@@ -22,7 +22,7 @@ define([], function () {
         console.log("userInfo:", $scope.userInfo)
         $scope.logOut = function () {
 			localStorage.clear();
-			$state.go("phone-home");
+			$state.go("home");
         }
     }];
 });

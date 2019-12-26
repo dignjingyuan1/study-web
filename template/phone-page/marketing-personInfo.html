@@ -18,13 +18,17 @@
 
 <body>
   <div class="panel">
-    <div class="person-box">
-      <img class="person-img" src="img/test.jpg" alt="">
-      <div class="right-content">
-        <p>&nbsp;&nbsp;&nbsp;<span>登录</span>/<span>注册</span></p>
-        <p class="level">等级：-------</p>
+      <div class="person-box">
+          <img ng-if="userInfo != null" class="person-img" ng-src="{{userInfo.userHeader}}"
+               onerror="javascript:this.src='img/defalte-head.jpg';" alt="">
+          <img ng-if="userInfo == null" class="person-img" ng-src="img/defalte-head.jpg" alt="">
+          <div class="right-content">
+              <p ng-if="userInfo == null">&nbsp;&nbsp;&nbsp;<span ng-click="go('phone-login')">登录</span>/<span
+                      ng-click="go('phone-reg')">注册</span></p>
+              <p ng-if="userInfo != null">&nbsp;&nbsp;&nbsp;{{userInfo.userName}}</p>
+              <p class="level">等级：-------</p>
+          </div>
       </div>
-    </div>
     <div class="content-right">
         <div class="panel-width">
             <div class="content-small">
@@ -32,7 +36,7 @@
                     电话
                 </div>
                 <div class="small-right">
-                  <input type="text" placeholder="138****1188" name="phoneNo"  message="电话号码" ng-model="phoneNo"/>
+                  <input type="text" placeholder="电话号码" name="phoneNo"  message="电话号码" ng-model="userPhone" readonly/>
                 </div>
             </div>
             <div class="content-small">
@@ -40,15 +44,11 @@
                     性别
                 </div>
                 <div class="small-right">
-                  <input type="text" placeholder="完善性别信息" name="sex"  message="性别" ng-model="sex"/>
-                </div>
-            </div>
-            <div class="content-small">
-                <div class="small-left">
-                    生日
-                </div>
-                <div class="small-right">
-                  <input type="text" placeholder="完善生日信息" name="birthDay"  message="生日" ng-model="birthDay"/>
+<!--                  <input type="text" placeholder="完善性别信息" name="sex"  message="性别" ng-model="userSex"/>-->
+                    <select name="" id="" ng-model="userSex">
+                        <option value="1">男</option>
+                        <option value="2">女</option>
+                    </select>
                 </div>
             </div>
             <div class="content-small">
@@ -56,7 +56,7 @@
                     毕业院校
                 </div>
                 <div class="small-right">
-                  <input type="text" placeholder="完善毕业院校信息" name="graduation"  message="毕业院校" ng-model="graduation"/>
+                  <input type="text" placeholder="完善毕业院校信息" name="graduation"  message="毕业院校" ng-model="userSchool"/>
                 </div>
             </div>
             <div class="content-small">
@@ -64,7 +64,15 @@
                     任职企业
                 </div>
                 <div class="small-right">
-                  <input type="text" placeholder="完善任职企业信息" name="companyInfo"  message="任职企业" ng-model="companyInfo"/>
+                  <input type="text" placeholder="完善任职企业信息" name="companyInfo"  message="任职企业" ng-model="userCompany"/>
+                </div>
+            </div>
+            <div class="content-small">
+                <div class="small-left">
+                    职位
+                </div>
+                <div class="small-right">
+                    <input type="text" placeholder="完善职位信息" name="birthDay"  message="生日" ng-model="userPosition"/>
                 </div>
             </div>
             <div class="content-small personInfo">
@@ -72,33 +80,14 @@
                     个人简介
                 </div>
                 <div class="personDiv">
-                    <textarea class="personText">这位宝宝很懒,还不想让别人了解自己...</textarea>
+                    <textarea class="personText" ng-model="userRemark">这位宝宝很懒,还不想让别人了解自己...</textarea>
                 </div>
             </div>
         </div>
     </div>
   <div class="buttonDiv">
-    <button class="login-button" ng-click="sub()">保存</button>
+      <button class="login-button" ng-click="sub()">保存</button>
   </div>
-  </div>
-  <!-- footer bar -->
-  <div class="footer-bar">
-    <div class="footer-item" ng-click="go('phone-home')">
-      <img src="img/index-hui.png" alt="">
-      <p>首页</p>
-    </div>
-    <div class="footer-item" ng-click="go('phone-course')">
-      <img src="img/class-hui.png" alt="">
-      <p >课程</p>
-    </div>
-    <div class="footer-item" ng-click="go('phone-boutique')">
-      <img src="img/jingpin-hui.png" alt="">
-      <p>精品</p>
-    </div>
-    <div class="footer-item" ng-click="go('phone-mine')">
-      <img src="img/my-act.png" alt="">
-      <p class="font-act">我的</p>
-    </div>
   </div>
 </body>
 </html>
