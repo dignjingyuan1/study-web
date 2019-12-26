@@ -77,7 +77,7 @@
 	    <!-- 我要提问底部 开始 -->
 	    <div class="panel-width quostion-footer">
 	      <p class="price"><span style="font-size: 15px">￥</span>{{courseGroup.courseGroupAmount}}</p>
-	      <p class="hui-text"><span style="text-decoration:line-through">原价￥{{courseGroup.courseAmount}}</span><br>已有{{courseGroup.payCount}}人购买学习</p>
+	      <p class="hui-text"><span style="text-decoration:line-through">原价￥{{courseGroup.courseGroupOriginalAmount}}</span><br>已有{{courseGroup.payCount}}人购买学习</p>
 	      <button class="{{isPayStatus == '0' ? 'quastion-button-active' : 'quastion-button'}}" ng-click="isPayStatus == '0' ? goToPay() : ''">{{isPayStatus == '0' ? '立即购买' : '已购买'}}</button>
 	    </div>
     </div>

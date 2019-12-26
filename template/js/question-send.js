@@ -99,14 +99,19 @@ define([], function () {
 		
 		$scope.weiguan = function($event){
 			var ev = $event.target;
+			console.log(ev)
 			if($scope.problemFollow == '0'){
 				_confirm('您已将问题公开，其他人可以进行围观，围观费用全部进入您个人账户，如问题涉及隐私请关闭此按钮。',function(){
 					$scope.problemFollow = "1";
 		        		$(ev).attr("src","img/checkbox.png")
+		        		$(ev).parent().append("<span class='icon iconfont' style='font-size:18px; margin-right:3px;color:#ab0f2c'></span>");
+		        		$(ev).remove();
+		        		
 		        });
 			}else if($scope.problemFollow == '1'){
 				$scope.problemFollow = "0";
-				$(ev).attr("src","img/checkbox-hui.png")
+				$(ev).parent().append("<span class='icon iconfont' style='font-size:25px'></span>");
+		       $(ev).remove();
 			}
 		}
 		
@@ -116,7 +121,7 @@ define([], function () {
 var arrayImg = [];
 function selectImg($event){
 	var file = $event.files[0];
-	lrz(file,{width:450,quality:0.7}).then(function(resFile){
+	lrz(file,{}).then(function(resFile){
 		var param = {};
         param['fileName'] = resFile.base64;
         param['fileType'] = "image/jpeg";

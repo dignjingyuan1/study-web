@@ -16,10 +16,17 @@ define([], function () {
 				callback: function(res){
 					console.log(res);
 					if(res.code == '2000'){
-						$scope.courseGroupList = res.rows;
+						var list = res.rows;
+						$scope.courseGroupList = list;
 						Pager.total = res.total;
 						Pager.Init();
 						Pager.onLoad = $scope.searchCourseGroupList;
+						
+						
+//						var data = data.courseGroupStartTime;
+//						console.log(data)
+					
+						
 						$scope.$applyAsync();
 					}
 				}
@@ -32,6 +39,16 @@ define([], function () {
 		 */
 		$scope.goToDetails = function(id){
 			$state.go("course-details",{id:id});
+		}
+		
+		$scope.formmaterDate = function(time){
+			var date = new Date(time);
+			var now = new Date();
+			if(date.getTime() > now.getTime()){
+				return "即将开始";
+			}else{
+				return "直播中";
+			}
 		}
 		
 		$scope.searchCourseGroupList();

@@ -277,8 +277,9 @@ div,p{
     border: none;
 }
 .tow-box{
-    padding: 7px;
+    /*padding: 7px;*/
     border-bottom: 1px solid #cccccc;
+    line-height: 30px;
 }
 .tow-box > p {
     display: inline-block;
@@ -308,7 +309,6 @@ div,p{
 .camera-box > img {
     width: 100%;
     height: 100%;
-    margin-top: 10px;
 }
 .camera-box > p {
    color: #999999;
@@ -325,4 +325,10 @@ div,p{
     margin-bottom: 10%;
     cursor: pointer;
     outline: none;
+}
+.checkBox{
+	float: right;
+}
+.checkBox span{
+	cursor: pointer;
 }
