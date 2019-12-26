@@ -336,35 +336,6 @@ body{
 .dudu-uncom{
     background-color: #ffb2b2;
 }
-.scoreMoneyDiv{
-    padding: 1rem 2rem;
-}
-.score-money{
-    width: 100%;
-    height: 7rem;
-    box-shadow: 0rem 0rem 0.2rem 0.2rem #ccc;
-    border-radius: 2rem;
-    display: flex;
-}
-.score{
-    display: inline-block;
-    text-align: center;
-    line-height: 4.7rem;
-    height: 5rem;
-    width: 50%;
-    border-right: 0.1rem solid #cccccc;
-    margin-top: 1rem;
-    color: #ff3728
-}
-.money{
-    display: inline-block;
-    text-align: center;
-    line-height: 4.7rem;
-    height: 5rem;
-    flex: 1;
-    margin-top: 1rem;
-    color: #ff3728
-}
 .bill-list{
     width: 100%;
 }
@@ -401,4 +372,51 @@ body{
     float: right;
     margin-top: 1.3rem;
     margin-right: 0.5rem;
+}
+.quostion-footer{
+    height: 9rem;
+    background-color: #f5f5f5;
+    box-shadow: 0rem 0rem 1rem 0.1rem #ccc;
+    border-radius: 1.5rem 1.5rem 0 0;
+    position: fixed;
+    bottom: 5rem;
+}
+.quostion-footer>p{
+    display: inline-block;
+}
+.footer-price{
+    height: 3rem;
+    border-bottom: 0.1rem solid #cccccc;
+    width: 100%;
+    line-height: 3rem;
+    padding-left: 2rem;
+}
+.hui-text{
+    font-size: 1.3rem;
+    color: #999999;
+    margin-left: 1rem;
+}
+.quastion-button{
+    border: 0;
+    background-color: #ff3728;
+    height: 3.2rem;
+    width: 8.8rem;
+    border-radius: 3rem;
+    color: white;
+    float: right;
+    margin-top: 1.3rem;
+    margin-right: 2.6rem;
+}
+.check-box-text{
+    margin-top: 2rem;
+    display: inline-block;
+    color: #999999;
+}
+.checkImg{
+    width: 2rem;
+    margin: 1.7rem 0.5rem 1.7rem 1.7rem;
+}
+.check-box{
+    width: 2.2rem;
+    margin-top: 2.3rem;
 }
