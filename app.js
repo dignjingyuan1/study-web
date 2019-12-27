@@ -162,7 +162,7 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
 	            templateUrl: "template/phone-page/login.html",
 	            controllerUrl: "template/phone-js/login.js"
 	        })).state("phone-reg", angularAMD.route({
-	           url: "/phone-reg",
+	           url: "/phone-reg?:recommendUserId",
 	           templateUrl: "template/phone-page/reg.html",
 	           controllerUrl: "template/phone-js/reg.js"
 	        })).state("phone-modify", angularAMD.route({
