@@ -7,7 +7,7 @@ img{border:none; vertical-align:top; }
 a,input{outline:none;}
 h1,h2,h3,h4,h5,h6,b,strong{font-weight:100;}
 i,em{font-style:normal;}
-body{font:12px "微软雅黑";}
+body{font:12px "微软雅黑";background-color: #f5f5f5;}
 .clear{zoom:1;}
 .clear:after{content:"."; display:block; clear:both; height:0; visibility:hidden;}
 .fl{float:left;}
@@ -101,9 +101,10 @@ div,p{
 .img-box{
     display: flex;
     height: 6rem;
+    padding: 0.5rem;
 }
 .img-item{
-    flex: 1;
+    width: 33%;
 }
 .img-item > img {
     width: 100%;
@@ -137,4 +138,31 @@ div,p{
     border-radius: 133px;
     margin-top: 4rem;
     margin-bottom: 1rem;
+}
+.look{
+    width: 100%;
+    text-align: center;
+    height: 20rem;
+    padding-top: 5rem;
+}
+.look p{
+    line-height: 30px;
+    margin-left: 10px;
+    border: 0px;
+    margin-top: 0px;
+}
+.look p span{
+    color:red;
+}
+.look-btns{
+    width: 250px;
+    margin: auto;
+    margin-top: 20px;
+    background: red;
+    color: #ffffff;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 13px;
 }

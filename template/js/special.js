@@ -93,6 +93,17 @@
 		  		}
 		  	})
 		  }
+		  
+		  $(document).bind("keydown",(event)=>{
+			let e = event ? event :(window.event ? window.event : null); 
+			if(e.keyCode==13){ 
+				$scope.searchCourseGroupTypeList();
+			} 
+			});
+	
+			$scope.$on("$destroy", function() {
+	            $(document).unbind("keydown");
+	        })
 		
 		 $scope.switchType = function(id,name){
 		  	$scope.typeName = name;

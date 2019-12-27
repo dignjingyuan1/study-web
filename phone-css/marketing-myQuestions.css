@@ -256,7 +256,6 @@ body{
     color: #b4b4b4;
     height: 8rem;
     padding: 0 2rem;
-    border: 0;
 }
 .login-button {
     width: 80%!important;
@@ -336,4 +335,57 @@ body{
 
 .dudu-uncom{
     background-color: #ffb2b2;
+}
+ 
+.qustion-list-box{
+    height: 6.5rem;
+    width: 100%;
+    border-bottom: 0.1rem solid #efefef;
+    line-height: 2.2rem;
+    padding-top: 0.9rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    cursor: pointer;
+}
+
+.qustion-list-box .qustion-icon{
+    width: 1.6rem;
+    height: 1.6rem;
+    text-align: center;
+    display: inline-block;
+    background: #ff3728;
+    line-height: 1.6rem;
+    border-radius: 0.3rem;
+    font-size: 1.2rem;
+    color: white;
+}
+.qustion-list-box .answer-icon{
+    width: 1.6rem;
+    height: 1.6rem;
+    text-align: center;
+    display: inline-block;
+    background: #289c17;
+    line-height: 1.6rem;
+    border-radius: 0.3rem;
+    font-size: 1.2rem;
+    color: white;
+}
+.qustion-list-box .unanswer-icon{
+    width: 1.6rem;
+    height: 1.6rem;
+    text-align: center;
+    display: inline-block;
+    background: #999999;
+    line-height: 1.6rem;
+    border-radius: 0.3rem;
+    font-size: 1.2rem;
+    color: white;
+}
+.qustion-list-box .questionText{
+    font-size: 1.5rem;
+    color: #333333
+}
+.qustion-list-box .questionTime{
+    width: 1.5rem;
+    margin-top: 0.4rem;
 }

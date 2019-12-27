@@ -164,6 +164,10 @@ div,p{
     font-size: 12px;
     margin-top: 10px;
     color: #b4b4b4;
+    display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
 }
 .overflow-hidden{
     overflow:hidden;

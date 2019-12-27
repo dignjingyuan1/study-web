@@ -174,7 +174,7 @@ define([], function () {
 
 function selectImg($event){
 	var file = $event.files[0];
-	lrz(file,{width:450,quality:0.7}).then(function(resFile){
+	lrz(file,{}).then(function(resFile){
 		var param = {};
         param['fileName'] = resFile.base64;
         param['fileType'] = "image/jpeg";

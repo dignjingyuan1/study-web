@@ -1,4 +1,4 @@
-var API_HEADER = "http://api.bangwotrans.com:8082";
+var API_HEADER = "http://api.marketing-platform.net";
 //const API_HEADER = "http://152.136.187.193:8082";
 //const API_HEADER = "http://172.17.5.144:8094";
 /**

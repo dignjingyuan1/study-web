@@ -12,7 +12,7 @@ define([], function () {
 		 */
 		$scope.getBeginCourseGroupCount = function(){
 			_get({
-				url :STUDY_API +"/courseGroup/getBeginCourseGroupCount",
+				url : STUDY_API +"/courseGroup/getBeginCourseGroupCount",
 				callback: function(res){
 					if(res.code == "2000"){
 						$scope.beginCount = res.data;

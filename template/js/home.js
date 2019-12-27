@@ -17,16 +17,7 @@ define([], function () {
 		  		callback: function(res){
 		  			if(res.code == '2000'){
 		  				var data = res.data;
-		  				console.log(data);
 		  				$scope.courseGroupList = res.data;
-//		  				for(var i=0;i<data.length; i++){
-//		  					var item = data[i];
-//		  					if(i == 0){
-//		  						$scope.courseItem = item;
-//		  					}else{
-//		  						.push(item);
-//		  					}
-//		  				}
 		  				$scope.$applyAsync();
 		  			}
 		  		}
@@ -148,7 +139,6 @@ define([], function () {
 		  }
 		  
 		  $scope.more = function(path,params){
-		  	console.log(params)
 			$state.go(path,params?params:{});
 		  }
 		  
@@ -174,6 +164,13 @@ define([], function () {
 		   */
 		  $scope.goCompanyDetails = function(id){
 		  	$state.go("company-details",{id: id});
+		  }
+		  
+		  /**
+		   * 去商品页面
+		   */
+		  $scope.goToGoods = function(){
+		  	$state.go("goods");
 		  }
 		  
 		   $scope.searchCourseRecommend();

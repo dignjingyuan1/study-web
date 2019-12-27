@@ -44,6 +44,12 @@
           	{{item.problemRemark}}
           </p>
         </div>
+        <div class="camera-box" ng-repeat="file in item.fileList">
+            <img src="{{file.problemFileImg}}" alt="">
+            <p> </p>
+            <!--<p>添加图片</p>-->
+       	</div>
+        <div class="clear"></div>
         <!-- 提问区域结束 -->
         
         <!-- 回答区域开始 -->
@@ -60,6 +66,12 @@
 	           {{teacher.problemAnswerRemark}}
 	          </p>
 	        </div>
+	        <div class="camera-box" ng-repeat="file in teacher.problemAnswerFileList">
+	            <img src="{{file.problemAnswerFileImg}}" alt="">
+	            <p> </p>
+	            <!--<p>添加图片</p>-->
+	       	</div>
+	        <div class="clear"></div>
         </div>
         <!-- 回答区域结束 -->
         <div class="look" ng-if="problemAnswerList.length == 0 && user.userId != item.creater">

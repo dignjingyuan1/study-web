@@ -30,7 +30,8 @@
         <div class="tow-box">
           <p>{{now}}</p>
           <p style="float: right">允许围观</p>
-          <img id="wieguan" ng-click="weiguan($event)" style="float: right" src="img/checkbox-hui.png" alt="">
+          <div class="checkBox" ng-click="weiguan($event)"><span class="icon iconfont"  style="font-size: 25px;"></span></div>
+          <!--<img id="wieguan" ng-click="weiguan($event)" style="float: right" src="img/checkbox-hui.png" alt="">-->
         </div>
         <div class="tree-box">
           <textarea placeholder="请详细描述您的问题，导师会更准确的回答您的问题" ng-model="problemRemark" check="ckNull" message="详细描述"></textarea>
