@@ -16,7 +16,7 @@ define([], function () {
 			}else if(index == "1"){
 				$scope.searchProblemList();
 			}else if(index == "2"){
-				
+				$scope.getBillPager();
 			}else if(index == "3"){
 				$scope.searchOrderRecordList();
 			}
@@ -71,6 +71,11 @@ define([], function () {
 						$scope.userRemark = data.userRemark;
 						$scope.userName = data.userName;
 						data.userHeader ? $("#head-img").attr("src", data.userHeader) : '';
+						$scope.userIntegral = data.userIntegral;
+						$scope.userAmount = data.userAmount;
+						$scope.userRole = data.userRole;
+						$scope.userQrcode = data.userQrcode;
+						$scope.userRecommendCount = data.userRecommendCount;
 						$scope.$applyAsync();
 					}
 				}
@@ -129,12 +134,35 @@ define([], function () {
 					pageSize: Pager.limit,
 				},
 				callback:  function(res){
-						console.log(res);
 					if(res.code == '2000'){
 						$scope.problemList = res.rows;
 						Pager.total = res.total;
 						Pager.Init();
 						Pager.onLoad = $scope.searchProblemList;
+						$scope.$applyAsync();
+					}
+				}
+			})
+		}
+		/**
+		 * 查找账单列表
+		 */
+		$scope.getBillPager = function(){
+			var pageNo = Pager.index;
+			Pager.pagerId = "#billPager";
+			_get({
+				url: STUDY_API + "/bill/getBillPager",
+				param: {
+					pageNo: pageNo,
+					pageSize: Pager.limit,
+				},
+				callback: function(res){
+					console.log(res);
+					if(res.code == '2000'){
+						$scope.billList = res.rows;
+						Pager.total = res.total;
+						Pager.Init();
+						Pager.onLoad = $scope.getBillPager;
 						$scope.$applyAsync();
 					}
 				}
@@ -166,6 +194,8 @@ define([], function () {
 				$state.go("home");
 			});
 		}
+		
+		
 		
 		$scope.searchOrderList();
 		$scope.searchUserDetails();
