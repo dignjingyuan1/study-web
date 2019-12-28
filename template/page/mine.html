@@ -57,7 +57,7 @@
           <span>我的发票</span>
           <img class="back-button" src="img/back-icon.png" alt="">
         </div>
-        <div class="tab-item" style="border-bottom: 1px solid #cccccc; margin-top: 15px" ng-click="switch(4)">
+        <div class="tab-item" style="border-bottom: 1px solid #cccccc; margin-top: 15px" ng-click="switch(4)" ng-if= "userRole == '1' || userRole == '2'">
           <img class="tab-item-icon" src="img/5-icon.png" alt="">
           <span>用户推荐</span>
           <img class="back-button" src="img/back-icon.png" alt="">
@@ -107,14 +107,14 @@
         <!-- 我的财富右侧内容开始 -->
         <div id="myWealth" class="content" style="display: none;">
           <div class="score-money">
-            <p class="score">积分<span style="font-size: 26px;">1080</span></p>
-            <p class="money">余额<span style="font-size: 26px;">￥2080</span></p>
+            <p class="score">积分<span style="font-size: 26px;">{{userIntegral ? userIntegral : 0}}</span></p>
+            <p class="money">余额<span style="font-size: 26px;">￥{{userAmount ? userAmount : 0}}</span></p>
           </div>
           <div class="class-title">
             <p class="class-text">账单明细</p>
           </div>
           <div class="bill-list">
-            <!--<div class="bill-item">
+            <div class="bill-item">
               <img class="shouru-icon" src="img/shouru.png" alt="">
               <p class="item-box">
                 <img style="width: 15px" src="img/time-icon.png">&nbsp;<span>2019.08.01&nbsp;周四&nbsp;07:51</span>
@@ -125,8 +125,8 @@
               <p class="price">
                 +23.50
               </p>
-            </div>-->
-            
+            </div>
+            <div class="pager" id="problemPager"></div>
           </div>
         </div>
         <!-- 我的财富右侧内容结束 -->
@@ -210,8 +210,8 @@
 		<!-- 用户推荐开始 -->
         <div id="my-recommend" class="content" style="display: none;">
           <div class="recomend-panel">
-            <img src="img/2weima.png" alt="">
-            <p>我推荐的用户: 10人</p>
+            <img src="{{userQrcode}}" alt="">
+            <p>我推荐的用户: {{userRecommendCount != 'null' && userRecommendCount ? userRecommendCount : 0}}人</p>
           </div>
         </div>
         <!-- 用户推荐结束 -->
