@@ -313,7 +313,7 @@ body{
 }
 .line-di{
     display: inline-block;
-    width: 6rem;
+    width: 5rem;
     height: 1px;
     background: #cccccc;
     margin: 0.3rem 1.3rem;
@@ -338,6 +338,7 @@ body{
 }
 .bill-list{
     width: 100%;
+    padding-bottom: 4rem;
 }
 .bill-item{
     width: 100%;
@@ -379,7 +380,7 @@ body{
     box-shadow: 0rem 0rem 1rem 0.1rem #ccc;
     border-radius: 1.5rem 1.5rem 0 0;
     position: fixed;
-    bottom: 5rem;
+    bottom: 0;
 }
 .quostion-footer>p{
     display: inline-block;

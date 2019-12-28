@@ -17,7 +17,7 @@ app.controller("reg",($scope,$state)=>{
 	$scope.register = function(){
 		if(_validtion("regForm")){
 			if($scope.userPassword != $scope.confirmPassword){
-				_errorMsg("两次密码不一致");
+				_successMsg("两次密码不一致");
 				return;
 			}
 			_post({

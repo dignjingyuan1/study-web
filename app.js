@@ -178,7 +178,7 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
 	           templateUrl: "template/phone-page/mine-course.html",
 	           controllerUrl: "template/phone-js/mine-course.js"
 	        })).state("phone-marketing-invoiceDetail", angularAMD.route({
-	            url: "/phone-marketing-invoiceDetail",
+	            url: "/phone-marketing-invoiceDetail?:price",
 	            templateUrl: "template/phone-page/marketing-invoiceDetail.html",
 	            controllerUrl: "template/phone-js/marketing-invoiceDetail.js"
 	        })).state("phone-course-list", angularAMD.route({
@@ -202,10 +202,14 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
                 templateUrl: "template/phone-page/marketing-myQuestions.html",
                 controllerUrl: "template/phone-js/marketing-myQuestions.js"
             })).state("phone-marketing-purchaseRecords", angularAMD.route({
-                url: "/phone-marketing-purchaseRecords",
-                templateUrl: "template/phone-page/marketing-purchaseRecords.html",
-                controllerUrl: "template/phone-js/marketing-purchaseRecords.js"
-            }))
+				url: "/phone-marketing-purchaseRecords",
+				templateUrl: "template/phone-page/marketing-purchaseRecords.html",
+				controllerUrl: "template/phone-js/marketing-purchaseRecords.js"
+			})).state("phone-tuijian", angularAMD.route({
+				url: "/phone-tuijian",
+				templateUrl: "template/phone-page/tuijian.html",
+				controllerUrl: "template/phone-js/tuijian.js"
+			}))
         }
 
     };

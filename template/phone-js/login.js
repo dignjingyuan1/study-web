@@ -10,9 +10,9 @@ define([], function () {
          */
         $scope.loginPhone =  function(){
             if(!$scope.userPhone){
-                _errorMsg("用户名不能为空！")
+                _successMsg("用户名不能为空！")
             }else if(!$scope.userPassword){
-                _errorMsg("密码不能为空！")
+                _successMsg("密码不能为空！")
             }else{
                 _post({
                     url: STUDY_API +"/user/login",
@@ -27,7 +27,7 @@ define([], function () {
                             localStorage.setItem("refreshToken",data.refreshToken);
                             $state.go('phone-mine');
                         }else{
-                            _errorMsg(res.message)
+                            _successMsg(res.message)
                         }
                     }
                 })
