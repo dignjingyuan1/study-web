@@ -15,7 +15,34 @@ body{font:12px "微软雅黑";}
 div,p{
     box-sizing: border-box
 }
-
+.class-text{
+    display: inline-block;
+    height: 2.2rem;
+    margin-top: 0.5rem;
+    font-size: 1.3rem;
+    border-left: 0.3rem solid #ff584f;
+    padding-left: 0.5rem;
+    line-height: 2.2rem;
+}
+.desc-text-dd{
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #999999;
+    padding-bottom: 1.5rem;
+    display: flex;
+}
+.desc-text-dd > img{
+    width: 9rem;
+    height: 5rem;
+}
+.desc-text-dd > p{
+    flex: 1;
+    padding:0 0.5rem 0 0.5rem;
+}
+.desc-text-dd > p > span{
+    color: #333333;
+    font-size: 1rem;
+}
 .panel{
     width: 100%;
     margin: 0 auto;

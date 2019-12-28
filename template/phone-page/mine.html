@@ -35,12 +35,12 @@
             <span>我的课程</span>
             <img class="back-button" src="img/back-icon.png" alt="">
         </div>
-        <div class="menu-item" style="margin-top: 1px;">
+        <div class="menu-item" style="margin-top: 1px;" ng-click="goto('phone-marketing-myQuestions')">
             <img class="tab-item-icon" src="img/2-icon.png" alt="">
             <span>我的提问</span>
             <img class="back-button" src="img/back-icon.png" alt="">
         </div>
-        <div class="menu-item">
+        <div class="menu-item" ng-click="goto('phone-marketing-billingDetails')">
             <img class="tab-item-icon" src="img/3-icon.png" alt="">
             <span>我的财富</span>
             <img class="back-button" src="img/back-icon.png" alt="">
@@ -55,7 +55,7 @@
             <span>用户推荐</span>
             <img class="back-button" src="img/back-icon.png" alt="">
         </div>
-        <div class="menu-item">
+        <div class="menu-item" ng-click="goto('phone-marketing-personInfo')">
             <img class="tab-item-icon" src="img/6-icon.png" alt="">
             <span>我的资料</span>
             <img class="back-button" src="img/back-icon.png" alt="">
@@ -65,7 +65,7 @@
 <button ng-if="userInfo != null" class="logout-button" ng-click="logOut()">退出登录</button>
 <!-- footer bar -->
 <div class="footer-bar">
-    <div class="footer-item" ng-click="go('phone-home')">
+    <div class="footer-item" ng-click="go('home')">
         <img src="img/index-hui.png" alt="">
         <p>首页</p>
     </div>

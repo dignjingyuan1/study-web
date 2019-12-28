@@ -1,14 +1,16 @@
 define([], function () {
 	// controller
 	return ["$scope","$state", function ($scope,$state) {
-		/**
-         * 提交
-         */
-        $scope.sub = function(){
-            if(!$scope.userPhone){
-                _successMsg("保存成功");
+        $scope.go = function (text) {
+            $state.go(text)
+        }
+        var user = getUser();
+        $scope.userInfo = null;
+        if (user) {
+            $scope.userInfo = user;
+            if (!$scope.userInfo.userHeader) {
+                $scope.userInfo.userHeader = "img/defalte-head.jpg"
             }
-            
         }
 	}];
 });

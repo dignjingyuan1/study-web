@@ -1,6 +1,7 @@
 define([], function () {
 	// controller
 	return ["$scope","$state", function ($scope,$state) {
+		$scope.recommendUserId = $state.params.recommendUserId;
         /**
          * 注册
          */
@@ -16,6 +17,7 @@ define([], function () {
                         userPhone: $scope.userPhone,
                         userPassword: $scope.confirmPassword,
                         userCode: $scope.validateCode,
+						recommendUserId: $scope.recommendUserId
                     },
                     callback: function(res){
                         if(res.code == '2000'){

@@ -19,9 +19,13 @@
 <body>
   <div class="panel">
     <div class="person-box">
-      <img class="person-img" src="img/test.jpg" alt="">
+      <img ng-if="userInfo != null" class="person-img" ng-src="{{userInfo.userHeader}}"
+           onerror="javascript:this.src='img/defalte-head.jpg';" alt="">
+      <img ng-if="userInfo == null" class="person-img" ng-src="img/defalte-head.jpg" alt="">
       <div class="right-content">
-        <p>&nbsp;&nbsp;&nbsp;<span>登录</span>/<span>注册</span></p>
+        <p ng-if="userInfo == null">&nbsp;&nbsp;&nbsp;<span ng-click="go('phone-login')">登录</span>/<span
+                ng-click="go('phone-reg')">注册</span></p>
+        <p ng-if="userInfo != null">&nbsp;&nbsp;&nbsp;{{userInfo.userName}}</p>
         <p class="level">等级：-------</p>
       </div>
     </div>
@@ -58,30 +62,23 @@
                   <span>通过扫描收获</span>
                 </p>
                 <p class="price">
-                  +100.00
+                  +10.15
+                </p>
+              </div>
+              <div class="bill-item">
+                <img class="shouru-icon" src="img/shouru.png" alt="">
+                <p class="item-box">
+                  <img style="width: 15px" src="img/time-icon.png">&nbsp;<span>2019.08.01&nbsp;周四&nbsp;07:51</span>
+                  <br>
+                  <i class="yuanquan"></i>
+                  <span>我们需要什么样的市场--谢良地</span>
+                </p>
+                <p class="price">
+                  +52.88
                 </p>
               </div>
             </div>
         </div>
-    </div>
-  </div>
-  <!-- footer bar -->
-  <div class="footer-bar">
-    <div class="footer-item" ng-click="go('phone-home')">
-      <img src="img/index-hui.png" alt="">
-      <p>首页</p>
-    </div>
-    <div class="footer-item" ng-click="go('phone-course')">
-      <img src="img/class-hui.png" alt="">
-      <p >课程</p>
-    </div>
-    <div class="footer-item" ng-click="go('phone-boutique')">
-      <img src="img/jingpin-hui.png" alt="">
-      <p>精品</p>
-    </div>
-    <div class="footer-item" ng-click="go('phone-mine')">
-      <img src="img/my-act.png" alt="">
-      <p class="font-act">我的</p>
     </div>
   </div>
 </body>
