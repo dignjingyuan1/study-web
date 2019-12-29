@@ -195,6 +195,17 @@ define([], function () {
 			});
 		}
 		
+		$scope.formatterType = function(type){
+			console.log(type)
+			if(type == '1'){
+				return "推荐新人获得金额";
+			}else if(type == '2'){
+				return "课程收益获得金额";
+			}else if(type == '3'){
+				return "消费获得积分收益"
+			}
+		}
+		
 		
 		
 		$scope.searchOrderList();
