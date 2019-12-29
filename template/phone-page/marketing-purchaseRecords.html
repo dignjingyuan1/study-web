@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="applicable-device" content="pc">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-eqiv="cleartype" content="ON">
+  <meta http-eqiv="cleartype" content="ON">
+  <link href="phone-css/marketing-purchaseRecords.css" rel="stylesheet" type="text/css" />
+  <link href="phone-css/common.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="panel">
+    <div class="person-box">
+      <img class="person-img" src="img/test.jpg" alt="">
+      <div class="right-content">
+        <p>&nbsp;&nbsp;&nbsp;<span>登录</span>/<span>注册</span></p>
+        <p class="level">等级：-------</p>
+      </div>
+    </div>
+    <div class="content-right">
+        <div class="panel-width">
+            <div class="content">
+                <div id="billList">
+                  <div class="class-title">
+                    <p class="class-text">购买记录</p>
+                  </div>
+                  <div class="bill-list">
+                    <div class="bill-item" ng-repeat="item in orderRecordList">
+                      <img ng-click="checkThis($index)" class="check-box" src="{{item.isChecked}}" alt="">
+                      <p class="item-box">
+                        <img style="width: 15px"
+                             src="img/time-icon.png">&nbsp;<span>{{item.createTime}}</span>
+                        <br>
+                        <i class="yuanquan"></i>
+                        <span>通过微信支付</span>
+                      </p>
+                      <p class="price">
+                        {{item.amount}}
+                      </p>
+                    </div>
+                    <!-- 我要提问底部 开始 -->
+                    <div style="width: 100%" class="quostion-footer">
+                      <p class="footer-price"><span style="color: #ff3728">{{classNum}}</span>个课程，共<span
+                          style="color: #ff3728">{{price}}</span>元</p>
+                      <img ng-click="checkAll(this)" class="checkImg" src="img/checkbox-hui-h.png"
+                        alt="">
+                      <span class="check-box-text">全选</span>
+                      <button class="quastion-button" ng-click="goto()">下一步</button>
+                    </div>
+                    <!-- 我要提问底部 结束 -->
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+  </div>
+</body>
+</html>

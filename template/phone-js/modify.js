@@ -6,9 +6,9 @@ define([], function () {
          */
         $scope.submit = function(){
             if(!$scope.mUserPhone){
-                _errorMsg("用户名不许为空");
+				_successMsg("用户名不许为空");
             }else if(!$scope.mUserPassword){
-                 _errorMsg("密码不许为空");
+				_successMsg("密码不许为空");
             }else{
                 _post({
                     url: STUDY_API + "/user/modify",
@@ -46,12 +46,12 @@ define([], function () {
 function getValidateCodeReg($this){
 	var tel = $("#regForm input[name='userPhone']");
 	if(tel.val() == ""){
-	    _errorMsg("手机号不能为空");
+		_successMsg("手机号不能为空");
 		return;
 	}
 	 var regTel = /^1[3|4|5|6|7|8|9][0-9]\d{8}$/;
 	 if(!regTel.test(tel.val())){
-	    _errorMsg("手机号不正确");
+		 _successMsg("手机号不正确");
 		return;
 	 }
 	 console.log("123")

@@ -313,7 +313,7 @@ body{
 }
 .line-di{
     display: inline-block;
-    width: 6rem;
+    width: 5rem;
     height: 1px;
     background: #cccccc;
     margin: 0.3rem 1.3rem;
@@ -383,7 +383,7 @@ body{
 }
 .qustion-list-box .questionText{
     font-size: 1.5rem;
-    color: #333333
+    color: #333333;
 }
 .qustion-list-box .questionTime{
     width: 1.5rem;

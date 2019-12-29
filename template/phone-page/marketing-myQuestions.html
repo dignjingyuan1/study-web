@@ -38,11 +38,11 @@
                 <div class="qustion-list-box border-top" ng-repeat="item in problemList" ng-click="questionDetails(item.problemId)">
                   <p class="">
                     <span class="qustion-icon">问</span>&nbsp;<span class="questionText">{{item.problemTitle}}</span>
-                    <span style="float: right; color: #999999;"><img class="questionTime"
-                        src="img/time-icon.png" alt="">{{item.createTime}} 预约</span>
                   </p>
                   <p style="color: #999999;">
-                    <span class="answer-icon">答</span>&nbsp;<span>{{item.teacherName ? item.teacherName+'教授答复' : ''}}</span>
+                      <span class="answer-icon">答</span>&nbsp;<span>{{item.teacherName ? item.teacherName+'教授答复' : ''}}</span>
+                      <span style="float: right; color: #999999;"><img class="questionTime"
+                          src="img/time-icon.png" alt="">{{item.createTime}} 预约</span>
                   </p>
                 </div>
             </div>

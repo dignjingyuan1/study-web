@@ -227,7 +227,7 @@ body{
 }
 .line-di{
     display: inline-block;
-    width: 6rem;
+    width: 5rem;
     height: 1px;
     background: #cccccc;
     margin: 0.3rem 1.3rem;

@@ -313,7 +313,7 @@ body{
 }
 .line-di{
     display: inline-block;
-    width: 6rem;
+    width: 5rem;
     height: 1px;
     background: #cccccc;
     margin: 0.3rem 1.3rem;
@@ -382,7 +382,7 @@ body{
     display: inline-block; 
     color: #999999; 
     margin: 1.5rem 1rem;
-    max-width: 47%;
+    max-width: 40%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

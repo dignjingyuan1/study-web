@@ -93,7 +93,11 @@ function _ajax(params){
 		error: function(err){
 			_removeLoading();
 			if(err.responseJSON.code == '1000'){
-				_errorMsg(err.responseJSON.message);
+				if (location.href.indexOf("phone-") == -1){
+					_errorMsg(err.responseJSON.message);
+				}else{
+					_successMsg(err.responseJSON.message);
+				}
 			}
 			if(typeof params.error == "function"){
 				params.error();
