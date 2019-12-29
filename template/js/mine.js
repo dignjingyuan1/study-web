@@ -157,7 +157,6 @@ define([], function () {
 					pageSize: Pager.limit,
 				},
 				callback: function(res){
-					console.log(res);
 					if(res.code == '2000'){
 						$scope.billList = res.rows;
 						Pager.total = res.total;
@@ -196,7 +195,6 @@ define([], function () {
 		}
 		
 		$scope.formatterType = function(type){
-			console.log(type)
 			if(type == '1'){
 				return "推荐新人获得金额";
 			}else if(type == '2'){
@@ -205,8 +203,6 @@ define([], function () {
 				return "消费获得积分收益"
 			}
 		}
-		
-		
 		
 		$scope.searchOrderList();
 		$scope.searchUserDetails();
