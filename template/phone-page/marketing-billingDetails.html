@@ -41,16 +41,16 @@
                 <p class="class-text">账单明细</p>
             </div>
             <div class="bill-list">
-              <div class="bill-item">
+              <div class="bill-item" ng-repeat="item in billList">
                 <img class="shouru-icon" src="img/shouru.png" alt="">
                 <p class="item-box">
-                  <img style="width: 15px" src="img/time-icon.png">&nbsp;<span>2019.08.01&nbsp;周四&nbsp;07:51</span>
+                  <img style="width: 15px" src="img/time-icon.png">&nbsp;<span>{{item.createTime}}</span>
                   <br>
                   <i class="yuanquan"></i>
-                  <span>我们需要什么样的市场--谢良地</span>
+                  <span ng-bind-html="formatterType(item.billType)"></span>
                 </p>
                 <p class="price">
-                  +23.50
+                  {{item.billSymbol}}{{item.billAmount}}
                 </p>
               </div>
             </div>
