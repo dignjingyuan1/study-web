@@ -4,6 +4,13 @@ define([], function () {
 	return ["$scope","$state", function ($scope,$state) {
 		Pager.index = 1;
 		Pager.limit = 5;
+		
+		$scope.checkNumber = 0;
+		$scope.checkAmount = 0.00;
+		$scope.isCheck = false;
+		$scope.orderIds = [];
+		$scope.isCompanyType = 0;
+		
 		/**
 		 * 切换
 		 */
@@ -18,6 +25,7 @@ define([], function () {
 			}else if(index == "2"){
 				$scope.getBillPager();
 			}else if(index == "3"){
+				$scope.isCheck = false;
 				$scope.searchOrderRecordList();
 			}
 		}
@@ -60,7 +68,6 @@ define([], function () {
 					userId: user.userId
 				},
 				callback: function(res){
-					console.log(res);
 					if(res.code == '2000'){
 						var data = res.data;
 						$scope.userPhone = data.userPhone;
@@ -187,7 +194,6 @@ define([], function () {
 		 * 退出
 		 */
 		$scope.logOut = function(){
-			console.log("123")
 			_confirm("确定要退出么？",function(){
 				localStorage.clear();
 				$state.go("home");
@@ -204,10 +210,104 @@ define([], function () {
 			}
 		}
 		
+		/**
+		 * 开发票
+		 */
+		$scope.invoice = function(){
+			if($scope.orderIds.length == 0){
+				alertText("未选择要开发票的订单");
+				return;
+			}
+			$(".content").hide().eq(6).show();
+		}
+		
+		/**
+		 * 多选
+		 * @param {Object} item
+		 */
+		$scope.checkThis = function(item){
+			item.isCheck = !item.isCheck;
+			if(item.isCheck){
+				$scope.orderIds.push(item.orderId);
+				$scope.checkNumber++;
+				$scope.checkAmount = new Number($scope.checkAmount) + new Number(item.amount);
+			}else {
+				$scope.orderIds.remove(item.orderId);
+				$scope.checkNumber--;
+				$scope.checkAmount = new Number($scope.checkAmount) - new Number(item.amount);
+			}
+			console.log($scope.orderIds);
+		}
+		
+		/**
+		 * 全选
+		 */
+		$scope.checkAll = function(){
+			$scope.checkAmount = 0;
+			$scope.checkNumber = 0;
+			$scope.orderIds = [];
+			$scope.isCheck = !$scope.isCheck;
+			for(var i=0; i<$scope.orderRecordList.length; i++){
+				var item = $scope.orderRecordList[i];
+				item.isCheck = $scope.isCheck;
+				if($scope.isCheck){
+					$scope.orderIds.push(item.orderId);
+					$scope.checkAmount = new Number($scope.checkAmount) + new Number(item.amount);
+				}
+			}
+			if($scope.isCheck){
+				$scope.checkNumber = $scope.orderRecordList.length;
+			}
+		}
+		
+		/**
+		 * 选择类别
+		 * @param {Object} type
+		 */
+		$scope.checkIt = function(type){
+			$scope.isCompanyType = type
+		}
+		
+		/**
+		 * 提交
+		 */
+		$scope.submitInvoice = function(){
+			if(_validtion("invoiceForm")){
+				_post({
+					url: STUDY_API + "/invoice/saveInvoice",
+					param: {
+						companyType: $scope.isCompanyType,
+						companyName: $scope.companyName,
+						invoiceTaxNo: $scope.invoiceTaxNo,
+						invoiceRemark: $scope.invoiceRemark,
+						invoiceEmail: $scope.invoiceEmail,
+						orderIds: $scope.orderIds.join(",")
+					},
+					callback: function(res){
+						if(res.code == '2000'){
+							alertText("提交成功");
+							$scope.orderIds = [];
+							setTimeout(function(){
+								$state.reload();
+							},2000)
+						}
+					}
+				})
+			}
+			
+		}
+		
 		$scope.searchOrderList();
 		$scope.searchUserDetails();
 	}];
 });
+
+Array.prototype.remove = function(val) { 
+	var index = this.indexOf(val); 
+	if (index > -1) { 
+		this.splice(index, 1); 
+	} 
+};
 
 function selectImg($event){
 	var file = $event.files[0];
@@ -237,4 +337,13 @@ function selectImg($event){
         		}
         });
 	});
+}
+
+function alertText(text) {
+    var dom = document.getElementById('successAlert')
+    dom.innerText = text
+    dom.style.display = "block"
+    setTimeout(function () {
+        dom.style.display = "none"
+    }, 1000)
 }

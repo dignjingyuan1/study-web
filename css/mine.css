@@ -241,6 +241,12 @@ div,p{
     font-size: 12px;
     margin-top: 7px;
     color: #999999;
+    text-overflow: -o-ellipsis-lastline;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
 }
 .small-info{
     color: #999999;
@@ -411,7 +417,7 @@ div,p{
     margin-right: 26px;
 }
 .check-box-text{
-    margin-top: 18px;
+    margin-top: 20px;
     display: inline-block;
     color: #999999;
 }
@@ -425,7 +431,7 @@ div,p{
 .myinfo-item > span{
     color: #333333;
     font-size: 14px;
-    width: 73px;
+    width: 80px;
     display: inline-block;
 }
 .myinfo-item > p {
@@ -514,4 +520,10 @@ div,p{
     width: 145px;
     text-align: center;
     color: white;
+}
+.checkBox{
+	/*position: absolute;*/
+	float: left;
+	line-height: 60px;
+	cursor: pointer;
 }

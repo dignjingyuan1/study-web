@@ -106,7 +106,6 @@ define([], function () {
 		        		$(ev).attr("src","img/checkbox.png")
 		        		$(ev).parent().append("<span class='icon iconfont' style='font-size:18px; margin-right:3px;color:#ab0f2c'></span>");
 		        		$(ev).remove();
-		        		
 		        });
 			}else if($scope.problemFollow == '1'){
 				$scope.problemFollow = "0";
