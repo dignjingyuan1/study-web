@@ -179,7 +179,7 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
 	           templateUrl: "template/phone-page/mine-course.html",
 	           controllerUrl: "template/phone-js/mine-course.js"
 	        })).state("phone-marketing-invoiceDetail", angularAMD.route({
-	            url: "/phone-marketing-invoiceDetail?:price",
+	            url: "/phone-marketing-invoiceDetail?:price:orderIds",
 	            templateUrl: "template/phone-page/marketing-invoiceDetail.html",
 	            controllerUrl: "template/phone-js/marketing-invoiceDetail.js"
 	        })).state("phone-course-list", angularAMD.route({

@@ -33,7 +33,7 @@
             </div>
             <div class="content-small" ng-repeat="item in orderList" ng-click="courseGroupDetails(item.courseGroupId)">
                 <div class="small-left">
-                    <img class="{{item.courseGroupImg}}" src="" alt="">
+                    <img class="small-left-img" src="{{item.courseGroupImg}}" alt="">
                 </div>
                 <div class="small-right">
                     <p class=" small-title overflow-hidden">{{item.courseGroupName}}</p>
@@ -50,25 +50,6 @@
                 </div>
             </div>
         </div>
-    </div>
-  </div>
-  <!-- footer bar -->
-  <div class="footer-bar">
-    <div class="footer-item" ng-click="go('home')">
-      <img src="img/index-hui.png" alt="">
-      <p>首页</p>
-    </div>
-    <div class="footer-item" ng-click="go('phone-course')">
-      <img src="img/class-hui.png" alt="">
-      <p >课程</p>
-    </div>
-    <div class="footer-item" ng-click="go('phone-boutique')">
-      <img src="img/jingpin-hui.png" alt="">
-      <p>精品</p>
-    </div>
-    <div class="footer-item" ng-click="go('phone-mine')">
-      <img src="img/my-act.png" alt="">
-      <p class="font-act">我的</p>
     </div>
   </div>
 </body>

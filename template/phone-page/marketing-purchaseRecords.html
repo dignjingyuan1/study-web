@@ -19,9 +19,10 @@
 <body>
   <div class="panel">
     <div class="person-box">
-      <img class="person-img" src="img/test.jpg" alt="">
+      <img class="person-img" ng-src="{{userInfo.userHeader}}" onerror="javascript:this.src='img/defalte-head.jpg';" alt="">
       <div class="right-content">
-        <p>&nbsp;&nbsp;&nbsp;<span>登录</span>/<span>注册</span></p>
+        <p ng-if="userInfo == null">&nbsp;&nbsp;&nbsp;<span ng-click="go('phone-login')">登录</span>/<span ng-click="go('phone-reg')">注册</span></p>
+        <p ng-if="userInfo != null">&nbsp;&nbsp;&nbsp;{{userInfo.userName}}</p>
         <p class="level">等级：-------</p>
       </div>
     </div>
@@ -50,7 +51,7 @@
                     <div style="width: 100%" class="quostion-footer">
                       <p class="footer-price"><span style="color: #ff3728">{{classNum}}</span>个课程，共<span
                           style="color: #ff3728">{{price}}</span>元</p>
-                      <img ng-click="checkAll(this)" class="checkImg" src="img/checkbox-hui-h.png"
+                      <img ng-click="checkAll()" class="checkImg" src="{{isCheckAll}}"
                         alt="">
                       <span class="check-box-text">全选</span>
                       <button class="quastion-button" ng-click="goto()">下一步</button>

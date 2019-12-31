@@ -36,11 +36,11 @@
                 </div>
                 <div class="small-right">
                   <p>
-                    <img class="radio" onclick="checkIt(this)" src="img/radio-act.png" alt="">
+                    <img class="radio" ng-click="checkIt(0)" src="{{isCompanyType == '0' ? 'img/radio-act.png' : 'img/radio-hui.png'}}" alt="">
                     <span class="text-color-hui">企业单位</span>
                   </p>
                   <p style="margin-left: 1rem">
-                    <img class="radio" onclick="checkIt(this)" src="img/radio-hui.png" alt="">
+                    <img class="radio" ng-click="checkIt(1)" src="{{isCompanyType == '1' ? 'img/radio-act.png' : 'img/radio-hui.png'}}" alt="">
                     <span>个人/非企业单位</span>
                   </p>
                 </div>
@@ -50,7 +50,7 @@
                     发票抬头
                 </div>
                 <div class="small-right">
-                  <input type="text" placeholder="" name="invoiceName"  message="发票名称" ng-model="invoiceName"/>
+                  <input type="text" placeholder="" name="companyName"  message="发票名称" ng-model="companyName"/>
                 </div>
             </div>
             <div class="content-small">
@@ -58,7 +58,7 @@
                     税号
                 </div>
                 <div class="small-right">
-                  <input type="text" placeholder="" name="einName"  message="税号" ng-model="einName"/>
+                  <input type="text" placeholder="" name="invoiceTaxNo"  message="税号" ng-model="invoiceTaxNo"/>
                 </div>
             </div>
             <div class="content-small">
@@ -66,7 +66,7 @@
                   更多内容
               </div>
               <div class="small-right aliginRight">
-                <input type="text" placeholder="填写备注,地址等(非必填)" name="moreInfo"  message="更多信息" ng-model="moreInfo"/> 
+                <input type="text" placeholder="填写备注,地址等(非必填)" name="invoiceRemark"  message="更多信息" ng-model="invoiceRemark"/>
                 <!-- <img class="more-img" src="img/right.png"> -->
               </div>
           </div>
@@ -79,7 +79,7 @@
                   总金额
               </div>
               <div class="small-right aliginRight">
-                <input type="number" placeholder="" name="price"  message="总金额" ng-model="price"/>元
+                <input type="text" placeholder="" name="checkAmount"  message="总金额" ng-model="checkAmount" readonly/>元
               </div>
           </div>
           <div class="class-title">
@@ -90,7 +90,7 @@
                   电子邮件
               </div>
               <div class="small-right">
-                <input type="text" placeholder="" name="einName"  message="税号" ng-model="einName"/>
+                <input type="text" placeholder="" name="invoiceEmail"  message="税号" ng-model="invoiceEmail"/>
               </div>
           </div>
       </div>
