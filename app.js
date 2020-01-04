@@ -34,10 +34,17 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
     
     let _ROUTER = undefined;
     // routes
-    var registerRoutes = function($stateProvider, $urlRouterProvider,$locationProvider) {
+    var registerRoutes = function($stateProvider, $urlRouterProvider,$locationProvider,$httpProvider) {
         	
         // default
         $urlRouterProvider.otherwise("/home");
+        
+        if (!$httpProvider.defaults.headers.get) {
+    	      $httpProvider.defaults.headers.get = {};
+    	    }
+    	    $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
+    	    $httpProvider.defaults.headers.get['Cache-Control'] = 'no-cache';
+    	    $httpProvider.defaults.headers.get['Pragma'] = 'no-cache';
 
         if(isPC()){
 	        	 // route
@@ -230,7 +237,7 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
     });
 
     // config
-    app.config(["$stateProvider", "$urlRouterProvider",'$locationProvider', registerRoutes]);
+    app.config(["$stateProvider", "$urlRouterProvider",'$locationProvider','$httpProvider', registerRoutes]);
    	
  	
    	

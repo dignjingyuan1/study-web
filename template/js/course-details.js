@@ -102,6 +102,7 @@ define([], function () {
 									"</div>";
 						$(".pay-body").append(html);
 						clearTimeout(timeOut);
+						$scope.searchCourseGropeDetails();
 						$scope.searchCourseStatus();
 						return;
 					}

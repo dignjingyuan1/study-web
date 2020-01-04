@@ -222,6 +222,13 @@ define([], function () {
 		}
 		
 		/**
+		 * 提现页面
+		 */
+		$scope.cash = function(){
+			$(".content").hide().eq(7).show();
+		}
+		
+		/**
 		 * 多选
 		 * @param {Object} item
 		 */
@@ -294,7 +301,31 @@ define([], function () {
 					}
 				})
 			}
-			
+		}
+		
+		/**
+		 * 保存提现记录
+		 */
+		$scope.saveCash = function(){
+			if(_validtion("cashForm")){
+				_post({
+					url: STUDY_API + "/cash/saveCash",
+					param: {
+						cashBackNo: $scope.backNo,
+						cashBackName: $scope.backName,
+						cashUserName: $scope.cashUserName,
+						cashAmount: $scope.amount
+					},
+					callback: function(res){
+						if(res.code == '2000'){
+							alertText("提交成功");
+							setTimeout(function(){
+								$state.reload();
+							},2000)
+						}
+					}
+				})
+			}
 		}
 		
 		$scope.searchOrderList();

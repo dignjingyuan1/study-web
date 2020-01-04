@@ -108,7 +108,8 @@
         <div id="myWealth" class="content" style="display: none;">
           <div class="score-money">
             <p class="score">积分<span style="font-size: 26px;">{{userIntegral ? userIntegral : 0}}</span></p>
-            <p class="money">余额<span style="font-size: 26px;">￥{{userAmount ? userAmount : 0}}</span></p>
+            <p class="money">余额<span style="font-size: 26px;">￥{{userAmount ? userAmount : 0}}</span> <span class="cash" ng-click="cash()">提现</span></p>
+           
           </div>
           <div class="class-title">
             <p class="class-text">账单明细</p>
@@ -260,7 +261,27 @@
         </div>
         </form>
         <!-- 我的发票右侧内容结束 -->
-        
+        <form action="javascript:;" id="cashForm">
+        <div id="cash" class="content" style="display: none;">
+        	  <div class="myinfo-item">
+            <span>账户名：</span>
+            <input type="text" placeholder="请输账户名" ng-model="cashUserName" check="ckNull" message="账户名" />
+          </div>
+          <div class="myinfo-item">
+            <span>账号：</span>
+            <input type="text" placeholder="请输入账号" ng-model="backName" check="ckNull" message="账号"/>
+          </div>
+          <div class="myinfo-item">
+            <span>开户行：</span>
+            <input type="text" placeholder="请输入开户行" ng-model="backNo" check="ckNull" message="开户行"/>
+          </div>
+          <div class="myinfo-item">
+            <span>提现金额：</span>
+            <input type="number" placeholder="请输入提现金额" ng-model="amount" check="ckNull" message="提现金额"/>
+          </div>
+          <button class="save-button" style="margin-top: 10px;" ng-click="saveCash()">提现</button>
+        </div>
+        </form>
       </div>
     </div>
     <!-- 内容区域结束 -->
