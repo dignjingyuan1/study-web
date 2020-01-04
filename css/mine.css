@@ -537,3 +537,8 @@ div,p{
 	color: #ffffff;
 	border-radius: 10px;
 }
+.cash-title{
+	font-size: 13px;
+	padding-left: 5px;
+	border-left: 4px solid red;
+}

@@ -207,6 +207,8 @@ define([], function () {
 				return "课程收益获得金额";
 			}else if(type == '3'){
 				return "消费获得积分收益"
+			}else if(type == '4'){
+				return "提现"
 			}
 		}
 		
