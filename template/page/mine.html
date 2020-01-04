@@ -263,6 +263,7 @@
         <!-- 我的发票右侧内容结束 -->
         <form action="javascript:;" id="cashForm">
         <div id="cash" class="content" style="display: none;">
+        	  <div class="cash-title">提现</div>
         	  <div class="myinfo-item">
             <span>账户名：</span>
             <input type="text" placeholder="请输账户名" ng-model="cashUserName" check="ckNull" message="账户名" />
@@ -277,9 +278,9 @@
           </div>
           <div class="myinfo-item">
             <span>提现金额：</span>
-            <input type="number" placeholder="请输入提现金额" ng-model="amount" check="ckNull" message="提现金额"/>
+            <input type="text" placeholder="请输入提现金额" ng-model="amount" check="ckNull" message="提现金额"/>
           </div>
-          <button class="save-button" style="margin-top: 10px;" ng-click="saveCash()">提现</button>
+          <button class="save-button" style="margin-top: 150px;" ng-click="saveCash()">提现</button>
         </div>
         </form>
       </div>
