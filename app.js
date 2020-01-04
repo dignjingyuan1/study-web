@@ -217,6 +217,10 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
 				url: "/phone-tuijian",
 				templateUrl: "template/phone-page/tuijian.html",
 				controllerUrl: "template/phone-js/tuijian.js"
+			})).state("phone-getmoney", angularAMD.route({
+				url: "/phone-getmoney?:price",
+				templateUrl: "template/phone-page/getmoney.html",
+				controllerUrl: "template/phone-js/getmoney.js"
 			}))
         }
 

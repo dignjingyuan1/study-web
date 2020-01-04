@@ -83,6 +83,15 @@ define([], function () {
             }
         });
 
+
+        $scope.getMoney = function () {
+            if ($scope.userAmount){
+                $state.go("phone-getmoney", {price: $scope.userAmount})
+            }else{
+                _successMsg("提现金额为0，不可提现！")
+            }
+        }
+
         $scope.formatterType = function(type){
             if(type == '1'){
                 return "推荐新人获得金额";

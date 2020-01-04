@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="applicable-device" content="pc">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-eqiv="cleartype" content="ON">
+  <meta http-eqiv="cleartype" content="ON">
+  <link href="phone-css/marketing-invoiceDetail.css" rel="stylesheet" type="text/css" />
+  <link href="phone-css/common.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="panel">
+    <div class="content-right">
+        <div class="panel-width">
+            <div class="class-title">
+                <p class="class-text">提现</p>
+            </div>
+            <div class="content-small">
+                <div class="small-left">
+                    用户名
+                </div>
+                <div class="small-right">
+                    <input type="text" placeholder="" name="cashUserName"  message="用户名" ng-model="cashUserName"/>
+                </div>
+            </div>
+            <div class="content-small">
+                <div class="small-left">
+                    账号
+                </div>
+                <div class="small-right">
+                    <input type="text" placeholder="" name="backNo"  message="请输入银行账号" ng-model="backName"/>
+                </div>
+            </div>
+            <div class="content-small">
+                <div class="small-left">
+                    开户行
+                </div>
+                <div class="small-right">
+                    <input type="text" placeholder="" name="backName"  message="例：中国银行" ng-model="backNo"/>
+                </div>
+            </div>
+            <div class="content-small">
+                <div class="small-left">
+                    提现金额
+                </div>
+                <div class="small-right">
+                    <input type="text" placeholder="" name="amount"  message="请输入金额" ng-model="amount"/>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  <div class="buttonDiv">
+    <button class="login-button" ng-click="saveCashphone()">提交</button>
+  </div>
+  </div>
+</body>
+</html>

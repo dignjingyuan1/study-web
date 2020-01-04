@@ -338,6 +338,7 @@ body{
 }
 .scoreMoneyDiv{
     padding: 1rem 2rem;
+    padding-bottom: 0;
 }
 .score-money{
     width: 100%;
@@ -401,4 +402,14 @@ body{
     float: right;
     margin-top: 1.3rem;
     margin-right: 0.5rem;
+}
+.get-money{
+    border: none;
+    width: 24%;
+    margin-left: 38%;
+    height: 2.5rem;
+    margin-top: 1rem;
+    border-radius: 5rem;
+    color: white;
+    background-color: #ff3728;
 }

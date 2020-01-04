@@ -33,27 +33,28 @@
         <div class="panel-width">
           <div class="scoreMoneyDiv">
             <div class="score-money">
-                <p class="score">积分<span style="font-size: 26px;">{{userIntegral ? userIntegral : 0}}</span></p>
-                <p class="money">余额<span style="font-size: 26px;">￥{{userAmount ? userAmount : 0}}</span></p>
-              </div>
+              <p class="score">积分<span style="font-size: 26px;">{{userIntegral ? userIntegral : 0}}</span></p>
+              <p class="money">余额<span style="font-size: 26px;">￥{{userAmount ? userAmount : 0}}</span></p>
+            </div>
+            <button class="get-money" ng-click="getMoney()">提现</button>
           </div>
-            <div class="class-title">
-                <p class="class-text">账单明细</p>
+          <div class="class-title">
+              <p class="class-text">账单明细</p>
+          </div>
+          <div class="bill-list">
+            <div class="bill-item" ng-repeat="item in billList">
+              <img class="shouru-icon" src="img/shouru.png" alt="">
+              <p class="item-box">
+                <img style="width: 15px" src="img/time-icon.png">&nbsp;<span>{{item.createTime}}</span>
+                <br>
+                <i class="yuanquan"></i>
+                <span ng-bind-html="formatterType(item.billType)"></span>
+              </p>
+              <p class="price">
+                {{item.billSymbol}}{{item.billAmount}}
+              </p>
             </div>
-            <div class="bill-list">
-              <div class="bill-item" ng-repeat="item in billList">
-                <img class="shouru-icon" src="img/shouru.png" alt="">
-                <p class="item-box">
-                  <img style="width: 15px" src="img/time-icon.png">&nbsp;<span>{{item.createTime}}</span>
-                  <br>
-                  <i class="yuanquan"></i>
-                  <span ng-bind-html="formatterType(item.billType)"></span>
-                </p>
-                <p class="price">
-                  {{item.billSymbol}}{{item.billAmount}}
-                </p>
-              </div>
-            </div>
+          </div>
         </div>
     </div>
   </div>
