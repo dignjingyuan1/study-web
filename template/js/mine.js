@@ -21,13 +21,40 @@ define([], function () {
 			if(index == "0"){
 				$scope.searchOrderList();
 			}else if(index == "1"){
-				$scope.searchProblemList();
+				$scope.searchCourseGroupMyPagerApi();
 			}else if(index == "2"){
-				$scope.getBillPager();
+				$scope.searchProblemList();
 			}else if(index == "3"){
+				$scope.getBillPager();
+			}else if(index == "4"){
 				$scope.isCheck = false;
 				$scope.searchOrderRecordList();
 			}
+		}
+		
+		/**
+		 * 查找我的上传
+		 */
+		$scope.searchCourseGroupMyPagerApi = function(){
+			var pageNo = Pager.index;
+			Pager.pagerId = "#myCoursePager";
+			_get({
+				url:STUDY_API +"/courseGroup/getCourseGroupMyPagerApi",
+				param: {
+					pageNo: pageNo,
+					pageSize: Pager.limit,
+				},
+				callback: function(res){
+					if(res.code == '2000'){
+						console.log(res);
+						$scope.myCourseGroupList = res.rows;
+						Pager.total = res.total;
+						Pager.Init();
+						Pager.onLoad = $scope.searchCourseGroupMyPagerApi;
+						$scope.$applyAsync();
+					}
+				}
+			})
 		}
 		
 		/**

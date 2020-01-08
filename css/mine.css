@@ -254,12 +254,40 @@ div,p{
     margin-top: 2px;
 }
 .learning{
+	width: 50px;
+    height: 18px;
+    line-height: 18px;
+    border-radius: 20px;
+    display: inline-block;
+    background-color: #ffff01;
+    text-align: center;
+}
+.learning-shang{
     width: 50px;
     height: 18px;
     line-height: 18px;
     border-radius: 20px;
     display: inline-block;
     background-color: #ffff01;
+    text-align: center;
+}
+.learning-xia{
+    width: 50px;
+    height: 18px;
+    line-height: 18px;
+    border-radius: 20px;
+    display: inline-block;
+    background-color: red;
+    text-align: center;
+    color: #ffffff;
+}
+.learning-shen{
+    width: 50px;
+    height: 18px;
+    line-height: 18px;
+    border-radius: 20px;
+    display: inline-block;
+    background-color: #0d2ef8;
     text-align: center;
 }
 .complated{

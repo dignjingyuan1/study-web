@@ -42,27 +42,32 @@
           <span>我的课程</span>
           <img class="back-button" src="img/back-icon.png" alt="">
         </div>
-        <div class="tab-item" ng-click="switch(1)">
+        <div class="tab-item" style="border-bottom: 1px solid #cccccc" ng-click="switch(1)" ng-if= "userRole == '2'">
+          <img class="tab-item-icon" src="img/1-icon.png" alt="">
+          <span>我的上传</span>
+          <img class="back-button" src="img/back-icon.png" alt="">
+        </div>
+        <div class="tab-item" ng-click="switch(2)">
           <img class="tab-item-icon" src="img/2-icon.png" alt="">
           <span>我的提问</span>
           <img class="back-button" src="img/back-icon.png" alt="">
         </div>
-        <div class="tab-item" style="border-bottom: 1px solid #cccccc; margin-top: 15px" ng-click="switch(2)">
+        <div class="tab-item" style="border-bottom: 1px solid #cccccc; margin-top: 15px" ng-click="switch(3)">
           <img class="tab-item-icon" src="img/3-icon.png" alt="">
           <span>我的财富</span>
           <img class="back-button" src="img/back-icon.png" alt="">
         </div>
-        <div class="tab-item" ng-click="switch(3)">
+        <div class="tab-item" ng-click="switch(4)">
           <img class="tab-item-icon" src="img/4-icon.png" alt="">
           <span>我的发票</span>
           <img class="back-button" src="img/back-icon.png" alt="">
         </div>
-        <div class="tab-item" style="border-bottom: 1px solid #cccccc; margin-top: 15px" ng-click="switch(4)" ng-if= "userRole == '1' || userRole == '2'">
+        <div class="tab-item" style="border-bottom: 1px solid #cccccc; margin-top: 15px" ng-click="switch(5)" ng-if= "userRole == '1' || userRole == '2'">
           <img class="tab-item-icon" src="img/5-icon.png" alt="">
           <span>用户推荐</span>
           <img class="back-button" src="img/back-icon.png" alt="">
         </div>
-        <div class="tab-item" ng-click="switch(5)">
+        <div class="tab-item" ng-click="switch(6)">
           <img class="tab-item-icon" src="img/6-icon.png" alt="">
           <span>我的资料</span>
           <img class="back-button" src="img/back-icon.png" alt="">
@@ -87,7 +92,22 @@
           <div class="pager" id="coursePager"></div>
         </div>
         <!-- 我的课程右侧内容结束 -->
-
+		<div class="content">
+		  <div class="content-small" ng-repeat="item in myCourseGroupList" ng-click="courseGroupDetails(item.courseGroupId)">
+            <div class="small-left">
+              <img class="small-left-img" src="{{item.courseGroupImg}}" alt="">
+            </div>
+            <div class="small-right">
+            	<p class="small-title overflow-hidden">{{item.courseGroupName}}</p>
+            	<p class="small-info">
+            		<span class="{{item.courseStatus == '1' ? 'learning-shang' : item.courseStatus == '2' ? 'learning-shen' : 'learning-xia'}}">{{item.courseStatus == '1' ? '已上架' : item.courseStatus == '2' ? '驳回' : '下架'}}</span>
+            		<span>{{item.createTime}}更新 {{item.payCount}}人购买</span>
+            	</p>
+             <p class="small-desc">{{item.courseGroupRemark}}</p>
+            </div>
+          </div>
+          <div class="pager" id="myCoursePager"></div>
+		</div>
         <!-- 我的提问右侧内容开始 -->
         <div id="myQustion" class="content" style="display: none;">
           <div class="qustion-list-box border-top" ng-repeat="item in problemList" ng-click="questionDetails(item.problemId)">
