@@ -25,11 +25,37 @@ define([], function () {
 			}else if(index == "2"){
 				$scope.searchProblemList();
 			}else if(index == "3"){
-				$scope.getBillPager();
+				$scope.searchProblemFollowPager();
 			}else if(index == "4"){
+				$scope.getBillPager();
+			}else if(index == "5"){
 				$scope.isCheck = false;
 				$scope.searchOrderRecordList();
 			}
+		}
+		
+		/**
+		 * 查找围观列表
+		 */
+		$scope.searchProblemFollowPager = function(){
+			var pageNo = Pager.index;
+			Pager.pagerId = "#problemFollowPager";
+			_get({
+				url: STUDY_API + "/problemFollow/getProblemFollowPager",
+				param: {
+					pageNo: pageNo,
+					pageSize: Pager.limit,
+				},
+				callback: function(res){
+					if(res.code == '2000'){
+						$scope.problemFollowList = res.rows;
+						Pager.total = res.total;
+						Pager.Init();
+						Pager.onLoad = $scope.searchProblemFollowPager;
+						$scope.$applyAsync();
+					}
+				}
+			})
 		}
 		
 		/**
@@ -46,7 +72,6 @@ define([], function () {
 				},
 				callback: function(res){
 					if(res.code == '2000'){
-						console.log(res);
 						$scope.myCourseGroupList = res.rows;
 						Pager.total = res.total;
 						Pager.Init();
@@ -247,14 +272,14 @@ define([], function () {
 				alertText("未选择要开发票的订单");
 				return;
 			}
-			$(".content").hide().eq(6).show();
+			$(".content").hide().eq(8).show();
 		}
 		
 		/**
 		 * 提现页面
 		 */
 		$scope.cash = function(){
-			$(".content").hide().eq(7).show();
+			$(".content").hide().eq(9).show();
 		}
 		
 		/**
