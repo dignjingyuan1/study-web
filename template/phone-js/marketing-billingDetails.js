@@ -58,7 +58,7 @@ define([], function () {
                     pageSize: $scope.Pager.limit,
                 },
                 callback: function(res){
-                    if(res.code == '2000'){
+                    if(res.code == '2000' && res.rows){
                         if (res.rows && res.rows.length>0){
                             for (var i=0; i<res.rows.length;i++){
                                 $scope.billList.push(res.rows[i])

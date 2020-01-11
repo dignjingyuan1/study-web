@@ -17,38 +17,42 @@ define([], function () {
             index: 1,
             limit: 10
         }
-        $scope.problemList = [];
+        $scope.problemFollowList = [];
         /**
          * 查找问题列表
          */
-        $scope.searchProblemList = function () {
+        /**
+         * 查找围观列表
+         */
+        $scope.searchProblemFollowPager = function(){
+            var pageNo = Pager.index;
+            Pager.pagerId = "#problemFollowPager";
             _get({
-                url: STUDY_API + "/problem/getProblemList",
+                url: STUDY_API + "/problemFollow/getProblemFollowPager",
                 param: {
                     pageNo: $scope.pager.index,
-                    pageSize: $scope.pager.limit
+                    pageSize: $scope.pager.limit,
                 },
-                callback: function (res) {
-                    console.log(res);
-                    if (res.code == '2000' && res.rows) {
-                        for (var i = 0; i < res.rows.length; i++) {
-                            $scope.problemList.push(res.rows[i])
+                callback: function(res){
+                    if(res.code == '2000' && res.rows){
+                        for (var i=0; i< res.rows.length; i++){
+                            $scope.problemFollowList.push(res.rows[i])
                         }
                         $scope.$applyAsync();
                     }
                 }
             })
         }
-        $scope.searchProblemList();
+        $scope.searchProblemFollowPager();
         // 翻页
         $(window).scroll(function () {
             var scrollTop = $(this).scrollTop();
             var scrollHeight = $(document).height();
             var windowHeight = $(this).height();
-            if (scrollTop + windowHeight == scrollHeight && location.href.indexOf("marketing-myQuestions") != -1) {
+            if (scrollTop + windowHeight == scrollHeight && location.href.indexOf("phone-mine-weiguan") != -1) {
                 // alert("已经到最底部了！");
                 $scope.pager.index++;
-                $scope.searchProblemList();
+                $scope.searchProblemFollowPager();
             }
         });
     }];

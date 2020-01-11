@@ -18,7 +18,7 @@ define([], function () {
 				},
 				callback: function(res){
 					console.log(res)
-					if(res.code == '2000'){
+					if(res.code == '2000' && res.rows){
 						$scope.teacherList = res.rows;
 						Pager.total = res.total;
 						Pager.Init();

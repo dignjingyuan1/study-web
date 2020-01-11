@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="applicable-device" content="pc">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-eqiv="cleartype" content="ON">
+  <meta http-eqiv="cleartype" content="ON">
+  <link href="phone-css/mine-course.css" rel="stylesheet" type="text/css" />
+  <link href="phone-css/common.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="panel">
+      <div class="person-box">
+          <img class="person-img" ng-src="{{userInfo.userHeader}}" onerror="javascript:this.src='img/defalte-head.jpg';" alt="">
+          <div class="right-content">
+              <p ng-if="userInfo == null">&nbsp;&nbsp;&nbsp;<span ng-click="go('phone-login')">登录</span>/<span ng-click="go('phone-reg')">注册</span></p>
+              <p ng-if="userInfo != null">&nbsp;&nbsp;&nbsp;{{userInfo.userName}}</p>
+              <p class="level">等级：-------</p>
+          </div>
+      </div>
+    <div class="content-right">
+        <div class="panel-width">
+            <div class="class-title">
+                <p class="class-text">我的上传</p>
+            </div>
+            <div class="content-small" ng-repeat="item in myCourseGroupList" ng-click="courseGroupDetails(item.courseGroupId)">
+                <div class="small-left">
+                    <img class="small-left-img" src="{{item.courseGroupImg}}" alt="">
+                </div>
+                <div class="small-right">
+                    <p class=" small-title overflow-hidden">{{item.courseGroupName}}</p>
+                    <p class="info-css">
+                        <span class="info-status dudu-active" ng-class="item.courseStatus == '1' ? 'learning-shang' : item.courseStatus == '2' ? 'learning-shen' : 'learning-xia'">{{item.courseStatus == '1' ? '已上架' : item.courseStatus == '2' ? '驳回' : '下架'}}</span>
+                    </p>
+                    <p class="info-css">
+                        <span>{{item.createTime}}</span>更新 ·
+                        <span>{{item.payCount}}</span>人在学
+                    </p>
+                    <p class="small-desc">{{item.courseGroupRemark}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</body>
+</html>

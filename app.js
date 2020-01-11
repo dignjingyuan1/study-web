@@ -221,6 +221,14 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
 				url: "/phone-getmoney?:price",
 				templateUrl: "template/phone-page/getmoney.html",
 				controllerUrl: "template/phone-js/getmoney.js"
+			})).state("phone-mine-upload", angularAMD.route({
+				url: "/phone-mine-upload",
+				templateUrl: "template/phone-page/mine-upload.html",
+				controllerUrl: "template/phone-js/mine-upload.js"
+			})).state("phone-mine-weiguan", angularAMD.route({
+				url: "/phone-mine-weiguan",
+				templateUrl: "template/phone-page/mine-weiguan.html",
+				controllerUrl: "template/phone-js/mine-weiguan.js"
 			}))
         }
 

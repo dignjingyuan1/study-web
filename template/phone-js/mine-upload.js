@@ -4,51 +4,56 @@ define([], function () {
         $scope.go = function (text) {
             $state.go(text)
         }
-        var user = getUser();
+        var user = localStorage.getItem('user');
         $scope.userInfo = null;
         if (user) {
-            $scope.userInfo = user;
+            $scope.userInfo = JSON.parse(user);
             if (!$scope.userInfo.userHeader) {
                 $scope.userInfo.userHeader = "img/defalte-head.jpg"
             }
         }
+        console.log("userInfo:", $scope.userInfo)
 
         $scope.pager = {
             index: 1,
             limit: 10
         }
-        $scope.problemList = [];
+        $scope.myCourseGroupList = [];
         /**
-         * 查找问题列表
+         * 查找我的上传
          */
-        $scope.searchProblemList = function () {
+        $scope.searchCourseGroupMyPagerApi = function () {
+            var pageNo = Pager.index;
+            Pager.pagerId = "#myCoursePager";
             _get({
-                url: STUDY_API + "/problem/getProblemList",
+                url: STUDY_API + "/courseGroup/getCourseGroupMyPagerApi",
                 param: {
                     pageNo: $scope.pager.index,
-                    pageSize: $scope.pager.limit
+                    pageSize: 10,
                 },
                 callback: function (res) {
-                    console.log(res);
                     if (res.code == '2000' && res.rows) {
-                        for (var i = 0; i < res.rows.length; i++) {
-                            $scope.problemList.push(res.rows[i])
+                        if (res.rows && res.rows.length > 0) {
+                            for (var i = 0; i < res.rows.length; i++) {
+                                $scope.myCourseGroupList.push(res.rows[i])
+                            }
                         }
                         $scope.$applyAsync();
                     }
                 }
             })
         }
-        $scope.searchProblemList();
+        $scope.searchCourseGroupMyPagerApi();
+
         // 翻页
         $(window).scroll(function () {
             var scrollTop = $(this).scrollTop();
             var scrollHeight = $(document).height();
             var windowHeight = $(this).height();
-            if (scrollTop + windowHeight == scrollHeight && location.href.indexOf("marketing-myQuestions") != -1) {
+            if (scrollTop + windowHeight == scrollHeight && location.href.indexOf("phone-mine-upload") != -1) {
                 // alert("已经到最底部了！");
                 $scope.pager.index++;
-                $scope.searchProblemList();
+                $scope.searchCourseGroupMyPagerApi();
             }
         });
     }];

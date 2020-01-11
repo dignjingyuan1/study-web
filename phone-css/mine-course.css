@@ -297,3 +297,17 @@ body{
 .dudu-uncom{
     background-color: #ffb2b2;
 }
+
+.learning-shang{
+    background-color: #ffff01;
+    text-align: center;
+}
+.learning-xia{
+    background-color: red;
+    text-align: center;
+    color: #ffffff;
+}
+.learning-shen{
+    background-color: #0d2ef8;
+    text-align: center;
+}

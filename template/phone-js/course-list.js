@@ -41,7 +41,7 @@ define([], function () {
                     courseIsSpecial: '0'
                 },
                 callback: function (res) {
-                    if (res.code == '2000') {
+                    if (res.code == '2000' && res.rows) {
                         for (var i = 0; i < res.rows.length; i++) {
                             $scope.courseList.push(res.rows[i]);
                         }

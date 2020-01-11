@@ -8,7 +8,7 @@ define([], function () {
             if ($scope.userInfo) {
                 $state.go(text)
             } else {
-				$state.go("phone-login");
+                $state.go("phone-login");
             }
         }
         var user = getUser();
@@ -19,10 +19,39 @@ define([], function () {
                 $scope.userInfo.userHeader = "img/defalte-head.jpg"
             }
         }
+
+        $scope.searchUserDetails = function () {
+            _get({
+                url: STUDY_API + "/user/getUserDetails",
+                param: {
+                    userId: user.userId
+                },
+                callback: function (res) {
+                    if (res.code == '2000') {
+                        var data = res.data;
+                        $scope.userPhone = data.userPhone;
+                        $scope.userSchool = data.userSchool;
+                        $scope.userSex = data.userSex;
+                        $scope.userCompany = data.userCompany;
+                        $scope.userPosition = data.userPosition;
+                        $scope.userRemark = data.userRemark;
+                        $scope.userName = data.userName;
+                        data.userHeader ? $("#head-img").attr("src", data.userHeader) : '';
+                        $scope.userIntegral = data.userIntegral;
+                        $scope.userAmount = data.userAmount;
+                        $scope.userRole = data.userRole;
+                        $scope.userQrcode = data.userQrcode;
+                        $scope.userRecommendCount = data.userRecommendCount;
+                        $scope.$applyAsync();
+                    }
+                }
+            })
+        }
+        $scope.searchUserDetails();
         console.log("userInfo:", $scope.userInfo)
         $scope.logOut = function () {
-			localStorage.clear();
-			$state.go("home");
+            localStorage.clear();
+            $state.go("home");
         }
     }];
 });
