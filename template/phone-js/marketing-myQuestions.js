@@ -18,6 +18,15 @@ define([], function () {
             limit: 10
         }
         $scope.problemList = [];
+
+        /**
+         * 提问详细页面
+         * @param {Object} id
+         */
+        $scope.questionDetails = function(id){
+            $state.go("phone-question-detail",{id:id});
+        }
+
         /**
          * 查找问题列表
          */

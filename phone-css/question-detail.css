@@ -62,6 +62,7 @@ div,p{
 }
 .person-head > img{
     width: 5rem;
+    height: 5rem;
     border: 1px solid #cccccc;
     border-radius: 100px;
     margin: 1.8rem;

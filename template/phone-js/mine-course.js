@@ -54,5 +54,13 @@ define([], function () {
 				$scope.searchOrderList();
 			}
 		});
+
+		/**
+         * 提问详细页面
+         * @param {Object} id
+         */
+        $scope.courseGroupDetails = function(id){
+            $state.go("phone-course-detail",{id:id});
+        }
 	}];
 });

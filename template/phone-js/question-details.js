@@ -4,7 +4,7 @@ define([], function () {
 	return ["$scope","$state", function ($scope,$state) {
 		
 		$scope.problemId = $state.params.id;
-		
+        $scope.user = getUser();
 		
 		$scope.searchProblemDetails = function(){
 			_get({

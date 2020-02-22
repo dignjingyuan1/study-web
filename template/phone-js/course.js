@@ -2,10 +2,11 @@ define([], function () {
 
     // controller
     return ["$scope", "$state", function ($scope, $state) {
+        $scope.isShowType = $state.params.name;
+        console.log("13123",$scope.isShowType)
         $scope.go = function (path) {
             $state.go(path)
         }
-        $scope.isShowType = "";
         /**
          *
          */
@@ -22,8 +23,13 @@ define([], function () {
             })
         }
         $scope.groupChange = function (name) {
+            console.log('显示tip:', name)
             $scope.isShowType = name;
         }
+        setTimeout(function(){
+            $scope.groupChange($scope.isShowType);
+        })
+
 
         /**
          * 跳转到课程详细

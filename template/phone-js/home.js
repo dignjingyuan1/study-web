@@ -148,6 +148,10 @@ define([], function () {
 		  	console.log(params)
 			$state.go(path,params?params:{});
 		  }
+
+		  $scope.goCourse = function(name){
+            $state.go("phone-course",{name:name});
+          }
 		  
 		  /**
 		   * 跳转到课程详细

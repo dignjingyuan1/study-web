@@ -195,6 +195,18 @@ div,p{
 }
 .quastion-button{
     border: 0;
+    background-color: #a2a2a2;
+    height: 3rem;
+    width: 7rem;
+    border-radius: 30px;
+    color: white;
+    float: right;
+    margin-top: 1rem;
+    margin-right: 1rem;
+}
+
+.quastion-button-active{
+    border: 0;
     background-color: #ff3728;
     height: 3rem;
     width: 7rem;

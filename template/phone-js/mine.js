@@ -47,7 +47,9 @@ define([], function () {
                 }
             })
         }
-        $scope.searchUserDetails();
+        if(user){
+            $scope.searchUserDetails();
+        }
         console.log("userInfo:", $scope.userInfo)
         $scope.logOut = function () {
             localStorage.clear();

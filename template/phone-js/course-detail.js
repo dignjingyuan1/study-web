@@ -1,7 +1,6 @@
 define([], function () {
-
-	// controller
 	return ["$scope", "$state", function ($scope, $state) {
+	    $scope.isPayStatus = '0';
 		$scope.go = function (path) {
 			$state.go(path)
 		}
@@ -110,6 +109,27 @@ define([], function () {
 				document.getElementById("courseButton").classList.remove("button-act")
 			}
 		}
+
+		/**
+         * 获取当前课程组的支付情况
+         */
+        $scope.searchCourseStatus = function(){
+            if(isUserLogin()){
+                _get({
+                    url: STUDY_API + "/order/getOrderSuccessCount",
+                    param: {
+                        courseGroupId: 	$scope.courseGroupId
+                    },
+                    callback: function(res){
+                        if(res.code == '2000'){
+                            $scope.isPayStatus = res.data;
+                            $scope.$applyAsync();
+                        }
+                    }
+                })
+            }
+        }
+        $scope.searchCourseStatus();
 	}];
 });
 

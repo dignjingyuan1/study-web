@@ -66,5 +66,41 @@ define([], function () {
             })
         }
         $scope.searchUserDetails();
+
+        $scope.downloadFile = function(){
+            var file = document.getElementById("downloadFile");
+            file.click();
+        }
 	}];
 });
+
+function selectImg($event){
+    var reader = new FileReader();
+    reader.onload = function(e){
+      var param = {};
+      param['fileName'] = reader.result;
+      param['fileType'] = "image/jpeg";
+      _post({
+              url: BASIS_API+'/upload/uploadFile',
+              param: param,
+              callback: (res)=>{
+                  if(res.code == '2000'){
+                      let data = res.data;
+                      $("#head-img").attr("src", data.fileRoot+"/"+data.filePath);
+                      _post({
+                      url: STUDY_API + "/user/saveUser",
+                      param: {
+                          userId: getUser().userId,
+                          userHeader: $("#head-img").attr("src")
+                      },
+                      callback: function(res){
+                          if(res.code == '2000'){
+                          }
+                      }
+                  })
+                  }
+              }
+      });
+    }
+    reader.readAsDataURL($event.files[0])
+}
