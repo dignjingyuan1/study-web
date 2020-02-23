@@ -7,6 +7,9 @@ define([], function () {
         $scope.go = function (path) {
             $state.go(path)
         }
+        $scope.pager = {
+            index: 1
+        }
         /**
          *
          */
@@ -17,6 +20,27 @@ define([], function () {
                     console.log(res);
                     if (res.code == '2000') {
                         $scope.courseGroupTypeList = res.data;
+                        for(var i=0; i<$scope.courseGroupTypeList.length; i++){
+                            _get({
+                                url: STUDY_API + "/courseGroup/getCourseGroupPagerApi",
+                                param: {
+                                    courseGroupTypeId: $scope.courseGroupTypeList[i].id,
+                                    pageNo: 1,
+                                    pageSize: 20,
+                                    courseGroupName: $scope.courseGroupName,
+                                    courseIsSpecial: '0'
+                                },
+                                async: false,
+                                callback: function (result) {
+                                    if (result.code == '2000' && result.rows) {
+                                        for (var j = 0; j < result.rows.length; j++) {
+                                            $scope.courseGroupTypeList[i].courseGroupLists.push(result.rows[j]);
+                                        }
+                                    }
+                                }
+                            })
+                        }
+                        console.log("请求结果等于：", $scope.courseGroupTypeList);
                         $scope.$applyAsync();
                     }
                 }
@@ -44,7 +68,7 @@ define([], function () {
         document.getElementById("searchButton").addEventListener('keydown', function (e) {
             var keywd = e.target.value;
             if (event.keyCode == 13 && keywd) {
-                $scope.searchCourseGroupTypeList(document.getElementById("searchButton").value);
+                $scope.searchCourseGroupTypeList();
             }
         });
 

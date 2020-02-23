@@ -54,7 +54,7 @@
         <p class="class-text">课程表</p>
       </div>
       <div class="panel-width">
-        <div class="class-item" ng-repeat="item in courseGroup.courseList" ng-click="reload(item.courseAddress)" onclick="listOnlick(this)">
+        <div class="class-item" ng-repeat="item in courseGroup.courseList" ng-click="reload(item.courseId)" onclick="listOnlick(this)">
           <img  class="play-button" src="img/play-hui.png" alt="">
           <p  class="class-item-title">{{item.courseName}}<br><span
                   style="font-size: 12px;color: #999999;">学习中|2:30|2.4w学习</span>

@@ -56,6 +56,7 @@ define([], function () {
         document.getElementById("searchButton").addEventListener('keydown', function (e) {
             var keywd = e.target.value;
             if (event.keyCode == 13) {
+                $scope.courseList=[];
                 $scope.searchPager();
             }
         });
