@@ -36,20 +36,21 @@ define([], function () {
                         $scope.userPosition = data.userPosition;
                         $scope.userRemark = data.userRemark;
                         $scope.userName = data.userName;
-                        data.userHeader ? $("#head-img").attr("src", data.userHeader) : '';
+                        $scope.userHeader = data.userHeader ? data.userHeader : img/defalte-head.jpg;
                         $scope.userIntegral = data.userIntegral;
                         $scope.userAmount = data.userAmount;
                         $scope.userRole = data.userRole;
                         $scope.userQrcode = data.userQrcode;
                         $scope.userRecommendCount = data.userRecommendCount;
+                        user.userName = $scope.userName;
+                        user.userHeader = $scope.userHeader;
+                        setUser(user)
                         $scope.$applyAsync();
                     }
                 }
             })
         }
-        if(user){
-            $scope.searchUserDetails();
-        }
+        $scope.searchUserDetails();
         console.log("userInfo:", $scope.userInfo)
         $scope.logOut = function () {
             localStorage.clear();

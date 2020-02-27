@@ -60,6 +60,7 @@ define([], function () {
                         $scope.userRemark = data.userRemark;
                         $scope.userName = data.userName;
                         data.userHeader ? $("#head-img").attr("src", data.userHeader) : '';
+                        // 刷新缓存
                         $scope.$applyAsync();
                     }
                 }
