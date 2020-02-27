@@ -74,20 +74,22 @@ define([], function () {
 	}];
 });
 
-function selectImg($event){
-    var reader = new FileReader();
-    reader.onload = function(e){
-      var param = {};
-      param['fileName'] = reader.result;
-      param['fileType'] = "image/jpeg";
-      _post({
-              url: BASIS_API+'/upload/uploadFile',
-              param: param,
-              callback: (res)=>{
-                  if(res.code == '2000'){
-                      let data = res.data;
-                      $("#head-img").attr("src", data.fileRoot+"/"+data.filePath);
-                      _post({
+
+function selectImg($event) {
+    console.log($event)
+    var file = $event.files[0];
+    lrz(file, {width: 450, quality: 0.7}).then(function (resFile) {
+        var param = {};
+        param['fileName'] = resFile.base64;
+        param['fileType'] = "image/jpeg";
+        _post({
+            url: BASIS_API + '/upload/uploadFile',
+            param: param,
+            callback: (res) => {
+                if (res.code == '2000') {
+                    let data = res.data;
+                    $("#head-img").attr("src", data.fileRoot+"/"+data.filePath);
+                    _post({
                       url: STUDY_API + "/user/saveUser",
                       param: {
                           userId: getUser().userId,
@@ -97,10 +99,10 @@ function selectImg($event){
                           if(res.code == '2000'){
                           }
                       }
-                  })
-                  }
-              }
-      });
-    }
-    reader.readAsDataURL($event.files[0])
+                    })
+
+                }
+            }
+        });
+    });
 }

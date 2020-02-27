@@ -21,7 +21,7 @@
       <div class="person-box">
           <div class="upload-img" ng-click="downloadFile()">上传头像</div>
           <input type="file" id="downloadFile" style="display: none;" onchange="selectImg(this)" accept="image/*"/>
-          <img ng-if="userInfo != null" class="person-img" ng-src="{{userInfo.userHeader}}"
+          <img ng-if="userInfo != null" id="head-img" class="person-img" ng-src="{{userInfo.userHeader}}"
                onerror="javascript:this.src='img/defalte-head.jpg';" alt="">
           <img ng-if="userInfo == null" class="person-img" ng-src="img/defalte-head.jpg" alt="">
           <div class="right-content">
