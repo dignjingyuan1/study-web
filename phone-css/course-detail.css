@@ -216,3 +216,13 @@ div,p{
     margin-top: 1rem;
     margin-right: 1rem;
 }
+
+video::-internal-media-controls-download-button {
+    display:none;
+}
+video::-webkit-media-controls-enclosure {
+    overflow:hidden;
+}
+video::-webkit-media-controls-panel {
+    width: calc(100% + 30px);
+}

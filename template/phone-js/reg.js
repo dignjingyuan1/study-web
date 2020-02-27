@@ -9,8 +9,8 @@ define([], function () {
         $scope.register = function(){
             if(!$scope.userPhone){
 				_successMsg("用户名不许为空");
-            }else if($scope.userPassword != $scope.confirmPassword){
-				_successMsg("两次密码不一致");
+            }else if($scope.userPassword && $scope.userPassword != $scope.confirmPassword){
+				_successMsg("密码为空，或者两次密码不一致");
             }else{
                 _post({
                     url: STUDY_API + "/user/register",

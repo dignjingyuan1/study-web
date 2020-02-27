@@ -110,7 +110,7 @@ body{
 .alert-q{
     width: 20rem;
     height: 13rem;
-    background-color: #5a585abb;
+    background-color: #656565;
     z-index: 999;
     position: fixed;
     margin: auto;
@@ -119,11 +119,12 @@ body{
     top: 0;
     bottom: 4rem;
     border-radius: 10px;
+    opacity: 0.9;
 }
 .alert-content{
     padding: 1rem;
     color: white;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     line-height: 2rem;
     border-bottom: 1px solid white;
 }
@@ -132,7 +133,7 @@ body{
     color: white;
     width: 100%;
     border: none;
-    font-size: 1.7rem;
+    font-size: 1.2rem;
     margin-top: 0.4rem;
 }
 

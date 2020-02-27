@@ -43,7 +43,8 @@ body{
     left: 2.3rem;
     width: 7rem;
     text-align: center;
-    background: #5a585abb;
+    background-color: #656565;
+    opacity: 0.9;
     height: 2rem;
     line-height: 2rem;
     color: white;

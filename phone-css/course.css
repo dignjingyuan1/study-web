@@ -265,7 +265,8 @@ body{
     position: absolute;
     width: 75%;
     height: 14rem;
-    background-color: #5a585abb;
+    background: #656565;
+    opacity: 0.9;
     z-index: 999;
     color: white;
     right: 1rem;
@@ -298,7 +299,8 @@ body{
     display: inline-block;
     border-width: 6px;
     border-style: solid;
-    border-color: transparent transparent #5a585abb transparent;
+    border-color: transparent transparent #656565 transparent;
+    opacity: 0.9;
 }
 .search-input-box{
     flex: 1;
