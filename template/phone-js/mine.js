@@ -36,7 +36,7 @@ define([], function () {
                         $scope.userPosition = data.userPosition;
                         $scope.userRemark = data.userRemark;
                         $scope.userName = data.userName;
-                        $scope.userHeader = data.userHeader ? data.userHeader : img/defalte-head.jpg;
+                        $scope.userHeader = data.userHeader ? data.userHeader : "img/defalte-head.jpg";
                         $scope.userIntegral = data.userIntegral;
                         $scope.userAmount = data.userAmount;
                         $scope.userRole = data.userRole;
