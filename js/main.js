@@ -440,7 +440,7 @@ function isUserLogin() {
                     localStorage.setItem("user", JSON.stringify(res.data));
                 } else {
                     var user = getUser();
-                    if (user.userHeader) {
+                    if (user && user.userHeader) {
                         res.data.userHeader = user.userHeader
                         localStorage.setItem("user", JSON.stringify(res.data));
                     } else {
