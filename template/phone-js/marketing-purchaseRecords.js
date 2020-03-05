@@ -15,7 +15,7 @@ define([], function () {
         $scope.checkImgSrc = "img/checkbox-hui.png";
         $scope.classNum = 0;
         $scope.price = 0.00;
-        is = function (index) {
+        $scope.checkThis = function (index) {
             if ($scope.orderRecordList[index].isChecked == "img/checkbox.png") {
                 $scope.orderRecordList[index].isChecked = "img/checkbox-hui.png";
                 $scope.price = $scope.price - $scope.orderRecordList[index].amount * 1;
