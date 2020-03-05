@@ -5,6 +5,7 @@ define([], function () {
             $state.go(text)
         }
         var user = getUser();
+        console.log('获取到的用户信息：', user)
         $scope.userInfo = null;
         if (user) {
             $scope.userInfo = user;
@@ -44,6 +45,13 @@ define([], function () {
             })
         }
         $scope.searchProblemFollowPager();
+        /**
+         * 提问详细页面
+         * @param {Object} id
+         */
+        $scope.questionDetails = function(id){
+            $state.go("phone-question-detail",{id:id});
+        }
         // 翻页
         $(window).scroll(function () {
             var scrollTop = $(this).scrollTop();

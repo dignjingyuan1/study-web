@@ -1,5 +1,3 @@
-
-
 //var SALE_API = "/api-sale";
 //var STUDY_API = "";
 var STUDY_API = "/api-study";
@@ -34,38 +32,39 @@ function setAuth(auth) {
 function getAuth() {
     return JSON.parse(localStorage.getItem("auth"));
 }
+
 /**
  * 提示框
  */
-function _confirm(msg,callback){
-	var _html = "<div class='alert-fixed'>"
-		 + 	"<div class='alert'>"
-		 +  "<div class='alert-title'><i class='icon iconfont icon-warning_fill'></i><span>提示信息</span></div>"
-		 +	"<div class='alert-context'>提示内容</div>"
-		 +	"<div class='alert-footer'>"
-		 +  "<ul>"
-		 +  "<li>取消</li>"
-		 +  "<li>确认</li>"
-		 +  "</ul>"
-		 +  "</div>"
-		 +	"</div>"
-		 +  "</div>";
-	var _fixed = $(_html).prependTo($("body")).show();
-	
-	setTimeout(function () {
-		_fixed.find(".alert").css("transform","scale(1)");
-	},50);
-	$(".alert-context").text(msg);
-	$(".alert-footer ul li").each(function(index,item){
-		$(item).click(function (event){
-			if(index == 1){
-				if(typeof callback === "function"){
-					callback();
-				}
-			}
-			_closeConfirm();
-		})
-	});
+function _confirm(msg, callback) {
+    var _html = "<div class='alert-fixed'>"
+        + "<div class='alert'>"
+        + "<div class='alert-title'><i class='icon iconfont icon-warning_fill'></i><span>提示信息</span></div>"
+        + "<div class='alert-context'>提示内容</div>"
+        + "<div class='alert-footer'>"
+        + "<ul>"
+        + "<li>取消</li>"
+        + "<li>确认</li>"
+        + "</ul>"
+        + "</div>"
+        + "</div>"
+        + "</div>";
+    var _fixed = $(_html).prependTo($("body")).show();
+
+    setTimeout(function () {
+        _fixed.find(".alert").css("transform", "scale(1)");
+    }, 50);
+    $(".alert-context").text(msg);
+    $(".alert-footer ul li").each(function (index, item) {
+        $(item).click(function (event) {
+            if (index == 1) {
+                if (typeof callback === "function") {
+                    callback();
+                }
+            }
+            _closeConfirm();
+        })
+    });
 }
 
 /**
@@ -76,177 +75,178 @@ function _confirm(msg,callback){
  * 表单验证
  * @param {Object} formId
  */
-function _validtion(formId){
-	var submitForm = $("#"+formId)
+function _validtion(formId) {
+    var submitForm = $("#" + formId)
     var inputs = submitForm.find("input,textarea");
     var flag = true;
     var len = inputs.length;
     outer:
-        for(var i=0; i<len; i++){
+        for (var i = 0; i < len; i++) {
             var input = $(inputs[i]);
             var check = input.attr("check");
-            var val = input.val().replace(/\s+/g,"");
+            var val = input.val().replace(/\s+/g, "");
             $("body").find(".warning").remove();
-            if(check){
+            if (check) {
                 var _checks = check.split(",");
-                for(var j = 0,ckLen = _checks.length; j < ckLen ; j++){
+                for (var j = 0, ckLen = _checks.length; j < ckLen; j++) {
                     var _type = _checks[j];
-                    if("ckNull" == _type && val == ""){
+                    if ("ckNull" == _type && val == "") {
                         var message = input.attr("message");
-                        var _postion = input.offset().left+input.width();
+                        var _postion = input.offset().left + input.width();
                         var _top = input.offset().top;
-                        $("body").prepend("<div class='warning' style='left:"+_postion+"px;top:"+_top+"px;'>&nbsp;<i class='icon iconfont icon-warning_fill'></i>&nbsp;"+message+"不能为空</div>");
-						var height = input.offset().top;
-						let scrollTop = input.attr("scrollTop");
-						if(scrollTop){
-							$('html,body').animate({scrollTop: height-50});
-						}
+                        $("body").prepend("<div class='warning' style='left:" + _postion + "px;top:" + _top + "px;'>&nbsp;<i class='icon iconfont icon-warning_fill'></i>&nbsp;" + message + "不能为空</div>");
+                        var height = input.offset().top;
+                        let scrollTop = input.attr("scrollTop");
+                        if (scrollTop) {
+                            $('html,body').animate({scrollTop: height - 50});
+                        }
                         flag = false;
                         $(input).focus();
-                        $(input).blur(function(){
-                        		$("body").find(".warning").remove();
+                        $(input).blur(function () {
+                            $("body").find(".warning").remove();
                         })
                         break outer;
                     }
-                    if(val && "ckTel" == _type){
+                    if (val && "ckTel" == _type) {
                         var regTel = /^1[3|4|5|6|7|8|9][0-9]\d{8}$/;
-                        if(!regTel.test(val)){
+                        if (!regTel.test(val)) {
                             var message = input.attr("message");
-                            var _postion = input.offset().left+input.width();
-                        		var _top = input.offset().top;
-                            $("body").prepend("<div class='warning' style='left:"+_postion+"px;top:"+_top+"px;'>&nbsp;<i class='icon iconfont icon-warning_fill'></i>&nbsp;"+message+"不正确</div>");
+                            var _postion = input.offset().left + input.width();
+                            var _top = input.offset().top;
+                            $("body").prepend("<div class='warning' style='left:" + _postion + "px;top:" + _top + "px;'>&nbsp;<i class='icon iconfont icon-warning_fill'></i>&nbsp;" + message + "不正确</div>");
                             var height = input.offset().top;
-							let scrollTop = input.attr("scrollTop");
-							if(scrollTop){
-								$('html,body').animate({scrollTop: height-50});
-							}
+                            let scrollTop = input.attr("scrollTop");
+                            if (scrollTop) {
+                                $('html,body').animate({scrollTop: height - 50});
+                            }
                             flag = false;
                             $(input).focus();
-	                        $(input).blur(function() {
-	                        		$("body").find(".warning").remove();
-	                        })
+                            $(input).blur(function () {
+                                $("body").find(".warning").remove();
+                            })
                             break outer;
                         }
                     }
-                    if(val && "ckMoney" == _type){
-						var regMoney = /(^[1-9]([0-9]+)?(\.[0-9]{1,2})?$)|(^(0){1}$)|(^[0-9]\.[0-9]([0-9])?$)/;
-						if(!regMoney.test(val)){
-							var message = input.attr("message");
-							var _postion = input.offset().left+input.width();
-                        		var _top = input.offset().top;
-							$("body").prepend("<div class='warning' style='left:"+_postion+"px;top:"+_top+"px;'>&nbsp;<i class='icon iconfont icon-warning_fill'></i>&nbsp;"+message+"不正确</div>");
-							var height = input.offset().top;
-							let scrollTop = input.attr("scrollTop");
-							if(scrollTop){
-								$('html,body').animate({scrollTop: height-50});
-							}
-							flag = false;
-							$(input).focus();
-	                        $(input).blur(function() {
-	                        		$("body").find(".warning").remove();
-	                        })
-							break outer;
-						}
-					}
-                    if(val && "ckEmail" == _type){
-                        var regEmail = /^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/;
-                        if(!regEmail.test(val)){
+                    if (val && "ckMoney" == _type) {
+                        var regMoney = /(^[1-9]([0-9]+)?(\.[0-9]{1,2})?$)|(^(0){1}$)|(^[0-9]\.[0-9]([0-9])?$)/;
+                        if (!regMoney.test(val)) {
                             var message = input.attr("message");
-                            var _postion = input.offset().left+input.width();
-                        	    var _top = input.offset().top;
-                            $("body").prepend("<div class='warning' style='left:"+_postion+"px;top:"+_top+"px;'>&nbsp;<i class='icon iconfont icon-warning_fill'></i>&nbsp;"+message+"不正确</div>");
-                           	var height = input.offset().top;
-							let scrollTop = input.attr("scrollTop");
-							if(scrollTop){
-								$('html,body').animate({scrollTop: height-50});
-							}
-                           	flag = false;
-                           	$(input).focus();
-	                        $(input).blur(function() {
-	                        		$("body").find(".warning").remove();
-	                        })
+                            var _postion = input.offset().left + input.width();
+                            var _top = input.offset().top;
+                            $("body").prepend("<div class='warning' style='left:" + _postion + "px;top:" + _top + "px;'>&nbsp;<i class='icon iconfont icon-warning_fill'></i>&nbsp;" + message + "不正确</div>");
+                            var height = input.offset().top;
+                            let scrollTop = input.attr("scrollTop");
+                            if (scrollTop) {
+                                $('html,body').animate({scrollTop: height - 50});
+                            }
+                            flag = false;
+                            $(input).focus();
+                            $(input).blur(function () {
+                                $("body").find(".warning").remove();
+                            })
+                            break outer;
+                        }
+                    }
+                    if (val && "ckEmail" == _type) {
+                        var regEmail = /^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/;
+                        if (!regEmail.test(val)) {
+                            var message = input.attr("message");
+                            var _postion = input.offset().left + input.width();
+                            var _top = input.offset().top;
+                            $("body").prepend("<div class='warning' style='left:" + _postion + "px;top:" + _top + "px;'>&nbsp;<i class='icon iconfont icon-warning_fill'></i>&nbsp;" + message + "不正确</div>");
+                            var height = input.offset().top;
+                            let scrollTop = input.attr("scrollTop");
+                            if (scrollTop) {
+                                $('html,body').animate({scrollTop: height - 50});
+                            }
+                            flag = false;
+                            $(input).focus();
+                            $(input).blur(function () {
+                                $("body").find(".warning").remove();
+                            })
                             break outer;
                         }
                     }
                     var regNumber = /^[0-9]*$/;
-                    if(val && "ckNumber" == _type && !regNumber.test(val)){
+                    if (val && "ckNumber" == _type && !regNumber.test(val)) {
                         var message = input.attr("message");
-                        var _postion = input.offset().left+input.width();
+                        var _postion = input.offset().left + input.width();
                         var _top = input.offset().top;
-                        input.parent().prepend("<div class='warning' style='left:"+_postion+"px;top:"+_top+"px;'>&nbsp;<i class='icon iconfont icon-warning_fill'></i>&nbsp;"+message+"必须是数字</div>");
+                        input.parent().prepend("<div class='warning' style='left:" + _postion + "px;top:" + _top + "px;'>&nbsp;<i class='icon iconfont icon-warning_fill'></i>&nbsp;" + message + "必须是数字</div>");
                         var height = input.offset().top;
-						let scrollTop = input.attr("scrollTop");
-						if(scrollTop){
-							$('html,body').animate({scrollTop: height-50});
-						}
+                        let scrollTop = input.attr("scrollTop");
+                        if (scrollTop) {
+                            $('html,body').animate({scrollTop: height - 50});
+                        }
                         flag = false;
                         $(input).focus();
-                        $(input).blur(function() {
-                        		$("body").find(".warning").remove();
+                        $(input).blur(function () {
+                            $("body").find(".warning").remove();
                         })
                         break outer;
                     }
                     var regIdeaNo = /^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
-                    if(val && "ckIdeaNo" == _type && !regIdeaNo.test(val)){
-                    	   var message = input.attr("message");
-                        var _postion = input.offset().left+input.width();
+                    if (val && "ckIdeaNo" == _type && !regIdeaNo.test(val)) {
+                        var message = input.attr("message");
+                        var _postion = input.offset().left + input.width();
                         var _top = input.offset().top;
-                        input.parent().prepend("<div class='warning' style='left:"+_postion+"px;top:"+_top+"px;'>&nbsp;<i class='icon iconfont icon-warning_fill'></i>&nbsp;"+message+"不正确</div>");
+                        input.parent().prepend("<div class='warning' style='left:" + _postion + "px;top:" + _top + "px;'>&nbsp;<i class='icon iconfont icon-warning_fill'></i>&nbsp;" + message + "不正确</div>");
                         var height = input.offset().top;
-						let scrollTop = input.attr("scrollTop");
-						if(scrollTop){
-							$('html,body').animate({scrollTop: height-50});
-						}
+                        let scrollTop = input.attr("scrollTop");
+                        if (scrollTop) {
+                            $('html,body').animate({scrollTop: height - 50});
+                        }
                         flag = false;
                         $(input).focus();
-                        $(input).blur(function() {
-                        		$("body").find(".warning").remove();
+                        $(input).blur(function () {
+                            $("body").find(".warning").remove();
                         })
                         break outer;
                     }
                 }
             }
         }
-       return flag;
+    return flag;
 }
 
 /**
- * 关闭窗口内容 
+ * 关闭窗口内容
  */
-function _closeConfirm(){
-	$(".alert").css("transform","scale(0)");
-	setTimeout(function() {
-		$(".alert-fixed").remove();
-	},500);
+function _closeConfirm() {
+    $(".alert").css("transform", "scale(0)");
+    setTimeout(function () {
+        $(".alert-fixed").remove();
+    }, 500);
 }
 
 /**
  * 错误提示
  * @param {Object} msg
  */
-function _errorMsg(msg){
-	var _html = "<div class='msg-fixed'>"
-		      + "<div class='msg'><i class='icon iconfont  icon-guanbi'></i><span>提示信息</span></div>"
-			  + "</div>";
-	var _fixed = $(_html).prependTo($("body")).show();
-	$(".msg span").text(msg);
-	setTimeout(function() {
-		_fixed.remove()
-	},3888)
+function _errorMsg(msg) {
+    var _html = "<div class='msg-fixed'>"
+        + "<div class='msg'><i class='icon iconfont  icon-guanbi'></i><span>提示信息</span></div>"
+        + "</div>";
+    var _fixed = $(_html).prependTo($("body")).show();
+    $(".msg span").text(msg);
+    setTimeout(function () {
+        _fixed.remove()
+    }, 3888)
 }
+
 /**
  * 成功提示
  * @param {Object} msg
  */
-function _successMsg(msg){
-	var _html = "<div class='msg-fixed'>"
-		      + "<div class='sucessMsg'><i class='icon iconfont'></i><span>提示信息</span></div>"
-			  + "</div>";
-	var _fixed = $(_html).prependTo($("body")).show();
-	$(".sucessMsg span").text(msg);
-	setTimeout(function() {
-		_fixed.remove()
-	},3888)
+function _successMsg(msg) {
+    var _html = "<div class='msg-fixed'>"
+        + "<div class='sucessMsg'><i class='icon iconfont'></i><span>提示信息</span></div>"
+        + "</div>";
+    var _fixed = $(_html).prependTo($("body")).show();
+    $(".sucessMsg span").text(msg);
+    setTimeout(function () {
+        _fixed.remove()
+    }, 3888)
 }
 
 
@@ -254,51 +254,53 @@ function _successMsg(msg){
  * 弹窗
  * @param {Object} params
  */
-function showPopup(params){
- 	$.ajax({
- 		url: "popup/"+params.url+".html",
- 		type:"GET",
- 		cache: false,
- 		data: {
- 			username: '123'
- 		},
- 		success:function(htm){
- 			$(".popup .win .ctext").empty();
- 			$(".popup .win .tit span").text(params.title);
- 			$(".popup .win .ctext").append(htm);
- 			$(".popup").show();
- 			
- 			setTimeout(function() {
-   				$(".popup .win").css({"transform":"scale(1)"});
-   				if(typeof params.callback == "function"){
- 					params.callback();
- 				}
- 			},50);
- 		}
- 	});
+function showPopup(params) {
+    $.ajax({
+        url: "popup/" + params.url + ".html",
+        type: "GET",
+        cache: false,
+        data: {
+            username: '123'
+        },
+        success: function (htm) {
+            $(".popup .win .ctext").empty();
+            $(".popup .win .tit span").text(params.title);
+            $(".popup .win .ctext").append(htm);
+            $(".popup").show();
+
+            setTimeout(function () {
+                $(".popup .win").css({"transform": "scale(1)"});
+                if (typeof params.callback == "function") {
+                    params.callback();
+                }
+            }, 50);
+        }
+    });
 }
 
-function closePopup(){
-	$(".popup .win").css({"transform":"scale(0)"});
-	setTimeout(function() {$(".popup").hide();},500);
+function closePopup() {
+    $(".popup .win").css({"transform": "scale(0)"});
+    setTimeout(function () {
+        $(".popup").hide();
+    }, 500);
 }
 
 /**
  * 创建websocket连接
  */
-function createWebsocket(callback){
-	// TODO
-	var stomp = Stomp.over(new SockJS(MEMBER_HEADER+"/ws/endpointChat"));
-	stomp.connect({},function(frame) {
-        stomp.subscribe("/topic/nf",function (message){
-        		var body = JSON.parse(message.body);
-        		var user = getUser();
-        		if(body.payUser == user.userCode){
-        			callback(body);
-        		}
+function createWebsocket(callback) {
+    // TODO
+    var stomp = Stomp.over(new SockJS(MEMBER_HEADER + "/ws/endpointChat"));
+    stomp.connect({}, function (frame) {
+        stomp.subscribe("/topic/nf", function (message) {
+            var body = JSON.parse(message.body);
+            var user = getUser();
+            if (body.payUser == user.userCode) {
+                callback(body);
+            }
         });
-   })
-	
+    })
+
 //	setTimeout(function() {
 //		loginWebsocket(stomp);
 //	},500)
@@ -307,8 +309,8 @@ function createWebsocket(callback){
 /**
  * 关闭websocket
  */
-function closeWebsocket(){
-	
+function closeWebsocket() {
+
 }
 
 /**
@@ -331,7 +333,7 @@ function closeWebsocket(){
 //		}
 //	});
 //}
-function TimeDown(endDateStr,styleClass,callback,isTimes) {
+function TimeDown(endDateStr, styleClass, callback, isTimes) {
     //结束时间
     var endDate = new Date(endDateStr);
     //当前时间
@@ -350,93 +352,104 @@ function TimeDown(endDateStr,styleClass,callback,isTimes) {
     //秒
     var seconds = modulo % 60;
     //输出到页面
-    var text =  "还剩:" + days + "天" + hours + "小时" + minutes + "分钟" + seconds + "秒";
-	$("."+styleClass).text(isTimes ? text : seconds);
+    var text = "还剩:" + days + "天" + hours + "小时" + minutes + "分钟" + seconds + "秒";
+    $("." + styleClass).text(isTimes ? text : seconds);
     var time;
-    if(nowDate.getTime() >= endDate.getTime()){
-    		clearTimeout(time);
-    		if(typeof callback === 'function'){
-    			callback();
-    		}
-    		return;
+    if (nowDate.getTime() >= endDate.getTime()) {
+        clearTimeout(time);
+        if (typeof callback === 'function') {
+            callback();
+        }
+        return;
     }
     //延迟一秒执行自己
     setTimeout(function () {
-        time = TimeDown(endDateStr,styleClass, callback, isTimes);
+        time = TimeDown(endDateStr, styleClass, callback, isTimes);
     }, 1000);
-    
+
 }
 
 /**
  * 倒计时开始
  */
-function startTimeDown(callback){
-	var now = new Date();
-	now.setSeconds(now.getSeconds() + 10);
-	TimeDown(now.Format("yyyy-MM-dd hh:mm:ss"),callback);
+function startTimeDown(callback) {
+    var now = new Date();
+    now.setSeconds(now.getSeconds() + 10);
+    TimeDown(now.Format("yyyy-MM-dd hh:mm:ss"), callback);
 }
 
-Date.prototype.Format = function(fmt)   
-{ //author: meizz   
-  var o = {   
-    "M+" : this.getMonth()+1,                 //月份   
-    "d+" : this.getDate(),                    //日   
-    "h+" : this.getHours(),                   //小时   
-    "m+" : this.getMinutes(),                 //分   
-    "s+" : this.getSeconds(),                 //秒   
-    "q+" : Math.floor((this.getMonth()+3)/3), //季度   
-    "S"  : this.getMilliseconds()             //毫秒   
-  };   
-  if(/(y+)/.test(fmt))   
-    fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));   
-  for(var k in o)   
-    if(new RegExp("("+ k +")").test(fmt))   
-  fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));   
-  return fmt;   
+Date.prototype.Format = function (fmt) { //author: meizz
+    var o = {
+        "M+": this.getMonth() + 1,                 //月份
+        "d+": this.getDate(),                    //日
+        "h+": this.getHours(),                   //小时
+        "m+": this.getMinutes(),                 //分
+        "s+": this.getSeconds(),                 //秒
+        "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+        "S": this.getMilliseconds()             //毫秒
+    };
+    if (/(y+)/.test(fmt))
+        fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+        if (new RegExp("(" + k + ")").test(fmt))
+            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    return fmt;
 }
+
 /**
  * 未登录状态下,不能查看我的卡包
  */
-function checkMyCardBagLogin(){
-	var user = sessionStorage.getItem("user");
-	if(!user) {
-		location.href = "register.html";
-	} else {
-		location.href = "mycardbag.html";
-	}
+function checkMyCardBagLogin() {
+    var user = sessionStorage.getItem("user");
+    if (!user) {
+        location.href = "register.html";
+    } else {
+        location.href = "mycardbag.html";
+    }
 }
 
 function isPC() {
     var userAgentInfo = navigator.userAgent;
-	var Agents = ["Android", "iPhone",
-		"SymbianOS", "Windows Phone",
-		"iPad", "iPod"
-	];
-	var flag = true;
-	for(var v = 0; v < Agents.length; v++) {
-		if(userAgentInfo.indexOf(Agents[v]) > 0) {
-			flag = false;
-			break;
-		}
-	}
-	return flag;
+    var Agents = ["Android", "iPhone",
+        "SymbianOS", "Windows Phone",
+        "iPad", "iPod"
+    ];
+    var flag = true;
+    for (var v = 0; v < Agents.length; v++) {
+        if (userAgentInfo.indexOf(Agents[v]) > 0) {
+            flag = false;
+            break;
+        }
+    }
+    return flag;
 }
 
 /**
  * 验证用户是否登录
  */
-function isUserLogin(){
-	var flag = false;
-	_get({
-		url: STUDY_API + "/user/getUser",
-		cache: false,
-		async: false,
-		callback: function(res){
-			if(res.code == '2000'){
-				localStorage.setItem("user",JSON.stringify(res.data));
-				flag = true;
-			}
-		}
-	});
-	return flag;
+function isUserLogin() {
+    var flag = false;
+    _get({
+        url: STUDY_API + "/user/getUser",
+        cache: false,
+        async: false,
+        callback: function (res) {
+            console.log('验证用户是否登陆接口返回：', res)
+            if (res.code == '2000') {
+                if (res.data.userHeader) {
+                    localStorage.setItem("user", JSON.stringify(res.data));
+                } else {
+                    var user = getUser();
+                    if (user.userHeader) {
+                        res.data.userHeader = user.userHeader
+                        localStorage.setItem("user", JSON.stringify(res.data));
+                    } else {
+                        localStorage.setItem("user", JSON.stringify(res.data));
+                    }
+                }
+                flag = true;
+            }
+        }
+    });
+    return flag;
 }
