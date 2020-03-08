@@ -1,6 +1,6 @@
 var app = angular.module('myApp',[]);
 app.controller("reg",($scope,$state)=>{
-	
+
 	/**
 	 * 关闭注册页面
 	 */
@@ -8,6 +8,33 @@ app.controller("reg",($scope,$state)=>{
 		$("#reg-box").css("transform","scale(0)");
 		setTimeout(()=>{
 			$("#reg-alert").hide();
+		},450);
+	}
+
+	/**
+	 * 关闭注册页面
+	 */
+	$scope.openUserKnow = function(){
+		$("#reg-box").css("transform","scale(0)");
+		setTimeout(()=>{
+			$("#reg-alert").hide();
+		},450);
+
+		$("#user-know-alert").show();
+		setTimeout(()=>{
+			$("#user-know-box").css("transform","scale(1)");
+		},450);
+	}
+
+	$scope.yszc = function(){
+		$("#reg-box").css("transform","scale(0)");
+		setTimeout(()=>{
+			$("#reg-alert").hide();
+		},450);
+
+		$("#yszc-alert").show();
+		setTimeout(()=>{
+			$("#yszc-box").css("transform","scale(1)");
 		},450);
 	}
 
@@ -35,7 +62,7 @@ app.controller("reg",($scope,$state)=>{
 			});
 		}
 	}
-	
+
 	/**
 	 * 获取验证码
 	 */
