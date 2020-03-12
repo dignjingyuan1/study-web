@@ -1,4 +1,3 @@
-
 require.config({
     paths: {
         // angular
@@ -53,7 +52,8 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
 	                templateUrl: "template/page/home.html",
 	                controllerUrl: "template/js/home.js"
 	        })).state("course", angularAMD.route({
-	        		url: "/course",
+	        		url: "/course?:id",
+	        		params: {id: null},
 	        		templateUrl: "template/page/course.html",
 	        		controllerUrl: "template/js/course.js"
 	        })).state("boutique", angularAMD.route({
@@ -239,6 +239,7 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
     
     
     app.run(function ($rootScope,$state) {
+    	
     		$rootScope.$on('$stateChangeStart',function(event){
     			document.documentElement.scrollTop = 0;
     			var token = localStorage.getItem("token");
@@ -246,6 +247,13 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
 				isUserLogin();
 			}
     		});
+    	
+    		setTimeout(function(){
+    			var path = $state.current.name;
+    			if(path == 'mine' && !isUserLogin()){
+    				$state.go("home")
+    			}
+    		},200)
     });
 
     // config

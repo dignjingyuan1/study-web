@@ -3,6 +3,9 @@ define([], function () {
 	// controller
 	return ["$scope","$state", function ($scope,$state) {
 		
+		
+		
+		
 		/**
 		 * 
 		 */
@@ -104,5 +107,34 @@ define([], function () {
 		
 		$scope.searchCourseGroupTypeList();
 		$scope.searchCourseTypeList();
+		
+		setTimeout(function(){
+			var id = $state.params.id;
+			var texts = $(".class-text");
+			for(var i=0;i< texts.length; i++){
+				var item = $(texts[i]);
+				if(id == '1'){
+					if(item.text() == "职业规划"){
+						var height = item.offset().top;
+						$('html,body').animate({scrollTop: height-50});
+					}
+				}else if(id == '2'){
+					if(item.text() == "行业剖析"){
+						var height = item.offset().top;
+						$('html,body').animate({scrollTop: height-50});
+					}
+				}else if(id == '3'){
+					if(item.text() == "通用技能"){
+						var height = item.offset().top;
+						$('html,body').animate({scrollTop: height-50});
+					}
+				}else if(id == '4'){
+					if(item.text() == "专业技能"){
+						var height = item.offset().top;
+						$('html,body').animate({scrollTop: height-50});
+					}
+				}
+			}
+		},200)
 	}];
 });
