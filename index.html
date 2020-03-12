@@ -19,6 +19,7 @@
 		<script src="lib/mescroll/mescroll.js"></script>
 		<script src="lib/dist/js/swiper.min.js"></script>
 		<script data-main="app.js" src="lib/components/requirejs/require.js"></script>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
 	</head>
 	<body>
 		<div class="popup">
@@ -33,12 +34,14 @@
 		<!-- 弹出登录开始 -->
 		<div ng-include="'include/login.html'"></div>
 		  <!-- 弹出登录结束 -->
-		
+
 		  <!-- 弹出注册开始 -->
 		  <div ng-include="'include/reg.html'"></div>
 		  <!-- 弹出注册结束 -->
 		  <!-- 弹出注册开始 -->
 		  <div ng-include="'include/modify.html'"></div>
 		  <!-- 弹出注册结束 -->
+		<div ng-include="'include/user-know.html'"></div>
+		<div ng-include="'include/yszc.html'"></div>
 	</body>
 </html>

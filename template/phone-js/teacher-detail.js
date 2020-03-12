@@ -18,6 +18,9 @@ define([], function () {
 					console.log(res);
 					if(res.code == '2000'){
 						$scope.teacherDetails = res.data;
+						for (var i=0 ;i<$scope.teacherDetails.courseGroupList.length;i++){
+							$scope.teacherDetails.courseGroupList[i].courseGroupRemark = $scope.teacherDetails.courseGroupList[i].courseGroupRemark.substr(0,50) + "..."
+						}
 						$scope.$applyAsync();
 					}
 				}

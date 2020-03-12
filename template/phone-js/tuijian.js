@@ -52,5 +52,15 @@ define([], function () {
 			a.dispatchEvent(e);
 			URL.revokeObjectURL(url);
 		}
+
+		$scope.isWechat = false;
+		var ua = window.navigator.userAgent.toLowerCase();
+		//通过正则表达式匹配ua中是否含有MicroMessenger字符串
+		if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+			$scope.isWechat = true;
+			console.log('发现时微信浏览器')
+		}else{
+			$scope.isWechat = false;
+		}
 	}];
 });

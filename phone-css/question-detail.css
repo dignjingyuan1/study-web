@@ -100,12 +100,12 @@ div,p{
     color: #666666;
 }
 .img-box{
-    display: flex;
-    height: 6rem;
+    /*display: flex;*/
+    /*height: 6rem;*/
     padding: 0.5rem;
 }
 .img-item{
-    width: 33%;
+    width: 100%;
 }
 .img-item > img {
     width: 100%;

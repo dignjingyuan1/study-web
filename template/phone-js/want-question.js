@@ -82,6 +82,17 @@ function selectImg($event) {
                     var count = document.getElementById("shuliang").innerText * 1;
                     count++;
                     document.getElementById("shuliang").innerText = count;
+                   for (var i=0; i<arrayImg.length; i++){
+                       if (i==0){
+                           document.getElementById("img11").src = arrayImg[i]
+                       }
+                       if (i==1){
+                           document.getElementById("img22").src = arrayImg[i]
+                       }
+                       if (i==2){
+                           document.getElementById("img33").src = arrayImg[i]
+                       }
+                   }
                 }
             }
         });

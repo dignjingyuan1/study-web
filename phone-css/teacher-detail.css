@@ -66,7 +66,7 @@ div,p{
 }
 .tab-button{
     height: 3.5rem;
-    width: 6rem;
+    width: 7rem;
     border-bottom: 0;
     background-color: white;
     border-top: 0;
@@ -246,8 +246,9 @@ div,p{
 }
 .small-right{
     padding-left: 1rem;
-    width: 17.5rem;
+    /*width: 17.5rem;*/
     overflow: hidden;
+    flex: 1;
     height: 7rem;
 }
 .small-left-img{

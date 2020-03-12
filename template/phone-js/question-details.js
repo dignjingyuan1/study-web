@@ -1,11 +1,11 @@
 define([], function () {
-	
+
 	// controller
 	return ["$scope","$state", function ($scope,$state) {
-		
+
 		$scope.problemId = $state.params.id;
         $scope.user = getUser();
-		
+
 		$scope.searchProblemDetails = function(){
 			_get({
 				url: STUDY_API + "/problem/getProblemDetails",
@@ -66,21 +66,43 @@ define([], function () {
 		 */
 		$scope.questionDetails = function(id){
 			if(isUserLogin()){
-				_post({
-					url: STUDY_API + "/problemFollow/createProblemFollow",
-					param: {
-						problemId: $scope.problemId,
-						client: '0'
-					},
-					callback: function(res){
-						if(res.code == '2000'){
-							var data = res.data;
-							console.log(data);
-							location.href=data.qrcode
+				var ua = window.navigator.userAgent.toLowerCase();
+
+				//通过正则表达式匹配ua中是否含有MicroMessenger字符串
+				if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+					console.log('发现是微信浏览器')
+					_post({
+						url: STUDY_API + "/problemFollow/createProblemFollow",
+						param: {
+							problemId: $scope.problemId,
+							client: '0'
+						},
+						callback: function(res){
+							if(res.code == '2000'){
+								var data = res.data;
+								console.log(data);
+								wxPay(data.orderId,function(flag){
+									console.log(flag)
+								});
+							}
 						}
-					}
-				})
-				return ;
+					})
+				}else{
+					_post({
+						url: STUDY_API + "/problemFollow/createProblemFollow",
+						param: {
+							problemId: $scope.problemId,
+							client: '0'
+						},
+						callback: function(res){
+							if(res.code == '2000'){
+								var data = res.data;
+								console.log(data);
+								location.href=data.qrcode
+							}
+						}
+					})
+				}
 			}
 			$("#login-alert").show();
 			setTimeout(()=>{

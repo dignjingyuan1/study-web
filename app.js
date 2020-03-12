@@ -2,26 +2,26 @@ require.config({
     paths: {
         // angular
         "angular": "lib/components/angular/angular",
-//      
+//
         "angular-sanitize": "lib/angular-sanitize/angular-sanitize",
-        
+
         // angular-ui
         "angular-ui-router": "lib/components/angular-ui-router/release/angular-ui-router",
-        
+
         // angularAMD
         "angularAMD": "lib/components/angularAMD/angularAMD",
-        
+
         "ngload": "lib/components/angularAMD/ngload"
     },
     shim: {
         // angular
 		"angular": { exports: "angular" },
-		
+
 		"angular-sanitize": ["angular"],
-        
+
         // angular-ui
         "angular-ui-router": ["angular"],
-        
+
         // angularAMD
         "angularAMD": ["angular"],
         "ngload": ["angularAMD"]
@@ -30,14 +30,14 @@ require.config({
 });
 
 define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], function (angular, angularAMD) {
-    
+
     let _ROUTER = undefined;
     // routes
     var registerRoutes = function($stateProvider, $urlRouterProvider,$locationProvider,$httpProvider) {
-        	
+
         // default
         $urlRouterProvider.otherwise("/home");
-        
+
         if (!$httpProvider.defaults.headers.get) {
     	      $httpProvider.defaults.headers.get = {};
     	    }
@@ -229,15 +229,23 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
 				url: "/phone-mine-weiguan",
 				templateUrl: "template/phone-page/mine-weiguan.html",
 				controllerUrl: "template/phone-js/mine-weiguan.js"
+			})).state("phone-user-know", angularAMD.route({
+				url: "/phone-user-know",
+				templateUrl: "template/phone-page/user-know.html",
+				controllerUrl: "template/phone-js/user-know.js"
+			})).state("phone-yszc", angularAMD.route({
+				url: "/phone-yszc",
+				templateUrl: "template/phone-page/yszc.html",
+				controllerUrl: "template/phone-js/user-know.js"
 			}))
         }
 
     };
-        
+
     // module
     var app = angular.module("myApp", ["ngSanitize","ui.router"]);
-    
-    
+
+
     app.run(function ($rootScope,$state) {
     	
     		$rootScope.$on('$stateChangeStart',function(event){
@@ -258,8 +266,8 @@ define(["angular", "angularAMD", "angular-ui-router", "angular-sanitize"], funct
 
     // config
     app.config(["$stateProvider", "$urlRouterProvider",'$locationProvider','$httpProvider', registerRoutes]);
-   	
- 	
-   	
+
+
+
     return angularAMD.bootstrap(app);
 });
