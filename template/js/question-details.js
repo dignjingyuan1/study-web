@@ -18,11 +18,16 @@ define([], function () {
 					console.log(res);
 					if(res.code == "2000"){
 						$scope.item = res.data;
+						setTimeout(()=>{
+							$('.camera-box').viewer();
+						},500);
 						$scope.$applyAsync();
 					}
 				}
 			})
 		}
+		
+		
 		
 		/**
 		 * 查找回答问题金额
@@ -137,6 +142,9 @@ define([], function () {
 					callback: function(res){
 						if(res.code == '2000'){
 							$scope.problemAnswerList = res.data;
+							setTimeout(()=>{
+								$('.camera-box').viewer();
+							},100);
 							$scope.$applyAsync();
 						}
 					}
@@ -149,5 +157,7 @@ define([], function () {
 		$scope.searchProblemDetails();
 		$scope.searchQuestionAmount();
 		$scope.seachProblemAnswerDetails();
+		
+		
 	}];
 });

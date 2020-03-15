@@ -81,6 +81,7 @@ define([], function () {
 									"</div>";
 						$(".pay-body").append(html);
 						clearTimeout(timeOut);
+						$state.go("mine");
 						return;
 					}
 					var now = new Date();

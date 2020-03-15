@@ -81,7 +81,8 @@
         			<li></li>
         			<div class="clear"></div>
         		</ul>
-        		<div class="look-btns" ng-click="questionDetails()" >{{amount}}元强势围观</div>
+        		<div class="look-btns" style="background: #999999;" ng-if="problemAnswerList.length == 0"  >{{amount}}元强势围观</div>
+        		<div class="look-btns" ng-if="problemAnswerList.length > 0" ng-click="questionDetails()" >{{amount}}元强势围观</div>
         </div>
     
       </div>

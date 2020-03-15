@@ -33,7 +33,7 @@
       	  <span><span style="color:#ff584f" ng-bind-html="formmaterDate(item.courseGroupStartTime)"></span>|{{item.courseGroupName}}</span>
           <!--<span><span style="color:#ff584f">直播中</span><span style="color:#ff584f"></span>-->
           <!--<button class="bought-button">已购买</button>-->
-          <button class="bought-button button-disable">未购买</button>
+          <button class="bought-button button-disable" ng-bind-html="searchCourseStatus(item.courseGroupId)"></button>
         </p>
         <p class="content-desc"><span style="color:#ff584f">{{item.payCount}}人</span>观看</p>
       </div>

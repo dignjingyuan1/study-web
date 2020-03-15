@@ -24,7 +24,7 @@
         <p class="content-title overflow-hidden">
           <span><span style="color:#ff584f">{{item.playStatus == '0' ? '即将开始' : '直播中'}}</span>|{{item.courseGroupName}}</span>
           <!--<button class="bought-button">已购买</button>-->
-          <button class="bought-button button-disable">未购买</button>
+          <button class="bought-button button-disable" ng-bind-html="searchCourseStatus(item.courseGroupId)"></button>
         </p>
         <p class="content-desc"><span style="color:#ff584f">{{item.payCount}}人</span>观看</p>
       </div>

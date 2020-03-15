@@ -29,6 +29,30 @@ define([], function () {
 		}
 		
 		/**
+		 * 获取当前课程组的支付情况
+		 */
+		$scope.searchCourseStatus = function(courseGroupId){
+			var payText = "立即支付";
+			console.log(payText)
+			if(isUserLogin()){
+				_get({
+					url: STUDY_API + "/order/getOrderSuccessCount",
+					cache: false, 
+       				async: false,
+					param: {
+						courseGroupId: 	courseGroupId
+					},
+					callback: function(res){
+						if(res.code == '2000'){
+							payText = res.data == "0" ? "未付款" : "已支付";
+						}
+					}
+				})
+			}
+			return payText;
+		}
+		
+		/**
 		 * 查找详细
 		 * @param {Object} id
 		 */
