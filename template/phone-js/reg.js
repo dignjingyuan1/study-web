@@ -47,6 +47,7 @@ define([], function () {
  * @param {Object} $this
  */
 function getValidateCodeReg($this){
+    debugger;
 	var tel = $("#regForm input[name='userPhone']");
 	if(tel.val() == ""){
 		_successMsg("手机号不能为空");

@@ -1,6 +1,10 @@
 define([], function () {
     // controller
     return ["$scope", "$state", function ($scope, $state) {
+        if(arrayImg){
+            console.log("初始化图片数组：arrayImg")
+            arrayImg = [];
+        }
         $scope.now = new Date().Format("yyyy-MM-dd hh:mm:ss");
         $scope.problemFollow = 0;
         $scope.uploadImg = function () {
@@ -59,6 +63,35 @@ define([], function () {
                 $state.go("phone-login")
             }
         }
+
+        Array.prototype.remove = function(val) {
+            var index = this.indexOf(val);
+            if (index > -1) {
+                this.splice(index, 1);
+            }
+        };
+
+        $scope.deleteImg = function(index){
+            console.log("删除某个元素",index);
+            if(index == 0){
+                arrayImg.remove(document.getElementById("img11").src)
+                document.getElementById("img11").src = ""
+                document.getElementById("bt11").style.display = "none"
+            }
+            if(index == 1){
+                arrayImg.remove(document.getElementById("img22").src)
+                document.getElementById("img22").src = ""
+                document.getElementById("bt22").style.display = "none"
+            }
+            if(index == 2){
+                arrayImg.remove(document.getElementById("img33").src)
+                document.getElementById("img33").src = ""
+                document.getElementById("bt33").style.display = "none"
+            }
+            var count = document.getElementById("shuliang").innerText * 1;
+            count--;
+            document.getElementById("shuliang").innerText = count;
+        }
     }]
 })
 
@@ -85,12 +118,15 @@ function selectImg($event) {
                    for (var i=0; i<arrayImg.length; i++){
                        if (i==0){
                            document.getElementById("img11").src = arrayImg[i]
+                           document.getElementById("bt11").style.display = "block"
                        }
                        if (i==1){
                            document.getElementById("img22").src = arrayImg[i]
+                           document.getElementById("bt22").style.display = "block"
                        }
                        if (i==2){
                            document.getElementById("img33").src = arrayImg[i]
+                           document.getElementById("bt33").style.display = "block"
                        }
                    }
                 }

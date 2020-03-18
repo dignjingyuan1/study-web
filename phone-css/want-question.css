@@ -151,3 +151,11 @@ body{
     outline: none;
     margin-top: 10rem;
 }
+.delete-button{
+    display: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
