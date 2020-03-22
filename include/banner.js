@@ -9,7 +9,12 @@ app.controller("banner",($scope,$state)=>{
 				url: STUDY_API + '/banner/getBannerList',
 				callback: function(res){
 					if(res.code == '2000'){
-						$scope.bannerList = res.data;
+						var list = res.data;
+						for(var i=0; i<list.length; i++){
+							var item = list[i];
+							item.bannerUrl = isPC() ? item.bannerUrl : item.bannerMUrl;
+						}
+						$scope.bannerList = list;
 						$scope.$applyAsync();
 						setTimeout(function(){
 							new Swiper('.swiper-container',{

@@ -42,9 +42,14 @@ app.controller("reg",($scope,$state)=>{
 	 * 注册
 	 */
 	$scope.register = function(){
+		
 		if(_validtion("regForm")){
 			if($scope.userPassword != $scope.confirmPassword){
 				_successMsg("两次密码不一致");
+				return;
+			}
+			if(!$("#check").is(':checked')){
+				_successMsg("请阅读《用户须知》《隐私政策》");
 				return;
 			}
 			_post({

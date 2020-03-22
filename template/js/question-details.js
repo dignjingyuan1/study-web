@@ -18,10 +18,11 @@ define([], function () {
 					console.log(res);
 					if(res.code == "2000"){
 						$scope.item = res.data;
-						setTimeout(()=>{
-							$('.camera-box').viewer();
-						},500);
+						
 						$scope.$applyAsync();
+						setTimeout(()=>{
+							$('.camera-box img').viewer();
+						},500);
 					}
 				}
 			})
