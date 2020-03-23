@@ -82,6 +82,12 @@ function _ajax(params){
 			}else if(res.code == '9999'){
 				localStorage.clear();
 //				location.href = "index.html#/login";
+			}else if(res.code == '1000'){
+			    if (location.href.indexOf("phone-") == -1){
+                    _errorMsg(res.message);
+                }else{
+                    _successMsg(res.message);
+                }
 			}
 			if(typeof params.callback === "function"){
 				params.callback(res);

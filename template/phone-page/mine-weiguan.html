@@ -36,7 +36,12 @@
             </div>
             <div id="myQustion" class="content">
                 <div class="qustion-list-box border-top" ng-repeat="item in problemFollowList" ng-click="questionDetails(item.problemId)">
-                  <p class="">
+                  <p style="overflow: hidden;
+                            text-overflow: ellipsis;
+                            width: 100%;
+                            height: 2.5rem;
+                            white-space: nowrap;
+                            display: block;">
                     <span class="qustion-icon">问</span>&nbsp;<span class="questionText">{{item.problemName}}</span>
                   </p>
                   <p style="color: #999999;">

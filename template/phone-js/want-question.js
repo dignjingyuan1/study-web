@@ -53,7 +53,7 @@ define([], function () {
                                 var data = res.data;
                                 console.log("提问返回数据:", data);
                                 location.href = data.qrcode;
-                                $state.go("phone-question");
+//                                $state.go("phone-question");
                             }
                         }
                     })
