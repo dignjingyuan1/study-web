@@ -1,3 +1,16 @@
+//加法
+Number.prototype.add = function(arg){
+    var r1,r2,m;
+    try{r1=this.toString().split(".")[1].length}catch(e){r1=0}
+    try{r2=arg.toString().split(".")[1].length}catch(e){r2=0}
+    m=Math.pow(10,Math.max(r1,r2))
+    return (this*m+arg*m)/m
+}
+//减法
+Number.prototype.sub = function (arg){
+    return this.add(-arg);
+}
+
 define([], function () {
     // controller
     return ["$scope", "$state", function ($scope, $state) {
@@ -18,10 +31,10 @@ define([], function () {
         $scope.checkThis = function (index) {
             if ($scope.orderRecordList[index].isChecked == "img/checkbox.png") {
                 $scope.orderRecordList[index].isChecked = "img/checkbox-hui.png";
-                $scope.price = $scope.price - $scope.orderRecordList[index].amount * 1;
+                $scope.price = $scope.price.sub($scope.orderRecordList[index].amount * 1);
             } else {
                 $scope.orderRecordList[index].isChecked = "img/checkbox.png";
-                $scope.price = $scope.price + $scope.orderRecordList[index].amount * 1;
+                $scope.price = $scope.price.add($scope.orderRecordList[index].amount * 1);
             }
         }
         $scope.isCheckAll = "img/checkbox-hui.png";
@@ -30,13 +43,14 @@ define([], function () {
                 $scope.isCheckAll = "img/checkbox-hui.png";
                 for (var i=0; i<$scope.orderRecordList.length; i++){
                     $scope.orderRecordList[i].isChecked = "img/checkbox-hui.png";
-                    $scope.price = $scope.price - $scope.orderRecordList[i].amount * 1;
+                    $scope.price = $scope.price.sub($scope.orderRecordList[i].amount * 1);
                 }
             } else {
                 $scope.isCheckAll = "img/checkbox.png";
+                $scope.price = 0.00;
                 for (var i=0; i<$scope.orderRecordList.length; i++){
                     $scope.orderRecordList[i].isChecked = "img/checkbox.png";
-                    $scope.price = $scope.price + $scope.orderRecordList[i].amount * 1;
+                    $scope.price = $scope.price.add($scope.orderRecordList[i].amount * 1);
                 }
             }
         }
