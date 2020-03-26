@@ -71,8 +71,8 @@
             <img class="back-button" src="img/back-icon.png" alt="">
         </div>
     </div>
+    <button style="margin-top: 3rem;" ng-if="userInfo != null" class="logout-button" ng-click="logOut()">退出登录</button>
 </div>
-<button ng-if="userInfo != null" class="logout-button" ng-click="logOut()">退出登录</button>
 <!-- footer bar -->
 <div class="footer-bar">
     <div class="footer-item" ng-click="go('home')">
