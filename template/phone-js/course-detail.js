@@ -30,20 +30,38 @@ define([], function () {
 		 */
 		$scope.goToPay = function () {
 			if (isUserLogin()) {
-				_post({
-					url: STUDY_API + "/order/createOrder",
-					param: {
-						courseGroupId: $scope.courseGroupId,
-						client: '0'
-					},
-					callback: function (res) {
-						console.log('支付返回结果：', res)
-						if (res.code == '2000') {
-							var data = res.data;
-							window.location.href = data.qrcode;
+				if (ISWXWEB){
+					_post({
+						url: STUDY_API + "/order/createOrder",
+						param: {
+							courseGroupId: $scope.courseGroupId,
+							client: '2'
+						},
+						callback: function (res) {
+							console.log('支付返回结果：', res)
+							alert('微信支付返回结果：' + JSON.stringify(res))
+							// if (res.code == '2000') {
+							// 	var data = res.data;
+							// 	window.location.href = data.qrcode;
+							// }
 						}
-					}
-				});
+					});
+				} else {
+					_post({
+						url: STUDY_API + "/order/createOrder",
+						param: {
+							courseGroupId: $scope.courseGroupId,
+							client: '0'
+						},
+						callback: function (res) {
+							console.log('支付返回结果：', res)
+							if (res.code == '2000') {
+								var data = res.data;
+								window.location.href = data.qrcode;
+							}
+						}
+					});
+				}
 				return;
 			} else {
 				$state.go("phone-login")
