@@ -471,7 +471,7 @@ function wxPay(orderId,nonce_str,sign,mch_id,appid,callback){
         WeixinJSBridge.invoke(
             'getBrandWCPayRequest', {
                 "appId":appid,     //公众号名称，由商户传入 固定的
-                "timeStamp":mch_id,         //时间戳，自1970年以来的秒数 计算出来
+                "timeStamp":Date.parse(new Date())/1000,         //时间戳，自1970年以来的秒数 计算出来
                 "nonceStr":nonce_str, //随机串 生成的
                 "package":"prepay_id=" + orderId, // 订单号
                 "signType":"MD5",         //微信签名方式：
