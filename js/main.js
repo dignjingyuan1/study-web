@@ -457,7 +457,8 @@ function isUserLogin() {
 /**
  * 微信支付
  */
-function wxPay(orderId, callback){
+function wxPay(orderId,nonce_str,sign,mch_id,appid,callback){
+    alert('支付参数接收到：' + orderId)
     wx.config({
         debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
         appId: '', // 必填，公众号的唯一标识
@@ -469,12 +470,12 @@ function wxPay(orderId, callback){
     function onBridgeReady(){
         WeixinJSBridge.invoke(
             'getBrandWCPayRequest', {
-                "appId":"wx2421b1c4370ec43b",     //公众号名称，由商户传入 固定的
-                "timeStamp":"1395712654",         //时间戳，自1970年以来的秒数 计算出来
-                "nonceStr":"e61463f8efa94090b1f366cccfbbb444", //随机串 生成的
-                "package":"prepay_id=u802345jgfjsdfgsdg888", // 订单号
+                "appId":appid,     //公众号名称，由商户传入 固定的
+                "timeStamp":mch_id,         //时间戳，自1970年以来的秒数 计算出来
+                "nonceStr":nonce_str, //随机串 生成的
+                "package":"prepay_id=" + orderId, // 订单号
                 "signType":"MD5",         //微信签名方式：
-                "paySign":"70EA570631E4BB79628FBCA90534C63FF7FADD89" //微信签名 应该是固定的
+                "paySign":sign //微信签名 应该是固定的
             },
             function(res){
                 if(res.err_msg == "get_brand_wcpay_request:ok" ){
