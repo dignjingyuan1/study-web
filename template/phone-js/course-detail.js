@@ -35,6 +35,7 @@ define([], function () {
 						url: STUDY_API + "/order/createOrder",
 						param: {
 							courseGroupId: $scope.courseGroupId,
+							code: localStorage.getItem("code"),
 							client: '2'
 						},
 						callback: function (res) {

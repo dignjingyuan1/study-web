@@ -49,23 +49,24 @@
 	</body>
 	<script>
 		ISWXWEB = false
-		alert("开始静默授权登录")
 		function getCode(){
-			var reg = new RegExp("(^|&)code=([^&]*)(&|$)")
-			var r = window.location.search.substr(1).match(reg)
-			return r;
+			var href = location.href;
+			var start = href.indexOf("code=");
+			var end = href.indexOf("&state");
+			if(start!=-1){
+				return href.substring(start+5,end)
+			} else {
+				return null
+			}
 		}
 		var ua = window.navigator.userAgent.toLowerCase();
 		//通过正则表达式匹配ua中是否含有MicroMessenger字符串
 		if(ua.match(/MicroMessenger/i) == 'micromessenger'){
 			ISWXWEB = true
-			alert("这里是微信浏览器:"+location.href)
 			var code = getCode()
 			if (!code){
-				alert("获取code结果1：" + code)
 				location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx75229920bc3def4e&redirect_uri=http%3A%2F%2Fwww.marketing-platform.net%2F%23%2Fhome&response_type=code&scope=snsapi_base&state=123#wechat_redirect"
 			}else {
-				alert("获取code结果2：" + code)
 				localStorage.setItem("code",code)
 			}
 		}
