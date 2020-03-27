@@ -42,7 +42,7 @@ define([], function () {
 							console.log('支付返回结果：', res)
 							alert('微信支付返回结果：' + JSON.stringify(res))
 							if(res.code == '2000'){
-								var wxRes = JSON.parse(res.data);
+								var wxRes = JSON.parse(res.data.qrcode);
 								wxPay(wxRes.prepay_id,wxRes.nonce_str,wxRes.sign,wxRes.mch_id,wxRes.appid,function(res){
 									alert("支付成功")
 								})
