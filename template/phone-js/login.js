@@ -18,7 +18,9 @@ define([], function () {
                     url: STUDY_API +"/user/login",
                     param: {
                         userPhone: $scope.userPhone,
-                        userPassword: $scope.userPassword
+                        userPassword: $scope.userPassword,
+                        wxLogin: ISWXWEB ? 1 : null,
+                        code: localStorage.getItem('code')
                     },
                     callback: function(res){
                         if(res.code == '2000'){
