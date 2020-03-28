@@ -74,7 +74,7 @@
 	        <div class="clear"></div>
         </div>
         <!-- 回答区域结束 -->
-        <div class="look" ng-if="item.answerCount != null && user.userId != item.creater">
+        <div class="look" ng-if="user.userId != item.creater && item.answerCount != null && problemAnswerList.length == 0">
         		<ul>
         			<li></li>
         			<li>问题价值<span>￥{{item.problemAmount}}</span> 立即围观查看答案</li>
