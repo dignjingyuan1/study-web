@@ -98,11 +98,9 @@ define([], function () {
 						}
 					})
 				}
+			} else {
+				$state.go("phone-login")
 			}
-			$("#login-alert").show();
-			setTimeout(()=>{
-				$("#login-box").css("transform","scale(1)");
-			},50);
 		}
 	}];
 });
