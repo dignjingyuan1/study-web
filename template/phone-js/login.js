@@ -14,14 +14,16 @@ define([], function () {
             }else if(!$scope.userPassword){
                 _successMsg("密码不能为空！")
             }else{
+                var params = {
+                    userPhone: $scope.userPhone,
+                    userPassword: $scope.userPassword,
+                    wxLogin: ISWXWEB ? 1 : null,
+                    code: localStorage.getItem('code')
+                }
+                alert(JSON.stringify(params))
                 _post({
                     url: STUDY_API +"/user/login",
-                    param: {
-                        userPhone: $scope.userPhone,
-                        userPassword: $scope.userPassword,
-                        wxLogin: ISWXWEB ? 1 : null,
-                        code: localStorage.getItem('code')
-                    },
+                    param: params,
                     callback: function(res){
                         if(res.code == '2000'){
                             var data = res.data;
