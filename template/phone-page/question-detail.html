@@ -62,7 +62,7 @@
           </div>
         </div>
         <!-- 回答区域结束 -->
-        <div class="look" ng-if="problemAnswerList.length > 0 && user.userId != item.creater">
+        <div class="look" ng-if="item.answerCount > 0 && problemAnswerList.length == 0 && user.userId != item.creater">
           <p>问题价值<span>￥{{item.problemAmount}}</span> 立即围观查看答案</p>
           <div class="look-btns" ng-click="questionDetails()" >{{amount}}元强势围观</div>
         </div>
