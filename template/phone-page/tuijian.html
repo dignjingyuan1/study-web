@@ -68,7 +68,7 @@
       border: 0;
       /* background-color: #ff3728; */
       color: white;
-      font-size: 15px;
+      font-size: 12px;
       cursor: pointer;
       outline: none;
       position: absolute;
@@ -83,8 +83,8 @@
   <div class="panel" style="background:url('img/tuijian.png') top center no-repeat; background-size:cover;">
     <img class="erwei" src="{{userQrcode}}" alt="">
     <p class="tuijianren">我推荐的用户：{{userRecommendCount != 'null' && userRecommendCount ? userRecommendCount : 0}}人</p>
-    <button ng-if="!isWechat" class="tuijianbutton" ng-click="savePicture()">保存到相册</button>
-    <p ng-if="isWechat" class="tuijianjj">长按二维码保存到相册</p>
+    <button ng-if="isWechat" class="tuijianbutton" ng-click="savePicture()">保存到相册</button>
+    <p ng-if="!isWechat" class="tuijianjj">推广功能通过，分享保存到手机相册内的二维码图片或手机截屏图片实现；暂不支持浏览器自带分享功能。</p>
   </div>
 </body>
 </html>
