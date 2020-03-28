@@ -74,15 +74,15 @@
 	        <div class="clear"></div>
         </div>
         <!-- 回答区域结束 -->
-        <div class="look" ng-if="problemAnswerList.length == 0 && user.userId != item.creater">
+        <div class="look" ng-if="item.answerCount != null && user.userId != item.creater">
         		<ul>
         			<li></li>
         			<li>问题价值<span>￥{{item.problemAmount}}</span> 立即围观查看答案</li>
         			<li></li>
         			<div class="clear"></div>
         		</ul>
-        		<div class="look-btns" style="background: #999999;" ng-if="problemAnswerList.length == 0"  >{{amount}}元强势围观</div>
-        		<div class="look-btns" ng-if="problemAnswerList.length > 0" ng-click="questionDetails()" >{{amount}}元强势围观</div>
+        		<div class="look-btns" style="background: #999999;" ng-if="item.answerCount == null"  >{{amount}}元强势围观</div>
+        		<div class="look-btns" ng-if="item.answerCount != null" ng-click="questionDetails()" >{{amount}}元强势围观</div>
         </div>
     
       </div>
