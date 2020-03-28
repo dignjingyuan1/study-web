@@ -458,52 +458,50 @@ function isUserLogin() {
 /**
  * 微信支付
  */
-function wxPay(orderId,nonce_str,sign,mch_id,appid,callback){
-    alert('支付参数接收到：--------' + orderId)
-    alert(111111111)
-    var timestamp = Date.parse(new Date())/1000;
-    alert(timestamp);
-    alert("22222222"+JSON.stringify(wx))
-    wx.config({
-        debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-        appId: appid, // 必填，公众号的唯一标识
-        timestamp: timestamp, // 必填，生成签名的时间戳
-        nonceStr: nonce_str, // 必填，生成签名的随机串
-        signature: sign,// 必填，签名
-        jsApiList: [] // 必填，需要使用的JS接口列表
-    });
-	alert(2222222222)
-    function onBridgeReady(){
-    		alter("1111111")
-        WeixinJSBridge.invoke(
-            'getBrandWCPayRequest', {
-                "appId": appid,     //公众号名称，由商户传入 固定的
-                "timeStamp": timestamp,         //时间戳，自1970年以来的秒数 计算出来
-                "nonceStr": nonce_str, //随机串 生成的
-                "package": "prepay_id=" + orderId, // 订单号
-                "signType": "MD5",         //微信签名方式：
-                "paySign": sign //微信签名 应该是固定的
-            },
-            function(res){
-            		alter(JSON.stringify(res));
-                if(res.err_msg == "get_brand_wcpay_request:ok" ){
-                    // 使用以上方式判断前端返回,微信团队郑重提示：
-                    //res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
-                    callback(true)
-                }else {
-                    callback(false)
-                }
-            });
-    }
-    alert("33333333333")
-    if (typeof WeixinJSBridge == "undefined"){
-        if( document.addEventListener ){
-            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
-        }else if (document.attachEvent){
-            document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
-            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
-        }
-    }else{
-        onBridgeReady();
-    }
+function wxPay(wxRes){
+	function onBridgeReady(){
+		var timestamp = (Date.parse(new Date())/1000).toString();
+		_get({
+			url: PAY_API+"/sign/getSign",
+			param:{
+				appId: wxRes.appid,
+				timeStamp: timestamp,
+				nonceStr: wxRes.nonce_str,
+				packageKey: "prepay_id="+wxRes.prepay_id,
+				signType: "MD5"
+			},
+			callback: function(res1){
+				WeixinJSBridge.invoke(
+			      'getBrandWCPayRequest', {
+			         "appId": wxRes.appid,     //公众号名称，由商户传入     
+			         "timeStamp": timestamp,         //时间戳，自1970年以来的秒数     
+			         "nonceStr":wxRes.nonce_str, //随机串     
+			         "package":"prepay_id="+wxRes.prepay_id,     
+			         "signType":"MD5",         //微信签名方式：     
+			         "paySign":  res1.data//微信签名 
+			      },
+			      function(res){
+					if(res.err_msg == "get_brand_wcpay_request:ok" ){
+						alert("支付成功")
+						_successMsg("支付成功")
+						location.reload();
+						// 使用以上方式判断前端返回,微信团队郑重提示：
+						//res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
+					} else {
+						_successMsg("支付失败")
+					}
+				}); 
+			}
+		})
+	}
+	if (typeof WeixinJSBridge == "undefined"){
+	   if( document.addEventListener ){
+	       document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+	   }else if (document.attachEvent){
+	       document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+	       document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+	   }
+	}else{
+	   onBridgeReady();
+	}
 }

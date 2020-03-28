@@ -39,24 +39,45 @@ define([], function () {
                 } else if (!$scope.problemRemark) {
                     _successMsg("请输入问题描述！");
                 } else {
-                    _post({
-                        url: STUDY_API + "/problem/createProblem",
-                        param: {
-                            problemTitle: $scope.problemTitle,
-                            problemRemark: $scope.problemRemark,
-                            problemImgs: $("#problemImgs").val(),
-                            problemFollow: $scope.problemFollow,
-                            client: '0'
-                        },
-                        callback: function (res) {
-                            if (res.code == '2000') {
-                                var data = res.data;
-                                console.log("提问返回数据:", data);
-                                location.href = data.qrcode;
-//                                $state.go("phone-question");
+                    if (ISWXWEB){
+                        _post({
+                            url: STUDY_API + "/problem/createProblem",
+                            param: {
+                                problemTitle: $scope.problemTitle,
+                                problemRemark: $scope.problemRemark,
+                                problemImgs: $("#problemImgs").val(),
+                                problemFollow: $scope.problemFollow,
+                                client: '2',
+                                code: localStorage.getItem("code"),
+                            },
+                            callback: function (res) {
+                                console.log('支付返回结果：', res)
+                                if(res.code == '2000'){
+                                    var wxRes = JSON.parse(res.data.qrcode);
+                                    wxPay(wxRes);
+                                }
                             }
-                        }
-                    })
+                        });
+                    } else {
+                        _post({
+                            url: STUDY_API + "/problem/createProblem",
+                            param: {
+                                problemTitle: $scope.problemTitle,
+                                problemRemark: $scope.problemRemark,
+                                problemImgs: $("#problemImgs").val(),
+                                problemFollow: $scope.problemFollow,
+                                client: '0'
+                            },
+                            callback: function (res) {
+                                if (res.code == '2000') {
+                                    var data = res.data;
+                                    console.log("提问返回数据:", data);
+                                    location.href = data.qrcode;
+    //                                $state.go("phone-question");
+                                }
+                            }
+                        })
+                    } 
                 }
                 return;
             } else {

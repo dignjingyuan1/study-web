@@ -66,28 +66,23 @@ define([], function () {
 		 */
 		$scope.questionDetails = function(id){
 			if(isUserLogin()){
-				var ua = window.navigator.userAgent.toLowerCase();
-
-				//通过正则表达式匹配ua中是否含有MicroMessenger字符串
-				if(ua.match(/MicroMessenger/i) == 'micromessenger'){
-					console.log('发现是微信浏览器')
+				if (ISWXWEB){
 					_post({
 						url: STUDY_API + "/problemFollow/createProblemFollow",
 						param: {
 							problemId: $scope.problemId,
-							client: '0'
+							client: '2',
+							code: localStorage.getItem("code"),
 						},
-						callback: function(res){
+						callback: function (res) {
+							console.log('支付返回结果：', res)
 							if(res.code == '2000'){
-								var data = res.data;
-								console.log(data);
-								wxPay(data.orderId,function(flag){
-									console.log(flag)
-								});
+								var wxRes = JSON.parse(res.data.qrcode);
+								wxPay(wxRes);
 							}
 						}
-					})
-				}else{
+					});
+				} else{
 					_post({
 						url: STUDY_API + "/problemFollow/createProblemFollow",
 						param: {
@@ -111,3 +106,4 @@ define([], function () {
 		}
 	}];
 });
+
