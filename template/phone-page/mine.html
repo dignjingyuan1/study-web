@@ -60,7 +60,7 @@
             <span>我的发票</span>
             <img class="back-button" src="img/back-icon.png" alt="">
         </div>
-        <div class="menu-item" ng-click="goto('phone-tuijian')">
+        <div class="menu-item" ng-click="goto('phone-tuijian')" ng-if= "userRole == '1' || userRole == '2'">
             <img class="tab-item-icon" src="img/5-icon.png" alt="">
             <span>用户推荐</span>
             <img class="back-button" src="img/back-icon.png" alt="">
