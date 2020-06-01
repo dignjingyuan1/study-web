@@ -22,6 +22,8 @@ define([], function () {
                 $scope.userInfo.userHeader = "img/defalte-head.jpg"
             }
         }
+        
+        $scope.orderIds = [];
         /**
          * 提交
          */
@@ -30,20 +32,27 @@ define([], function () {
         $scope.price = 0.00;
         $scope.checkThis = function (index) {
             if ($scope.orderRecordList[index].isChecked == "img/checkbox.png") {
+            		$scope.classNum = $scope.classNum-1;
                 $scope.orderRecordList[index].isChecked = "img/checkbox-hui.png";
-                $scope.price = $scope.price.sub($scope.orderRecordList[index].amount * 1);
+                $scope.price = new Number($scope.price).sub($scope.orderRecordList[index].amount * 1);
+                $scope.price = new String($scope.price).substring(0,  new String($scope.price).indexOf(".")+3);
             } else {
+            	    $scope.classNum = $scope.classNum + 1;
                 $scope.orderRecordList[index].isChecked = "img/checkbox.png";
-                $scope.price = $scope.price.add($scope.orderRecordList[index].amount * 1);
+                $scope.price = new Number($scope.price).add($scope.orderRecordList[index].amount * 1);
+                $scope.price = new String($scope.price).substring(0,  new String($scope.price).indexOf(".")+3);
             }
+            $scope.$applyAsync();
         }
         $scope.isCheckAll = "img/checkbox-hui.png";
         $scope.checkAll = function(){
+        	 	$scope.classNum = 0;
+        	 	$scope.price = 0.00;
             if ($scope.isCheckAll == "img/checkbox.png") {
                 $scope.isCheckAll = "img/checkbox-hui.png";
                 for (var i=0; i<$scope.orderRecordList.length; i++){
                     $scope.orderRecordList[i].isChecked = "img/checkbox-hui.png";
-                    $scope.price = $scope.price.sub($scope.orderRecordList[i].amount * 1);
+//                  $scope.price = $scope.price.sub($scope.orderRecordList[i].amount * 1);
                 }
             } else {
                 $scope.isCheckAll = "img/checkbox.png";
@@ -52,8 +61,13 @@ define([], function () {
                     $scope.orderRecordList[i].isChecked = "img/checkbox.png";
                     $scope.price = $scope.price.add($scope.orderRecordList[i].amount * 1);
                 }
+                $scope.classNum = $scope.orderRecordList.length;
+                $scope.price = new String($scope.price).substring(0,  new String($scope.price).indexOf(".")+3);
             }
+           
+            $scope.$applyAsync();
         }
+
         /**
          * 查找购买记录
          */

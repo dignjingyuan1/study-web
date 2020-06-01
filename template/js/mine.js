@@ -297,7 +297,6 @@ define([], function () {
 				$scope.checkNumber--;
 				$scope.checkAmount = new Number($scope.checkAmount) - new Number(item.amount);
 			}
-			console.log($scope.orderIds);
 		}
 		
 		/**

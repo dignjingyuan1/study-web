@@ -226,3 +226,12 @@ video::-webkit-media-controls-enclosure {
 video::-webkit-media-controls-panel {
     width: calc(100% + 30px);
 }
+.time-out{
+    position: absolute;
+    font-size: 15px;
+    color: white;
+    /*line-height: 70px;*/
+   	margin-top: 40px;
+    width: 100%;
+    text-align: center;
+}

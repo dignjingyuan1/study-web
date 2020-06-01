@@ -1,6 +1,7 @@
 define([], function () {
 	return ["$scope", "$state", function ($scope, $state) {
 	    $scope.isPayStatus = '0';
+	    $scope.isShow = "0";
 		$scope.go = function (path) {
 			$state.go(path)
 		}
@@ -18,7 +19,19 @@ define([], function () {
 				callback: function (res) {
 					console.log(res);
 					if (res.code == "2000") {
-						$scope.courseGroup = res.data;
+						var data = res.data;
+						var now = new Date();
+						var startNow = new Date(data.courseGroupStartTime.replace(/\-/g, "/"));
+						if(now.getTime() >= startNow.getTime() || data.courseRecommend == '1' || data.courseRecommend == '2' || data.courseRecommend == '3'){
+							$scope.isShow = "1";
+							$scope.$applyAsync();
+						}else{
+							TimeDown(startNow, "seconds", function() {
+								$scope.isShow = "1";
+								$scope.$applyAsync();
+							}, true);
+						}
+						$scope.courseGroup = data;
 						$scope.$applyAsync();
 					}
 				}

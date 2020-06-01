@@ -18,7 +18,6 @@ define([], function () {
 					courseGroupId : $scope.courseGroupId
 				},
 				callback: function(res){
-					console.log(res);
 					if(res.code == "2000"){
 						var data = res.data;
 						var now = new Date();

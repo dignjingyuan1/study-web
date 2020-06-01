@@ -18,13 +18,17 @@
 <div class="panel">
 
   <!-- 视频开始 -->
-  <div class="banner" style="position: relative">
+  <div class="banner" style="position: relative" ng-if="isShow == '1'">
     <img id="videoImg" style="width: 100%; height: 15rem;" src="{{courseGroup.courseGroupImg}}">
     <img id="videoButton" class="video-play-button" ng-click="playVideo(courseGroup.courseList[0].courseId)" src="img/video-play.png" alt="">
     <video id="videoPlay" style="display: none" class="video-content" controls="true" controlslist="nodownload">
       <source id="move" src="" type="video/mp4">
     </video>
   </div>
+   <div class="banner" style="position: relative" ng-if="isShow == '0'">
+   	   <p class="time-out">距离直播开始<br><span id="timeOut" class="seconds"></span></p>
+      <img id="videoImg" style="width: 100%; height: 15rem;" src="img/video-timeout.png">      
+    </div>
   <!-- 视频结束 -->
   <!-- tab按钮开始 -->
   <div class="panel-width search-box">
@@ -66,7 +70,7 @@
       <p class="price"><span style="font-size: 15px">￥</span>{{courseGroup.courseGroupAmount}}</p>
       <p class="hui-text"><span style="text-decoration:line-through">原价￥{{courseGroup.courseAmount}}</span><br>{{courseGroup.payCount}}人已经购买学习</p>
       <!--<button class="quastion-button" ng-click="goToPay()">立即购买</button>-->
-      <button class="{{isPayStatus == '0' ? 'quastion-button-active' : 'quastion-button'}}" ng-click="isPayStatus == '0' ? goToPay() : ''">{{isPayStatus == '0' ? '立即购买' : '已购买'}}</button>
+      <button class="{{isPayStatus == '0' && isShow == '1' ? 'quastion-button-active' : 'quastion-button'}}" ng-click="isPayStatus == '0' && isShow == '1' ? goToPay() : ''">{{isPayStatus == '0' ? '立即购买' : '已购买'}}</button>
     </div>
     <!-- 我要提问底部 结束 -->
   </div>
