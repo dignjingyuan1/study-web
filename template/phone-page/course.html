@@ -31,7 +31,9 @@
           <input id="searchButton" ng-model="courseGroupName" class="search-input" type="search"/>
         </div>
       </form>
-      <img onclick="menuShow()" class="img-icon" src="img/search-more.png" alt="">
+      <img onclick="menuShow()" class="img-icon" src="img/search-moreif (!file.isDirectory()) {
+			file.delete();
+		}.png" alt="">
       <div id="menu" style="display: none;">
         <div class="menu">
           <div class="menu-item">
@@ -44,7 +46,7 @@
       </div>
     </div>
     <!-- 搜索结束 -->
-    
+
     <!-- 职业规划开始 -->
     <div class="panel-width" ng-repeat="item in courseGroupTypeList" ng-if="!isShowType || isShowType == item.name">
       <div class="class-title">

@@ -48,12 +48,12 @@ function getCode(){
     } else {
       return null
     }
-  }
-  if(ISWXWEB){
+}
+if(ISWXWEB){
     var code = getCode()
     if (!code){
       location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx75229920bc3def4e&redirect_uri=http%3A%2F%2Fwww.marketing-platform.net%2F%23%2Fphone-login&response_type=code&scope=snsapi_base&state=123#wechat_redirect"
     }else {
       localStorage.setItem("code",code)
     }
-  }
+}
